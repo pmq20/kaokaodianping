@@ -1,0 +1,3 @@
+bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+
+bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid

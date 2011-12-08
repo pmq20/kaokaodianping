@@ -1,0 +1,146 @@
+<% content_for :sidebarstyle do %> background-color:#2C4762; <% end %>
+<% content_for :sidebar do %>
+
+      <!-- Settings -->
+  <ul class="controls_section" id="dashboard_controls_tumblelog_settings">
+  <li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
+      <a href="<%=under_construction_path %>" class="settings">
+          <div class="hide_overflow">团购课程</div>
+      </a>
+  </li>
+  <li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
+      <a href="<%=under_construction_path %>" class="settings">
+          <div class="hide_overflow">试听信息</div>
+      </a>
+  </li>
+  <li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
+      <a href="<%=under_construction_path %>" class="settings">
+          <div class="hide_overflow">会员卡</div>
+      </a>
+  </li>
+  </ul>
+
+<!-- Subnav -->
+<ul class="controls_section">
+<!-- Posts -->
+<li class="<%= 'selected' if '/'==request.path %>">
+<a href="/" class="posts">
+<div class="hide_overflow">考考首页</div>
+</a>
+    </li>
+
+
+        <!-- Queue -->
+    <li class="<%= 'selected' if doing_path==request.path %>">
+    <a href="<%= doing_path %>" class="followers">
+        <div class="hide_overflow">考考正在发生</div>
+    </a>
+    </li>
+
+
+    <!-- Queue -->
+<li class="<%= 'selected' if tags_path==request.path %>">
+<a href="<%= tags_path %>" class="members">
+    <div class="hide_overflow">机构分类</div>
+                    </a>
+            </li>
+    <!-- Queue -->
+<li class="<%= 'selected' if topics_path==request.path %>">
+<a href="<%= topics_path %>" class="queue">
+    <div class="hide_overflow">所有机构</div>
+
+                    </a>
+            </li>
+
+
+    <!-- Queue -->
+<li class="<%= 'selected' if asks_path==request.path %>">
+<a href="<%= asks_path %>" class="messages">
+    <div class="hide_overflow">针对机构的提问</div>
+                    </a>
+</li>
+
+
+<!-- Members -->
+<li class="<%= 'selected' if followed_path==request.path %>">
+<a href="<%= followed_path %>" class="likes">
+<div class="hide_overflow">我关注的机构</div>
+</a>
+    </li>
+
+
+<!-- Drafts -->
+<li class="<%= 'selected' if recommended_path==request.path %>">
+<a href="<%= recommended_path %>" class="drafts">
+<div class="hide_overflow">我或许感兴趣</div>
+
+            </a>    
+    </li>
+
+
+    <!-- Queue -->
+<li class="<%= 'selected' if muted_path==request.path %>">
+<a href="<%= muted_path %>" class="processing">
+    <div class="hide_overflow">我屏蔽的机构</div>
+                    </a>
+</li>
+
+
+</ul>
+
+
+<ul class="controls_section" id="dashboard_controls_open_blog">
+<!-- Open blog -->
+<li class="<%= 'selected' if new_user_invitation_path==request.path %>">
+<a href="<%= new_user_invitation_path %>" class="open_blog with_subtitle">
+    <div class="hide_overflow">
+        邀请好友注册<br/>
+    </div>
+    <small>
+        <div class="hide_overflow">
+            www.kaokaodianping.com                        </div>
+    </small>
+</a>
+</li>
+
+            <!-- Customize appearance -->
+<li class="recessed">
+    <a href="/customize/kjijjklk" class="customize">
+        <div class="hide_overflow">分享本页到微博</div>
+        <div class="gradient"></div>
+    </a>
+</li>
+<li class="recessed">
+    <a href="/customize/kjijjklk" class="customize">
+        <div class="hide_overflow">分享本页到人人网</div>
+        <div class="gradient"></div>
+    </a>
+</li>
+    </ul>
+
+
+
+<form method="get" action="/search" id="search_form">
+<input type="text" name="q" id="search_query" placeholder="搜索用户昵称" value=""/>
+
+<div id="search_controls_wrapper">
+<div id="search_controls_button" onclick="just_clicked_search_menu = true;">▾</div>
+<div id="search_controls" style="display:none;">
+<a name="all_of_tumblr" class="first">
+Search Tags                <span class="check" style="display:none"></span>
+</a>
+            <a name="everyone_i_follow">
+    My Dashboard                    <span class="check" style="display:none"></span>
+</a>
+<a name="my_posts">
+    My posts                    <span class="check" style=""></span>
+</a>
+        <a name="help_docs" class="last">
+Help Docs                <span class="check" style="display:none"></span>
+</a>
+<div class="arrow"></div>
+</div>
+</div>
+</form>
+
+<% end %>

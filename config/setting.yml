@@ -1,0 +1,47 @@
+default: &defaults
+  # 网站名称
+  app_name: "考考点评"
+  # 页脚版权
+  foot_html: "&copy; 考考点评 kkdp.net - 帮你选出最适合你的培训培训机构。内测期间，如有点评还请谅解。"
+  # 网站的域名
+  domain: "kkdp.net"
+  # 配置图片的域名
+  upload_url: "/uploads"
+  # 设置管理员，在下面填写需要设置为管理员的用户 email
+  admin_emails: 
+    - 'pmq2001@gmail.com'
+    - '136415405@qq.com'
+    - '894062261@qq.com'
+  google_analytics_key: "UA-27433368-1"
+  email_sender: '"考考点评自动邮件" <no-reply@kkdp.net>'
+  smtp_username: 'jigou.ping@gmail.com'
+  smtp_password: 'pmqpmq55'
+  aws_access_key_id: 'your aws access_key_id'
+  aws_secret_access_key: 'your aws secret_access_key'
+  # 是否开放注册
+  allow_register: true
+  # 点评被多少次 spam 隐藏
+  ask_spam_max: 8
+  # 点评被多少次 spam 会删除线
+  answer_spam_max: 5
+  google_analytics_id: "UA-26655603-1"
+
+development:
+  <<: *defaults
+
+development_mongohq:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  app_name: "考考点评"
+  # 页脚版权
+  foot_html: "&copy; 考考点评 kkdp.net - 帮你选出最适合你的培训培训机构"
+  # 网站的域名
+  domain: "kkdp.net"
+  # 配置图片的域名
+  upload_url: "/uploads"
+  google_analytics_id: "UA-22413508-1"

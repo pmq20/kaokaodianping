@@ -1,0 +1,7 @@
+#!/bin/bash -x
+cd /home/wwwroot/kkdianping
+rm -rf dump
+/usr/local/bin/mongodump --db kkdianping_development
+git add .
+git commit -a -m "kkdianping dump again"
+touch /tmp/kkdianping_backed_up

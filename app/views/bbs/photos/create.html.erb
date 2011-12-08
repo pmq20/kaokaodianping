@@ -1,0 +1,3 @@
+<% content_for :butt2 do %>
+	parent.Topics.appendImageFromUpload([<%= @photos.collect { |p| "'#{p.image.url}'" }.join(",") %>]);
+<%end %>

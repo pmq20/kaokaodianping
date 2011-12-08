@@ -1,0 +1,97 @@
+将被自动关注的用户：<br>
+<div id="cpanel_users">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>姓名</th>
+        <th>专家</th>
+        <th>Email</th>
+        <th>Slug</th>
+        <th>时间</th>
+        <th></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+          <td><%= link_to user_name_tag(item, :target=>'target="_blank"') %></td>
+          <td><%= (item.is_expert)? '是' : '' %></td>
+          <td><%= item.email %></td>
+          <td><%= item.slug %></td>
+          <td style="width:100px;"><%= l item.created_at.getlocal, :format => :short %></td>
+          <td style="width:50px;">
+            <%= link_to '修改', edit_cpanel_user_path(item.id) %>
+            <%= link_to image_tag("wice_grid/delete.png", :style => "margin-bottom:-4px"), cpanel_user_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+将被自动关注的话题：
+<div id="cpanel_topics">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>名称</th>
+        <th>封面</th>
+        <th>点评数</th>
+        <th></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @topics.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+          <td><%= link_to item.name,"/topics/#{item.name}",target:'_blank' %></td>
+          <td><%= image_tag(item.cover.small.url) %></td>
+          <td style="width:50px;"><%= item.asks_count %></td>
+          <td style="width:50px;">
+            <%= link_to '修改', edit_cpanel_topic_path(item.id) %>
+            <%= link_to image_tag("wice_grid/delete.png", :style => "margin-bottom:-4px"), cpanel_topic_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+将被自动关注的点评：
+<div id="cpanel_asks">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>用户</th>
+        <th>标题</th>
+        <th>点评</th>
+        <th>评论</th>
+        <th>Spam</th>
+        <th>时间</th>
+        <th></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @asks.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+          <td><%= link_to user_name_tag(item.user, :target=>'target="_blank"') %></td>
+          <td><%= link_to item.title,"/asks/#{item.id}",target:'_blank' %> </td>
+          <td style="width:50px;"><%= item.answers_count %></td>
+          <td style="width:50px;"><%= item.comments_count %></td>
+          <td style="width:50px;"><%= item.spams_count %></td>
+          <td style="width:100px;"><%= l item.created_at.getlocal, :format => :short %></td>
+          <td style="width:50px;">
+            <%= link_to '修改', edit_cpanel_ask_path(item.id) %>
+            <%= link_to image_tag("wice_grid/delete.png", :style => "margin-bottom:-4px"), cpanel_ask_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

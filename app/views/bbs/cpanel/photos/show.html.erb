@@ -1,0 +1,20 @@
+<% content_for :sitemap do %>
+  <a href="<%= bbs_cpanel_photos_path %>">图片</a> &gt; <span class="current">查看图片</span>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @photo.title %>
+</p>
+<p>
+  <b>User:</b>
+  <%= @photo.user.name %>
+</p>
+<p>
+	<%= image_tag(@photo.image.url) %>
+</p>
+
+
+<%= link_to 'Edit', edit_bbs_cpanel_photo_path(@photo) %> |
+<%= link_to 'Back', bbs_cpanel_photos_path %>

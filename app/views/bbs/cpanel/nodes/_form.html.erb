@@ -1,0 +1,30 @@
+<%= form_for(@node,:url=>(@node.new_record? ? bbs_cpanel_nodes_path : bbs_cpanel_node_path(@node) )) do |f| %>
+  <fieldset>
+    <legend></legend>
+    <%= render 'shared/error_messages', :target => @node %>
+    <div class="clearfix">
+      <%= f.label :name %>
+      <div class="input">
+      <%= f.text_field :name %></div>
+    </div>
+    <div class="clearfix">
+      <%= f.label :section_id %>
+      <div class="input">
+      <%= f.select :section_id, LandSection.all.collect { |s| [s.name,s.id] } %></div>
+    </div>
+    <div class="clearfix">
+      <%= f.label :sort %>
+      <div class="input">
+      <%= f.text_field :sort %></div>
+    </div>
+    <div class="clearfix">
+      <%= f.label :summary %>
+      <div class="input">
+        <%= f.text_area :summary, :class => "xxlarge",:style => "height:80px;" %>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn primary">保存</button> <%= link_to 'Back', bbs_cpanel_nodes_path %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,31 @@
+<%= content_for :styles do %>
+  <style type="text/css">
+    #about {}
+    #about h2 { border-top:1px dashed #ccc; padding-top:10px; margin-top:20px; margin-bottom:10px; font-size:14px; }
+  </style>
+<% end %>
+<div id="about">
+  <h1>关于考考点评</h1>
+  <div class="md_body">
+  </div>
+  <h2>团队成员</h2>
+  <div class="team">
+    <% @users.each do |u| %>
+      <%= user_avatar_tag(u,:normal) %>
+    <% end %>
+  </div>
+  <h2>贡献者</h2>
+  <div class="contributors">
+    <ul>
+      <li>人</li>
+    </ul>
+  </div>
+</div>
+<%= content_for :sidebar do %>
+  <div class="box">
+    <h2>FAQ</h2>
+    <ul> 
+      <li><a href="http://kkdp.net/asks/4d92a076fd503c480e00002a">为啥？</a></li> 
+    </ul>
+  </div>
+<% end %>

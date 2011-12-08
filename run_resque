@@ -1,0 +1,5 @@
+# VVERBOSE=1 QUEUE=mailer rake resque:work
+# RAILS_ENV=production  VVERBOSE=1 QUEUE=mailer COUNT=5 bundle exec rake resque:workers >> log/resque.log 2>&1 &
+#RAILS_ENV=production  VVERBOSE=1 QUEUE=mailer COUNT=3 bundle exec rake resque:workers >> log/resque.log 2>&1 &
+RAILS_ENV=development  VVERBOSE=1 QUEUE=mailer COUNT=3 bundle exec rake resque:workers >> log/resque.log 2>&1 &
+

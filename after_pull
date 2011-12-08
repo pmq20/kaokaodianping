@@ -1,0 +1,4 @@
+#!/bin/bash -x
+rm -f public/stylesheets/cache_*
+rm -f public/javascripts/cache_*
+vim app/views/layouts/application.html.erb

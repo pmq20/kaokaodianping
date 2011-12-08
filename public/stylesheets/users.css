@@ -1,0 +1,104 @@
+.user_profiletabs { border-bottom:3px solid #ddd; margin-top:20px; padding:5px 0; margin-bottom:10px;  }
+.user_profiletabs a { -moz-border-radius: 15px; -webkit-border-radius: 15px;
+  display: inline-block; font-weight: bold; margin-right: 3px; padding: 3px 15px 3px; color: #19558D; }
+.user_profiletabs a.actived { color:#333; background:#ddd; }
+.user_profiletabs a.actived:hover { text-decoration:none; }
+.user_profile h1 { padding:0;margin:0;}
+.user_profile h1 span {font-size: 12px; font-weight:normal;}
+.user_profile .avatar { width: 110px; float:left; }
+.user_profile .bio { margin-top:10px; line-height: 21px; }
+.user_profile .detail {
+	margin-left: 120px;
+	font-size: 15px;
+}
+
+.user_profile .detail p {
+	margin: 10px 0;
+}
+
+.follow-stats a {
+	display: block;
+}
+
+.follow-stats a:link {
+	color: gray;
+}
+
+.follow-stats li {
+	list-style: none;
+	font-size: 15px;
+	border-right: 1px solid #E9E9E9;
+	float: left;
+	margin: 10px 15px 0 -36px;
+	padding: 0 15px 0 0;
+}
+
+.follow-stats li.last {
+	border: none;
+	margin: 10px 0 0 0;
+}
+
+.follow-stats li strong {
+	color: black;
+	display: block;
+	font-size: 16px;
+}
+
+.user-regdate {
+	margin: 10px 0 10px 10px;
+}
+
+/* 向用户推荐感兴趣的内容 */
+.followed-item { padding: 0; margin: 0; font-size: 1.1em; }
+.followed-item li { list-style: none; height:55px; overflow:hidden;  margin-left:-28px; padding-left:28px; position:relative; } 
+.followed-item li .info { border-top:1px solid #eee; padding-top:10px; }
+.followed-item li .mute { padding-top:14px; float:left; position:relative; margin-left: -28px; padding-right:5px; padding-left:6px;
+  width:17px; height:45px; display:none; }
+.followed-item li .mute a { background:#DFEAF4 url(/images/x.gif) -2px -1px no-repeat; display:block;
+  height: 15px; width: 15px;margin-bottom:1px;
+  -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.followed-item li .mute a:hover { background-color:#369; background-position:-2px -18px; }
+
+.topic-listing li, .followers-listing li {
+	border-top: none;
+  padding:10px 0;
+  margin-left:0;
+  padding-left:0;
+  border-top:1px solid #eee;
+  height:auto;
+}
+
+
+.topic-listing li.last, .followers-listing li.last, .followed-item li.first {
+	border: none;
+}
+
+.followed-item li .item {
+	float: left;
+}
+
+.followed-item li .action {
+	float: right;
+	font-size: 12px;
+}
+
+.followed-item li .item .left {
+	float: left;
+	margin-top: 2px;
+}
+
+.followed-item li .item .right {
+	margin-left: 42px;
+}
+
+.followed-item li .item .tagline {
+	color: gray;
+	font-size: 12px;
+}
+
+#ask_to_user { margin-bottom:10px; }
+#ask_to_user h3 {  font-size:13px; color:#333; margin-bottom:5px;  }
+#ask_to_user form {  background:#F0F0F0; padding:5px 5px;  }
+#ask_to_user form textarea { width:586px; }
+#ask_to_user.simple_form .actions { margin-bottom:0px; }
+#ask_to_user.simple_form .row { margin:0px; }

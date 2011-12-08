@@ -1,0 +1,41 @@
+Tags: <%@tags.each do |tag|%>
+<%=link_to tag,"/cpanel/topics?tag=#{tag}"%>
+<%end%>
+
+
+
+<%= content_for :sitemap do %>
+<span class="current">列表</span>
+<% end %>
+<%= render 'base' %>
+
+<div id="cpanel_topics">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>名称</th>
+        <th>封面</th>
+        <th><a href="?sort=asks_count">点评数</a></th>
+        <th><a href="?sort=follower_ids_count">关注人数</a></th>
+        <th></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @topics.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+          <td><%= link_to item.name,"/topics/#{item.name}" %></td>
+          <td><%= image_tag(item.cover.small.url) %></td>
+          <td style="width:50px;"><%= item.asks_count %></td>
+          <td style="width:50px;"><%= item.followers_count %></td>
+          <td style="width:50px;">
+            <%= link_to '修改', edit_cpanel_topic_path(item.id) %>
+            <%= link_to image_tag("wice_grid/delete.png", :style => "margin-bottom:-4px"), cpanel_topic_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @topics %>
+</div>
+
+

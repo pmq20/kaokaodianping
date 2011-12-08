@@ -1,0 +1,132 @@
+<%= content_for :scripts do %>
+  <%= javascript_include_tag("topics", :cache => "cached_topics") %>
+  <script type="text/javascript">
+    var current_page = 2;
+    var topic_id = "<%= @topic.id %>";
+    function loadAsks(){
+      App.loading();
+      $.get("<%= topic_path(params[:name]) %>?page="+current_page,function(){
+          App.loading(false);
+      });
+      return false;
+    }
+  </script>
+<% end %>
+<div id="shouye_chang">
+  <div id="topic" class="clearfix">
+    <div class="cover topic_cover">
+      <%= image_tag(@topic.cover.normal.url) %>
+  <% if can_edit?(@topic) %>
+      <div class="edit"><a href="#">修改图片</a></div>
+  <% end %>
+    </div>
+    <div id="edit_topic_cover" style="display:none">
+      <h2>修改培训机构图片</h2>
+      <%= simple_form_for(@topic,:class => "form",:html => { :multipart =>  true, :onsubmit => "App.loading();" }) do |f| %>
+        <%= f.input :cover, :label => "本地上传",:hint => "支持 jpg, gif, png 格式的图片，不要超过 2MB。建议图片尺寸大于 100×100。" %>
+        <div class="actions">
+          <button type="submit">上传图片</button>
+          <a href="#" onclick="$.facebox.close(); return false;">关闭</a>
+        </div>
+      <% end %>
+    </div>
+    <% content_for :butt2 do %>Topics.editCover($("#topic .cover"));<%end %>
+    <div class="info">
+      <h1><%= @topic.name %></h1>
+      <div class="summary">
+        <span id="topic_summary"><%= md_body @topic.summary  %></span>
+  <% if can_edit?(@topic) %>
+        <% if @topic.summary.blank? %>
+          <%= in_place_edit_tag @topic, :summary, :type => :textarea, :text_id => "topic_summary",:label => "添加补充资料" %>
+        <% else %>
+          <%= in_place_edit_tag @topic, :summary, :type => :textarea, :text_id => "topic_summary" %>
+        <% end %>
+  <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="user_profiletabs">
+    <a<%= ' class=actived' if params[:action] == "show" %> href="<%= topic_path(@topic.name) %>" style="<%= 'display:none' if 0==Ask.where(:topics => @topic.name,:type=>'课程').count %>">课程点评</a>
+  	<a<%= ' class=actived' if params[:action] == "show_s" %> href="<%= show_s_topic_path(@topic.name) %>" style="<%= 'display:none' if 0==Ask.where(:topics => @topic.name,:type=>'学校').count %>">分校点评</a>
+    <a<%= ' class=actived' if params[:action] == "show_cc" %> href="<%= show_cc_topic_path(@topic.name) %>">关于<%= @topic.name %>的提问</a>
+  </div>
+  <div id="asks" style="claer:both; margin-bottom:35px">
+    <% @asks.each do |item| %>
+      <%= render "asks/#{case item.type when '学校' then 'school' when '课程' then 'course' else 'ask' end}", :item => item %>
+    <% end %>
+    <% if params[:action] == "show" %>
+      <div class="pagination"><a class="page_more" href="<%= show_s_topic_path(@topic.name) %>">看完课程点评了？还有分校点评呢！</a></div>
+    <% elsif params[:action] == "show_s" %>
+      <div class="pagination"><a class="page_more" href="<%= show_cc_topic_path(@topic.name) %>">看完课程点评了？还有关于<%= @topic.name %>的提问呢！</a></div>
+    <% else %>
+      <div class="pagination"><a class="page_more" href="#" onclick="return addAsk();">你有关于<%= @topic.name %>问题，也可以提出来哦！</a></div>
+    <% end %>
+  </div>
+  
+  
+</div>
+<% content_for :sidebar do %>
+
+<% if current_user %>
+  <div class="box">
+    <div class="inner">
+			<% if current_user.topic_followed?(@topic) %>
+			<a href="#" class="gray_button" onclick="return Topics.unfollow(this, '<%= @topic.name %>','');">取消关注</a>
+			<% else %>
+      <a href="#" class="gray_button green_button" onclick="return Topics.follow(this, '<%= @topic.name %>','');">关注</a>
+			<% end %>
+			<a onclick="return addAsk();" class="gray_button green_button" style="font-size:12px" href="#">我要提问</a>
+    </div>
+	</div>
+<% end %>
+<div class="box standard gray">
+	<h2>机构网站</h2>
+	<div class="inner">
+		<p><%= link_to @topic.website,@topic.website,:target=>'_blank' %></p>
+	</div>
+</div>
+<% if @topic.addr %>
+<div class="box standard gray">
+	<h2>机构地址</h2>
+	<div class="inner">
+		<p><%= @topic.addr %></p>
+	</div>
+</div>
+<% end %>
+<div class="box standard gray">
+	<h2>机构类别</h2>
+	<div class="inner">
+		<p>
+		<% @topic.tags.each do |tag| %>
+		  <%= link_to tag,tag_path(tag) %>
+	  <%end %>
+		  </p>
+	</div>
+</div>
+		<div class="box standard gray">
+			<h2>最近关注此培训机构的人</h2>
+			<div class="inner">
+				<div class="followers">
+					<% for follower in @topic.followers.desc("$natural").limit(40) %>
+					<a href="/users/<%= follower.slug %>" title="<%= follower.name %>">
+						<%= user_avatar_tag(follower, :small) %>
+					</a>
+					<% end %>
+				</div>
+			</div>
+    </div>
+<% end %>
+
+<div style="display: none;" id="hidden_new_ask">
+  <h2>对<%= @topic.name %>提出问题</h2>
+  <form action="/asks" method="post" id="inner_new_ask">
+    <%= auth_token %>
+    <input type="hidden" name="topic" value="<%= @topic.name %>">
+    <textarea type="text" name="ask[title]" class="title" placeholder="在这里输入问题"></textarea>
+    <label>可选:</label>添加更多描述
+    <textarea type="text" name="ask[body]"></textarea>
+    <button type="submit" class="submit">提交问题</button> <a href="#" onclick="$.facebox.close(); return false;">取消</a>
+  </form>
+</div>
+
+

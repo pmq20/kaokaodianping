@@ -1,0 +1,6 @@
+<div id="shouye_chang">
+  <% @topics.each do |topic| %>
+  <%= link_to topic.name,"topics/#{topic.name}" %><br>
+  <% end  %>
+</div>
+<%= render "asks/sidebar" %>

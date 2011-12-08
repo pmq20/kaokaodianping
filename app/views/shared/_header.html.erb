@@ -1,0 +1,97 @@
+<div id="header">
+<a href="<%= user_signed_in? ? '/':'/' %>">
+  <img width="196" height="53" id="logo" alt="考考点评" src="/images/logo.png?alpha&amp;6">
+</a>
+<div id="tabs_outter_container">
+<% if user_signed_in? %>
+    <div id="user_tools" class="tab_bar">
+        
+        <div title="My blogs" style="display:none" id="all_blogs_menu_arrow" class="tab iconic">
+            <div style="display:none" class="menu" id="all_blogs_menu">
+                <div class="shadow">
+                    <ul id="all_blogs_list" class="items">
+                                                                                                                  <li id="menuitem-ofpsvr" class="item">
+                                    <a href="/blog/ofpsvr">
+                                        <span>P</span>
+                                        <div class="overflow_gradient"></div>
+                                                                                                    <div onclick="return false;" class="drag_handle"></div>
+                                    </a>
+                                </li>
+                                                                                                                                    <li id="menuitem-kjijjklk" class="item">
+                                    <a href="/blog/kjijjklk">
+                                        <span>jkhjh</span>
+                                        <div class="overflow_gradient"></div>
+                                                                                                    <div onclick="return false;" class="drag_handle"></div>
+                                    </a>
+                                </li>
+                                                                                                                </ul>
+
+                </div>
+                <div class="menu_nipple"></div>
+            </div>
+            
+                                            
+                                        </div>
+        
+        
+            <div id="preferences_button" class="tab iconic <%= ' selected ' if request.path == edit_user_registration_path%>">
+                <%= link_to('设置', edit_user_registration_path, title:'设置') %>
+                <div class="selection_nipple"></div>
+            </div>
+                                    
+        <div id="logout_button" class="tab iconic">
+            <a onclick="return confirm('确实要退出吗？');" title="退出" href="/logout">退出</a>
+        </div>
+    </div>
+<%end %>                        
+    
+    <div id="tabs_container" class="tab_bar ">
+    
+            <ul id="default_tabs">
+                <li class="tab <%= ' selected ' if request.path == root_path%>">
+                    <a href="<%= root_path %>">
+                        <span>首页</span>
+                        <span id="notify_badge" class="tab_notice <% if !current_user or current_user.notifications.unread.count < 1 %> force-hide<% end %>"><span class="tab_notice_value"><%= current_user ? current_user.notifications.unread.count : 0 %></span><span class="tab_notice_nipple"></span></span>
+                    </a>
+                    <div class="selection_nipple"></div>
+                </li>
+                <li class="tab <%= ' selected ' if pos_bbs? %>">
+                    <a href="<%= bbs_root_path %>">
+                        <span>论坛</span>
+                        <span style="display:none" id="new_post_notice_container" class="tab_notice"><span class="tab_notice_value"></span><span class="tab_notice_nipple"></span></span>
+                    </a>
+                    <div class="selection_nipple" id="bbs_selection_nipple"></div>
+                </li>
+            </ul>
+      <% unless user_signed_in? %>
+        <ul style="visibility: visible;" id="user_channels">
+          <li id="tab-ofpsvr" class="tab <%= ' selected ' if request.path=="/login" %>">
+                <a href="/login<%= "?redirect_to=#{request.path}" %>" id="login_link" class="psvr_login_links">
+                    <span>登陆</span>
+                    <div class="selection_nipple"></div>
+                </a>
+          </li><li id="tab-kjijjklk" class="tab <%= ' selected ' if request.path=="/register" %>">
+              <a href="/register<%= "?redirect_to=#{request.path}" %>" id="reg_link" class="psvr_reg_links">
+                  <span>注册</span>
+                  <div class="selection_nipple"></div>
+              </a>
+          </li>
+        </ul>
+      <%else %>
+        <ul style="visibility: visible;" id="user_channels">
+          <li id="tab-ofpsvr" class="tab <%= ' selected ' if request.path=="/users/#{current_user.slug}" %>"
+style="<%= ' width:100px; ' if request.path=="/users/#{current_user.slug}" and (@is_ie6 or @is_ie7)%>"
+>
+            <%= user_name_tag(current_user,{with_avatar:true}) %>
+            <div class="selection_nipple"></div>
+          </li>
+        </ul>
+      <%end %>
+    </div>
+
+</div>
+
+</div>
+
+
+

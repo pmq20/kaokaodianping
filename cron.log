@@ -1,0 +1,1765 @@
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 280 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 513 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 111 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+[master 4114a59] kkdianping dump again
+ Committer: System Administrator <root@Pan-Minqis-iMac.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 11 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 kkdianping_development/kkdianping_development/answers.bson
+ create mode 100644 kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+ create mode 100644 kkdianping_development/kkdianping_development/asks.bson
+ create mode 100644 kkdianping_development/kkdianping_development/fs.chunks.bson
+ create mode 100644 kkdianping_development/kkdianping_development/fs.files.bson
+ create mode 100644 kkdianping_development/kkdianping_development/logs.bson
+ create mode 100644 kkdianping_development/kkdianping_development/notifications.bson
+ create mode 100644 kkdianping_development/kkdianping_development/system.indexes.bson
+ create mode 100644 kkdianping_development/kkdianping_development/tags.bson
+ create mode 100644 kkdianping_development/kkdianping_development/topics.bson
+ create mode 100644 kkdianping_development/kkdianping_development/users.bson
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+[master c01a90c] kkdianping dump again
+ Committer: System Administrator <root@Pan-Minqis-iMac.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 0 insertions(+), 0 deletions(-)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 1 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 2 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+[master ef3eae1] kkdianping dump again
+ Committer: System Administrator <root@Pan-Minqis-iMac.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 0 insertions(+), 0 deletions(-)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 2 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 3 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up
++ cd /Users/theses/pan-backup
++ rm -rf kkdianping_development
++ /usr/local/bin/mongodump -o kkdianping_development
+connected to: 127.0.0.1
+all dbs
+DATABASE: kkdianping_development	 to 	kkdianping_development/kkdianping_development
+	kkdianping_development.answers to kkdianping_development/kkdianping_development/answers.bson
+		 2 objects
+	kkdianping_development.system.indexes to kkdianping_development/kkdianping_development/system.indexes.bson
+		 12 objects
+	kkdianping_development.ask_suggest_topics to kkdianping_development/kkdianping_development/ask_suggest_topics.bson
+		 282 objects
+	kkdianping_development.asks to kkdianping_development/kkdianping_development/asks.bson
+		 515 objects
+	kkdianping_development.fs.chunks to kkdianping_development/kkdianping_development/fs.chunks.bson
+		 312 objects
+	kkdianping_development.fs.files to kkdianping_development/kkdianping_development/fs.files.bson
+		 312 objects
+	kkdianping_development.logs to kkdianping_development/kkdianping_development/logs.bson
+		 113 objects
+	kkdianping_development.notifications to kkdianping_development/kkdianping_development/notifications.bson
+		 1 objects
+	kkdianping_development.tags to kkdianping_development/kkdianping_development/tags.bson
+		 27 objects
+	kkdianping_development.topics to kkdianping_development/kkdianping_development/topics.bson
+		 100 objects
+	kkdianping_development.users to kkdianping_development/kkdianping_development/users.bson
+		 4 objects
+DATABASE: *	 to 	kkdianping_development/*
++ git add .
++ git commit -a -m 'kkdianping dump again'
+# On branch master
+# Your branch is ahead of 'origin/master' by 3 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	kkdianping_development/
+nothing added to commit but untracked files present (use "git add" to track)
++ touch /tmp/kkdianping_backed_up

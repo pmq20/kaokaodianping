@@ -1,0 +1,6 @@
+<%@asks.each{|ask|%>
+<li><a href="<%="/asks/#{ask['id']}"%>"><%=ask['title']%></a></li>
+<%}%>
+<%if @more%>
+<li style="height:40px;"><a onclick="return loadResults(this, '<%=params[:q]%>', <%=params['current_key'].to_i+1%>);" href="#" class="page_more" style="padding:0;">查看更多...</a></li>
+<%end%>

@@ -1,0 +1,30 @@
+<div id="cpanel_user" class="form">
+<%= simple_form_for(@user, 
+  :url => (@user.new_record? ? cpanel_users_path : cpanel_user_path(@user.id)) , :html => { :enctype =>  "multipart/form-data" }) do |f| %>
+
+  <div class="inputs">
+  <%= f.input :email %>
+  <%= f.input :name %>
+  <%= f.input :slug %>
+  <%= f.input :tagline %>
+  <%= f.input :bio, :as => :text %>
+  <%= f.input :avatar %>
+  <% if not @user.avatar.blank? %>
+  <div class="row">
+    <label>预览</label>
+    <%= image_tag(@user.avatar.normal.url) %>
+  </div>
+  <% end %>
+  <%= f.input :website %>
+  <%= f.input :is_expert,:as=>:boolean %>
+  <%= f.input :is_expert_why %>
+<%=f.input :banished,:as=>:boolean,:label=>'账户已被禁用'%>
+<%= f.input :tags_array,:label=>'标签(请以,分隔填写)' %>
+<%=f.input :will_autofollow,:as=>:boolean,:label=>'将被自动关注'%>
+  </div>
+  <div class="actions">
+    <button type="submit">提交</button>
+     或者 <%= link_to '返回', cpanel_users_path %>
+  </div>
+<% end %>
+</div>

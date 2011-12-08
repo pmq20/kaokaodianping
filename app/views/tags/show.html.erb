@@ -1,0 +1,78 @@
+<%= content_for :scripts do %>
+  <%= javascript_include_tag("tags") %>
+  <script type="text/javascript">
+    var current_page = 2;
+    var tag_id = "<%= @tag.id %>";
+    function loadTopics(){
+      App.loading();
+      $.get("<%= tag_path(params[:name]) %>?page="+current_page,function(){
+          App.loading(false);
+      });
+      return false;
+    }
+
+  </script>
+<% end %>
+<div id="shouye_chang">
+
+  <div id="topic" class="clearfix">
+    <div class="info">
+      <h1><%= @tag.name %></h1>
+      <div class="summary">
+        <span id="tag_summary">以下是<%=link_to @tag.name,"/tags/#{@tag.name}",style:'color:red'%></span>一类的<%=tags_more_criterion(@more_already)%>培训机构列表</span>
+      </div>
+    </div>
+  </div>
+  <br>
+
+    <div id="tags">
+        <div class="header">
+                    <div class="cell name">机构名称<div class="sort_arrow"></div>
+            </div>
+            <div class="cell feedback">LOGO<div class="sort_arrow"></div>
+            </div>
+            <div class="cell lead_editor">点评数</div>
+            <div class="clear"></div>
+        </div>
+  <% @topics.each do |item| %>
+            <div class="row">
+                <div class="cell  name">
+                    <%= link_to item.name,topic_path(item.name) %>
+                </div>
+                <div class="cell dark feedback">
+                    <%= image_tag(item.cover.normal.url) %>
+                </div>
+                <div class="cell lead_editor">
+                    <%= link_to item.answers_count,topic_path(item.name) %>
+                </div>
+                <div class="clear"></div>
+            </div>
+  <% end %>
+            <div class="gradient"></div>
+        <div class="gradient right"></div>
+    </div>
+
+
+
+
+</div>
+
+<% content_for :sidebar do %>
+
+                <div class="box standard gray">
+                        <h2>进一步筛选</h2>
+                        <div class="inner">
+                                <div class="followers">
+                                        <% for more_name in @more %>
+                                        <% more_param = (@more_already+[more_name]).join(',')%>
+                                        <a href="?more=<%=more_param%>" title="<%= more_name %>">
+                                                <%=more_name%>
+                                        </a>
+                                        <% end %>
+<br><br>
+<h2>去掉筛选条件</h2>
+<a href="?more=">只显示<%=@tag.name%>一类的培训机构</a>
+                                </div>
+                        </div>
+    </div>
+<% end %>

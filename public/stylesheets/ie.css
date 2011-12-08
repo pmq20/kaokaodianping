@@ -1,0 +1,120 @@
+.wide {
+    width: 582px;
+    min-width: 582px;
+    max-width: 582px;
+}
+ol#posts li.post .post_info, ol#posts li.post .post_controls {
+    padding-top: 3px;
+    min-height: 20px;
+}
+#nav .nav_item.active {
+    vertical-align: -5px;
+}
+#nav .nav_item img.arrow {
+    display: none!important;
+}
+#nav .menu_arrow {
+    display: none;
+}
+h1.dashboard_header {
+    margin-bottom: 5px;
+}
+#right_column .dashboard_nav_item ul.tumblelog_controls li {
+    line-height: 14px;
+}
+.white_pane .member_button {
+    font-size: 10px;
+    width: 110px;
+    padding-left: 0;
+    padding-right: 0;
+}
+ol#posts ol.notes li img.avatar, ol#posts li.post.same_user_as_last ol.notes li .avatar {
+    float: none;
+}
+ol.notes span.action {
+    float: none;
+    width: auto;
+}
+#right_column .dashboard_nav_item.short.active {
+    background: #bbc552 url('/images/active_dashboard_nav_short_shimmer.png') top left repeat-x!important;
+}
+#staff_picks #cards .card {
+    border: 1px solid #e2e2e2;
+    width: 188px;
+    height: 276px;
+}
+#staff_picks #cards .card .photo {
+    margin-left: 4px;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+body#dashboard_directory #tabs, body#dashboard_lookup_contacts #tabs, body#dashboard_recommendations #tabs, body#dashboard_following #tabs {
+    background: #eaeaea;
+}
+body#dashboard_directory #tabs .tab.selected, body#dashboard_lookup_contacts #tabs .tab.selected, body#dashboard_recommendations #tabs .tab.selected, body#dashboard_following #tabs .tab.selected {
+    background: url('/images/content_bg_directory.png') top left repeat-y #fafafa;
+}
+.controls_section {
+    border: 1px solid #253d54!important;
+}
+#tabs_container {
+    position: relative;
+    clip: rect(0, 475px, 68px, 0);
+}
+#user_tools {
+    text-align: right;
+}
+.iconic {
+    width: 38px;
+}
+#all_blogs_menu .last_item {
+    *margin-left: -16px;
+}
+.controls_section li {
+    border: 1px solid #354d64;
+    border-top: 1px solid #415a72;
+    border-bottom: 1px solid #2d4762;
+    background-color: #36506a;
+}
+.tab a, .controls_section li a {
+    color: #c3cdd5;
+}
+.controls_section li.selected a {
+    color: #334220;
+}
+#dashboard_controls_footer a {
+    color: #798a9b;
+}
+#header .tab {
+    *display: inline;
+    *zoom: 1;
+}
+.keep_tag {
+    color: #333;
+    background-color: #6a8f4d;
+}
+#all_blogs_menu a {
+    border-top: 0;
+    border-left: none;
+}
+#content #search_query {
+    background: #2a455f url('/images/icons_sprite.png?2') 192px -542px no-repeat;
+    border: 1px solid #253c53;
+}
+#posts .notification, #posts .notification a {
+    color: #adb9c4;
+}
+.avatar_and_i {
+    color:#BEC6CE;
+    font-weight:bold;
+}
+#help_search{
+  
+}
+#help_query{
+  margin-left:-100px;
+  float:left;
+}
+#help_query_btn{
+  float:left;
+}

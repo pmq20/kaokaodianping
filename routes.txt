@@ -1,0 +1,175 @@
+#gge
+(in /var/www/html/kkdp)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+                    root        /(.:format)                             {:controller=>"home", :action=>"index"}
+                                /uploads/*path(.:format)                {:controller=>"gridfs", :action=>"serve"}
+         update_in_place        /update_in_place(.:format)              {:controller=>"home", :action=>"update_in_place"}
+                   muted        /muted(.:format)                        {:controller=>"home", :action=>"muted"}
+                  newbie        /newbie(.:format)                       {:controller=>"home", :action=>"newbie"}
+                followed        /followed(.:format)                     {:controller=>"home", :action=>"followed"}
+             recommended        /recommended(.:format)                  {:controller=>"home", :action=>"recommended"}
+   mark_notifies_as_read        /mark_notifies_as_read(.:format)        {:controller=>"home", :action=>"mark_notifies_as_read"}
+       mute_suggest_item        /mute_suggest_item(.:format)            {:controller=>"home", :action=>"mute_suggest_item"}
+                  report        /report(.:format)                       {:controller=>"home", :action=>"report"}
+                   about        /about(.:format)                        {:controller=>"home", :action=>"about"}
+                   doing        /doing(.:format)                        {:controller=>"logs", :action=>"index"}
+                register GET    /register(.:format)                     {:controller=>"registrations", :action=>"new"}
+                   login GET    /login(.:format)                        {:controller=>"devise/sessions", :action=>"new"}
+                  logout GET    /logout(.:format)                       {:controller=>"devise/sessions", :action=>"destroy"}
+        new_user_session GET    /users/sign_in(.:format)                {:action=>"new", :controller=>"devise/sessions"}
+            user_session POST   /users/sign_in(.:format)                {:action=>"create", :controller=>"devise/sessions"}
+    destroy_user_session GET    /users/sign_out(.:format)               {:action=>"destroy", :controller=>"devise/sessions"}
+           user_password POST   /users/password(.:format)               {:action=>"create", :controller=>"devise/passwords"}
+       new_user_password GET    /users/password/new(.:format)           {:action=>"new", :controller=>"devise/passwords"}
+      edit_user_password GET    /users/password/edit(.:format)          {:action=>"edit", :controller=>"devise/passwords"}
+                         PUT    /users/password(.:format)               {:action=>"update", :controller=>"devise/passwords"}
+cancel_user_registration GET    /users/cancel(.:format)                 {:action=>"cancel", :controller=>"registrations"}
+       user_registration POST   /users(.:format)                        {:action=>"create", :controller=>"registrations"}
+   new_user_registration GET    /users/sign_up(.:format)                {:action=>"new", :controller=>"registrations"}
+  edit_user_registration GET    /users/edit(.:format)                   {:action=>"edit", :controller=>"registrations"}
+                         PUT    /users(.:format)                        {:action=>"update", :controller=>"registrations"}
+                         DELETE /users(.:format)                        {:action=>"destroy", :controller=>"registrations"}
+  accept_user_invitation GET    /users/invitation/accept(.:format)      {:action=>"edit", :controller=>"devise/invitations"}
+         user_invitation POST   /users/invitation(.:format)             {:action=>"create", :controller=>"devise/invitations"}
+     new_user_invitation GET    /users/invitation/new(.:format)         {:action=>"new", :controller=>"devise/invitations"}
+                         PUT    /users/invitation(.:format)             {:action=>"update", :controller=>"devise/invitations"}
+           answered_user GET    /users/:id/answered(.:format)           {:action=>"answered", :controller=>"users"}
+              asked_user GET    /users/:id/asked(.:format)              {:action=>"asked", :controller=>"users"}
+           asked_to_user GET    /users/:id/asked_to(.:format)           {:action=>"asked_to", :controller=>"users"}
+             follow_user GET    /users/:id/follow(.:format)             {:action=>"follow", :controller=>"users"}
+           unfollow_user GET    /users/:id/unfollow(.:format)           {:action=>"unfollow", :controller=>"users"}
+          followers_user GET    /users/:id/followers(.:format)          {:action=>"followers", :controller=>"users"}
+          following_user GET    /users/:id/following(.:format)          {:action=>"following", :controller=>"users"}
+   following_topics_user GET    /users/:id/following_topics(.:format)   {:action=>"following_topics", :controller=>"users"}
+     following_asks_user GET    /users/:id/following_asks(.:format)     {:action=>"following_asks", :controller=>"users"}
+                   users GET    /users(.:format)                        {:action=>"index", :controller=>"users"}
+                         POST   /users(.:format)                        {:action=>"create", :controller=>"users"}
+                new_user GET    /users/new(.:format)                    {:action=>"new", :controller=>"users"}
+               edit_user GET    /users/:id/edit(.:format)               {:action=>"edit", :controller=>"users"}
+                    user GET    /users/:id(.:format)                    {:action=>"show", :controller=>"users"}
+                         PUT    /users/:id(.:format)                    {:action=>"update", :controller=>"users"}
+                         DELETE /users/:id(.:format)                    {:action=>"destroy", :controller=>"users"}
+                                /auth/:provider/callback(.:format)      {:controller=>"users", :action=>"auth_callback"}
+        all_search_index GET    /search/all(.:format)                   {:action=>"all", :controller=>"search"}
+     topics_search_index GET    /search/topics(.:format)                {:action=>"topics", :controller=>"search"}
+       asks_search_index GET    /search/asks(.:format)                  {:action=>"asks", :controller=>"search"}
+      users_search_index GET    /search/users(.:format)                 {:action=>"users", :controller=>"search"}
+            search_index GET    /search(.:format)                       {:action=>"index", :controller=>"search"}
+                         POST   /search(.:format)                       {:action=>"create", :controller=>"search"}
+              new_search GET    /search/new(.:format)                   {:action=>"new", :controller=>"search"}
+             edit_search GET    /search/:id/edit(.:format)              {:action=>"edit", :controller=>"search"}
+                  search GET    /search/:id(.:format)                   {:action=>"show", :controller=>"search"}
+                         PUT    /search/:id(.:format)                   {:action=>"update", :controller=>"search"}
+                         DELETE /search/:id(.:format)                   {:action=>"destroy", :controller=>"search"}
+                spam_ask GET    /asks/:id/spam(.:format)                {:action=>"spam", :controller=>"asks"}
+              follow_ask GET    /asks/:id/follow(.:format)              {:action=>"follow", :controller=>"asks"}
+            unfollow_ask GET    /asks/:id/unfollow(.:format)            {:action=>"unfollow", :controller=>"asks"}
+                mute_ask GET    /asks/:id/mute(.:format)                {:action=>"mute", :controller=>"asks"}
+              unmute_ask GET    /asks/:id/unmute(.:format)              {:action=>"unmute", :controller=>"asks"}
+              answer_ask POST   /asks/:id/answer(.:format)              {:action=>"answer", :controller=>"asks"}
+        update_topic_ask POST   /asks/:id/update_topic(.:format)        {:action=>"update_topic", :controller=>"asks"}
+                         GET    /asks/:id/update_topic(.:format)        {:action=>"update_topic", :controller=>"asks"}
+            redirect_ask GET    /asks/:id/redirect(.:format)            {:action=>"redirect", :controller=>"asks"}
+    invite_to_answer_ask GET    /asks/:id/invite_to_answer(.:format)    {:action=>"invite_to_answer", :controller=>"asks"}
+               share_ask GET    /asks/:id/share(.:format)               {:action=>"share", :controller=>"asks"}
+                         POST   /asks/:id/share(.:format)               {:action=>"share", :controller=>"asks"}
+                    asks GET    /asks(.:format)                         {:action=>"index", :controller=>"asks"}
+                         POST   /asks(.:format)                         {:action=>"create", :controller=>"asks"}
+                 new_ask GET    /asks/new(.:format)                     {:action=>"new", :controller=>"asks"}
+                edit_ask GET    /asks/:id/edit(.:format)                {:action=>"edit", :controller=>"asks"}
+                     ask GET    /asks/:id(.:format)                     {:action=>"show", :controller=>"asks"}
+                         PUT    /asks/:id(.:format)                     {:action=>"update", :controller=>"asks"}
+                         DELETE /asks/:id(.:format)                     {:action=>"destroy", :controller=>"asks"}
+             vote_answer GET    /answers/:id/vote(.:format)             {:action=>"vote", :controller=>"answers"}
+             spam_answer GET    /answers/:id/spam(.:format)             {:action=>"spam", :controller=>"answers"}
+            thank_answer GET    /answers/:id/thank(.:format)            {:action=>"thank", :controller=>"answers"}
+                 answers GET    /answers(.:format)                      {:action=>"index", :controller=>"answers"}
+                         POST   /answers(.:format)                      {:action=>"create", :controller=>"answers"}
+              new_answer GET    /answers/new(.:format)                  {:action=>"new", :controller=>"answers"}
+             edit_answer GET    /answers/:id/edit(.:format)             {:action=>"edit", :controller=>"answers"}
+                  answer GET    /answers/:id(.:format)                  {:action=>"show", :controller=>"answers"}
+                         PUT    /answers/:id(.:format)                  {:action=>"update", :controller=>"answers"}
+                         DELETE /answers/:id(.:format)                  {:action=>"destroy", :controller=>"answers"}
+                comments GET    /comments(.:format)                     {:action=>"index", :controller=>"comments"}
+                         POST   /comments(.:format)                     {:action=>"create", :controller=>"comments"}
+             new_comment GET    /comments/new(.:format)                 {:action=>"new", :controller=>"comments"}
+            edit_comment GET    /comments/:id/edit(.:format)            {:action=>"edit", :controller=>"comments"}
+                 comment GET    /comments/:id(.:format)                 {:action=>"show", :controller=>"comments"}
+                         PUT    /comments/:id(.:format)                 {:action=>"update", :controller=>"comments"}
+                         DELETE /comments/:id(.:format)                 {:action=>"destroy", :controller=>"comments"}
+            follow_topic GET    /topics/:id/follow(.:format)            {:id=>/[a-zA-Z\w\s\.%\-_]+/, :action=>"follow", :controller=>"topics"}
+          unfollow_topic GET    /topics/:id/unfollow(.:format)          {:id=>/[a-zA-Z\w\s\.%\-_]+/, :action=>"unfollow", :controller=>"topics"}
+                  topics GET    /topics(.:format)                       {:action=>"index", :controller=>"topics"}
+                         POST   /topics(.:format)                       {:action=>"create", :controller=>"topics"}
+               new_topic GET    /topics/new(.:format)                   {:action=>"new", :controller=>"topics"}
+              edit_topic GET    /topics/:id/edit(.:format)              {:id=>/[a-zA-Z\w\s\.%\-_]+/, :action=>"edit", :controller=>"topics"}
+                   topic GET    /topics/:id(.:format)                   {:id=>/[a-zA-Z\w\s\.%\-_]+/, :action=>"show", :controller=>"topics"}
+                         PUT    /topics/:id(.:format)                   {:id=>/[a-zA-Z\w\s\.%\-_]+/, :action=>"update", :controller=>"topics"}
+                         DELETE /topics/:id(.:format)                   {:id=>/[a-zA-Z\w\s\.%\-_]+/, :action=>"destroy", :controller=>"topics"}
+                    logs GET    /logs(.:format)                         {:action=>"index", :controller=>"logs"}
+                         POST   /logs(.:format)                         {:action=>"create", :controller=>"logs"}
+                 new_log GET    /logs/new(.:format)                     {:action=>"new", :controller=>"logs"}
+                edit_log GET    /logs/:id/edit(.:format)                {:action=>"edit", :controller=>"logs"}
+                     log GET    /logs/:id(.:format)                     {:action=>"show", :controller=>"logs"}
+                         PUT    /logs/:id(.:format)                     {:action=>"update", :controller=>"logs"}
+                         DELETE /logs/:id(.:format)                     {:action=>"destroy", :controller=>"logs"}
+             inbox_index GET    /inbox(.:format)                        {:action=>"index", :controller=>"inbox"}
+                         POST   /inbox(.:format)                        {:action=>"create", :controller=>"inbox"}
+               new_inbox GET    /inbox/new(.:format)                    {:action=>"new", :controller=>"inbox"}
+              edit_inbox GET    /inbox/:id/edit(.:format)               {:action=>"edit", :controller=>"inbox"}
+                   inbox GET    /inbox/:id(.:format)                    {:action=>"show", :controller=>"inbox"}
+                         PUT    /inbox/:id(.:format)                    {:action=>"update", :controller=>"inbox"}
+                         DELETE /inbox/:id(.:format)                    {:action=>"destroy", :controller=>"inbox"}
+             cpanel_root        /cpanel(.:format)                       {:controller=>"cpanel/home", :action=>"index"}
+            cpanel_users GET    /cpanel/users(.:format)                 {:action=>"index", :controller=>"cpanel/users"}
+                         POST   /cpanel/users(.:format)                 {:action=>"create", :controller=>"cpanel/users"}
+         new_cpanel_user GET    /cpanel/users/new(.:format)             {:action=>"new", :controller=>"cpanel/users"}
+        edit_cpanel_user GET    /cpanel/users/:id/edit(.:format)        {:action=>"edit", :controller=>"cpanel/users"}
+             cpanel_user GET    /cpanel/users/:id(.:format)             {:action=>"show", :controller=>"cpanel/users"}
+                         PUT    /cpanel/users/:id(.:format)             {:action=>"update", :controller=>"cpanel/users"}
+                         DELETE /cpanel/users/:id(.:format)             {:action=>"destroy", :controller=>"cpanel/users"}
+             cpanel_asks GET    /cpanel/asks(.:format)                  {:action=>"index", :controller=>"cpanel/asks"}
+                         POST   /cpanel/asks(.:format)                  {:action=>"create", :controller=>"cpanel/asks"}
+          new_cpanel_ask GET    /cpanel/asks/new(.:format)              {:action=>"new", :controller=>"cpanel/asks"}
+         edit_cpanel_ask GET    /cpanel/asks/:id/edit(.:format)         {:action=>"edit", :controller=>"cpanel/asks"}
+              cpanel_ask GET    /cpanel/asks/:id(.:format)              {:action=>"show", :controller=>"cpanel/asks"}
+                         PUT    /cpanel/asks/:id(.:format)              {:action=>"update", :controller=>"cpanel/asks"}
+                         DELETE /cpanel/asks/:id(.:format)              {:action=>"destroy", :controller=>"cpanel/asks"}
+          cpanel_answers GET    /cpanel/answers(.:format)               {:action=>"index", :controller=>"cpanel/answers"}
+                         POST   /cpanel/answers(.:format)               {:action=>"create", :controller=>"cpanel/answers"}
+       new_cpanel_answer GET    /cpanel/answers/new(.:format)           {:action=>"new", :controller=>"cpanel/answers"}
+      edit_cpanel_answer GET    /cpanel/answers/:id/edit(.:format)      {:action=>"edit", :controller=>"cpanel/answers"}
+           cpanel_answer GET    /cpanel/answers/:id(.:format)           {:action=>"show", :controller=>"cpanel/answers"}
+                         PUT    /cpanel/answers/:id(.:format)           {:action=>"update", :controller=>"cpanel/answers"}
+                         DELETE /cpanel/answers/:id(.:format)           {:action=>"destroy", :controller=>"cpanel/answers"}
+           cpanel_topics GET    /cpanel/topics(.:format)                {:action=>"index", :controller=>"cpanel/topics"}
+                         POST   /cpanel/topics(.:format)                {:action=>"create", :controller=>"cpanel/topics"}
+        new_cpanel_topic GET    /cpanel/topics/new(.:format)            {:action=>"new", :controller=>"cpanel/topics"}
+       edit_cpanel_topic GET    /cpanel/topics/:id/edit(.:format)       {:action=>"edit", :controller=>"cpanel/topics"}
+            cpanel_topic GET    /cpanel/topics/:id(.:format)            {:action=>"show", :controller=>"cpanel/topics"}
+                         PUT    /cpanel/topics/:id(.:format)            {:action=>"update", :controller=>"cpanel/topics"}
+                         DELETE /cpanel/topics/:id(.:format)            {:action=>"destroy", :controller=>"cpanel/topics"}
+         cpanel_comments GET    /cpanel/comments(.:format)              {:action=>"index", :controller=>"cpanel/comments"}
+                         POST   /cpanel/comments(.:format)              {:action=>"create", :controller=>"cpanel/comments"}
+      new_cpanel_comment GET    /cpanel/comments/new(.:format)          {:action=>"new", :controller=>"cpanel/comments"}
+     edit_cpanel_comment GET    /cpanel/comments/:id/edit(.:format)     {:action=>"edit", :controller=>"cpanel/comments"}
+          cpanel_comment GET    /cpanel/comments/:id(.:format)          {:action=>"show", :controller=>"cpanel/comments"}
+                         PUT    /cpanel/comments/:id(.:format)          {:action=>"update", :controller=>"cpanel/comments"}
+                         DELETE /cpanel/comments/:id(.:format)          {:action=>"destroy", :controller=>"cpanel/comments"}
+     cpanel_report_spams GET    /cpanel/report_spams(.:format)          {:action=>"index", :controller=>"cpanel/report_spams"}
+                         POST   /cpanel/report_spams(.:format)          {:action=>"create", :controller=>"cpanel/report_spams"}
+  new_cpanel_report_spam GET    /cpanel/report_spams/new(.:format)      {:action=>"new", :controller=>"cpanel/report_spams"}
+ edit_cpanel_report_spam GET    /cpanel/report_spams/:id/edit(.:format) {:action=>"edit", :controller=>"cpanel/report_spams"}
+      cpanel_report_spam GET    /cpanel/report_spams/:id(.:format)      {:action=>"show", :controller=>"cpanel/report_spams"}
+                         PUT    /cpanel/report_spams/:id(.:format)      {:action=>"update", :controller=>"cpanel/report_spams"}
+                         DELETE /cpanel/report_spams/:id(.:format)      {:action=>"destroy", :controller=>"cpanel/report_spams"}
+          cpanel_notices GET    /cpanel/notices(.:format)               {:action=>"index", :controller=>"cpanel/notices"}
+                         POST   /cpanel/notices(.:format)               {:action=>"create", :controller=>"cpanel/notices"}
+       new_cpanel_notice GET    /cpanel/notices/new(.:format)           {:action=>"new", :controller=>"cpanel/notices"}
+      edit_cpanel_notice GET    /cpanel/notices/:id/edit(.:format)      {:action=>"edit", :controller=>"cpanel/notices"}
+           cpanel_notice GET    /cpanel/notices/:id(.:format)           {:action=>"show", :controller=>"cpanel/notices"}
+                         PUT    /cpanel/notices/:id(.:format)           {:action=>"update", :controller=>"cpanel/notices"}
+                         DELETE /cpanel/notices/:id(.:format)           {:action=>"destroy", :controller=>"cpanel/notices"}
+           cpanel_resque        /cpanel/resque                          {:to=>Resque::Server}

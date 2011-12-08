@@ -1,0 +1,8 @@
+<p>你好 <%= @resource.email %>!</p>
+
+<p>有人邀请你注册 <a href="<%= root_url %>"><%= Setting.app_name %></a>, 你可以点击下面的链接接受邀请.</p>
+
+<p><%= link_to '接受邀请', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
+<p>如果你的邮件无法现实链接，请用这个：<br />
+<%= accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
+<p>如果你不感兴趣，请忽略此邮件.</p>

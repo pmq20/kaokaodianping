@@ -1,0 +1,100 @@
+<div id="loginreg">
+
+	<div id="login-form" class="floating_dialog" style="display:none">
+		<%= form_tag new_user_session_path,:id=>'login_form',:style=>'margin-top:-14px' do %>
+			<fieldset>
+        <input type="hidden" name="redirect_to" value="<%= request.path %>"/>
+				<label for="user_email">E-mail</label>
+				<input type="text" class="text ui-widget-content ui-corner-all" value="" id="user_email_log" name="user[email]">
+				<label for="user_password"><%= tt('loginreg.passwd') %></label>
+				<input type="password" class="text ui-widget-content ui-corner-all" value="" id="user_password_log" name="user[password]" onkeypress="if(event.keyCode==13){$('#login_form').submit();}">
+			</fieldset>
+		<% end %>
+	</div>
+
+	<div id="reg-form" class="floating_dialog" style="display:none">
+	  <div id="reg_display_when_success" style="display:none">
+	    <div style="text-align:center;margin:21px 0">
+	      <%= image_tag '/images/suc.png' %>
+	    </div>
+	    <p style="line-height: 22px;">
+	      <%= tt('loginreg.reg_ok_msg').html_safe %>
+	    </p>
+	  </div>
+	  <div id="reg_normal_stuff">
+      <div class="ui-widget afailure" id="error_reg" style="margin: 2px 0 22px 0;display:none">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+          <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+          <strong><%= tt('error') %>:</strong> <span id="error_reg_content" style="line-height:18px"></span></p>
+        </div>
+      </div>
+      <div id="spinningWheel_reg" style="display:none;margin-bottom:20px">
+        <%= image_tag '/images/reg_ajax_wait.gif' %> Please wait ...
+      </div>
+  		<%= form_for @new_user,:url=>registration_path(@new_user),:html=>{:id=>'reg_form',:style=>'margin-top:-10px'} do %>
+  			<fieldset>
+  			  <label for="user_name">昵称</label>
+  				<input type="text" class="text ui-widget-content ui-corner-all" value="" id="user_name" name="user[name]">
+  				<label for="user_email">E-mail</label>
+  				<input type="text" class="text ui-widget-content ui-corner-all" value="" id="user_email" name="user[email]">
+  				<label for="user_password"><%= tt('loginreg.passwd') %></label>
+  				<input type="password" class="text ui-widget-content ui-corner-all" value="" id="user_password" name="user[password]">
+  				<label for="user_password_confirmation"><%= tt('loginreg.passwd_confirm') %></label>
+  			  <input type="password" class="text ui-widget-content ui-corner-all" value="" id="user_password_confirmation" name="user[password_confirmation]">
+  			</fieldset>
+  		<% end %>
+  	</div>
+	</div>
+
+</div>
+<% content_for :butt do %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function () {
+    var buttons1, buttons2;
+    buttons1 = {};
+    buttons1['<%= I18n.t('t2ku.loginreg.button11') %>'] = function() {
+      return $("#login_form").submit();
+    };
+    buttons1['<%= I18n.t('t2ku.loginreg.button12') %>'] = function() {
+      return $(this).dialog("close");
+    };
+    buttons1['<%= I18n.t('t2ku.loginreg.button13') %>'] = function() {
+      return window.location.href = $("#login_link").attr('href');
+    };
+    buttons2 = {};
+    buttons2['<%= I18n.t('t2ku.loginreg.button21') %>'] = function() {
+      return $('#reg_form').submit();
+    };
+    buttons2['<%= I18n.t('t2ku.loginreg.button22') %>'] = function() {
+      return $(this).dialog("close");
+    };
+    buttons2['<%= I18n.t('t2ku.loginreg.button23') %>'] = function() {
+      return window.location.href = $("#reg_link").attr('href');
+    };
+    $("#login-form").dialog({
+      title: '<%= I18n.t('t2ku.loginreg.button11') %>',
+      autoOpen: false,
+      height: 230,
+      width: 380,
+      modal: true,
+      buttons: buttons1
+    });
+    $('#reg-form').dialog({
+      title: '<%= I18n.t('t2ku.loginreg.button21') %>',
+      autoOpen: false,
+      height: 340,
+      width: 350,
+      modal: true,
+      buttons: buttons2
+    });
+    $(".psvr_reg_links").click(function() {
+      $("#reg-form").dialog("open");
+      return false;
+    });
+    $(".psvr_login_links").click(function() {
+      $("#login-form").dialog("open");
+      return false;
+    });
+  });
+</script>
+<%end %>

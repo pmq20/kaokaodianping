@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <link rel="icon" href="http://assets.tumblr.com/images/favicon.gif?2" type="image/gif"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="x-dns-prefetch-control" content="off"/>
+        <meta name="robots" content="noindex"/>
+        <link rel="stylesheet" href="http://assets.tumblr.com/stylesheets/compressed/status_blue.css"
+        type="text/css" media="screen" charset="utf-8">
+        <title>Not found</title>
+    </head>
+    <body onload="if (top != self) document.write('<body style=\'background:transparent;\'></body>');">
+        <table height="100%" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    <div id="container">
+                        <h1 id="l10n_title">Not found</h1>
+            
+                        <div class="sorry">
+                            <p id="l10n_sorry_1">We couldn't find the page you were looking for.</p>
+                            <p id="l10n_sorry_2">
+                                Feel free to contact support if there's anything<br/>
+                                we can help you find.
+                            </p>
+                            <p id="l10n_email_button"><a class="button" href="mailto:support@tumblr.com">Email Support</a></p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript" language="javascript">var status_code = '404'</script>
+        <script type="text/javascript" language="javascript" src="http://assets.tumblr.com/languages/errors.js"></script>
+    </body>
+</html>

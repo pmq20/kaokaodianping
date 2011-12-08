@@ -1,0 +1,29 @@
+<%= render 'asks/base' %>
+<%= content_for :scripts do %>
+  <script type="text/javascript">
+    var current_page = 2;
+    function loadAsks(){
+      App.loading();
+      $.get("<%= request.path %>.js?page="+current_page,function(){
+          App.loading(false);
+      });
+      return false;
+    }
+  </script>
+<% end %>
+
+<!-- No posts found -->
+<div id="shouye_chang">
+
+  <div class="listing-title">你或许能点评：</div>
+
+  <div id="asks">
+    <% @asks.each do |item| %>
+      <%= render "asks/recommended_ask", :item => item %>
+    <% end %>
+    <% if @asks.length == @per_page %>
+      <div class="pagination"><a class="page_more" href="#" onclick="return loadAsks();">查看更多...</a></div>
+    <% end %>
+  </div>
+</div>
+  <%= render "asks/sidebar" %>

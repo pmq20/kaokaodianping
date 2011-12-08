@@ -1,0 +1,45 @@
+<%= content_for :sitemap do %>
+<span class="current">列表</span>
+<% end %>
+<%= render 'base' %>
+<%= link_to '只查看专家','/cpanel/users?is_expert=1' %>
+Tags: 
+<%@tags.each do |tag|%>
+<%=link_to tag,"/cpanel/users?tag=#{tag}"%>
+<%end%>
+<div id="cpanel_users">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>姓名</th>
+        <th>专家</th>
+        <th>Email</th>
+        <th>Slug</th>
+        <th>时间</th>
+        <th><a href="?sort=asks_count">提问数</a></th>
+        <th><a href="?sort=answers_count">点评数</a></th>
+        <th></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+          <td><%= link_to user_name_tag(item, :target=>'target="_blank"') %></td>
+          <td><%= (item.is_expert)? '是' : '' %></td>
+          <td><%= item.email %></td>
+          <td><%= item.slug %></td>
+          <td style="width:100px;"><%= l item.created_at.getlocal, :format => :short %></td>
+          <td><%= item.asks_count %></td>
+          <td><%= item.answers_count %></td>
+          <td style="width:50px;">
+            <%= link_to '修改', edit_cpanel_user_path(item.id) %>
+            <%= link_to image_tag("wice_grid/delete.png", :style => "margin-bottom:-4px"), cpanel_user_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
+</div>
+
+

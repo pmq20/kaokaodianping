@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>考考点评 - 挑选最适合你的培训机构</title>
+<meta name="description" content="培训机构点评">
+<meta name="author" content="P.S.V.R, Sounder, Junbo, Yanhu">
+<%= stylesheet_link_tag "spzz_home" %>
+</head>
+
+<body id="<%= pos_signature %>" class="<%= params[:controller].parameterize %>">
+
+
+  <div id="index_login_reg">
+    <% if user_signed_in? %>
+      <%=user_name_tag(current_user)%> |
+      <%= link_to('修改资料', edit_user_registration_path) %> |
+      <%= link_to('退出', destroy_user_session_path, :method=>'delete') %>
+    <% else %>
+      <%= link_to('登陆', new_user_session_path)  %>  |
+      <%= link_to('注册', new_user_registration_path)  %>
+    <% end %>
+  </div>
+  
+<div id="overlay">&nbsp;</div>
+<div id="content">
+<ul id="RightNav">
+<p><a href="#">内容导航</a></p>
+<li>
+<h2><a href="/" class="over">首页</a></h2>
+</li>
+<li>
+<h2><a href="/doing">考考正在发生</a></h2>
+</li>
+<li>
+<h2><a href="/t">培训机构列表</a></h2>
+</li>
+<li>
+<h2><a href="<%= followed_path %>">我关注的项目</a></h2>
+</li>
+<li>
+<h2><a href="<%= new_user_invitation_path %>">邀请好友注册</a></h2>
+</li>
+<li>
+<h2><a href="/bugtrack">意见反馈</a></h2>
+</li>
+</ul>
+<%= yield %>
+  <%= render file:'shared/_shopzilla_footer' %>
+</body>
+</html>

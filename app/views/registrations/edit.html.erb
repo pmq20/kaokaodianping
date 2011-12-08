@@ -1,0 +1,48 @@
+<% content_for :sitemap do %><span class="current">设置</span><% end %>
+<div class="leftbox">
+  <div class="box">
+    <h2>个人资料</h2>
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :enctype =>  "multipart/form-data" }) do |f| %>
+    <%= render "shared/error_messages", :target => resource %> 
+      <%= f.input :name, :label => "昵称", :hint => "一月只可以修改一次。最多12个汉字#{'(下次可修改日期：'+(resource.name_last_changed_at+1.months).getlocal.strftime("%Y年%m月%d日")+')' if resource.name_last_changed_at}。<abbr style='color:red;font-weight:bold;' title='昵称在考考点评社区的作用至关重要，它标示了你唯一的身份，为了使大家更好的沟通，我们不提倡频繁的修改昵称'>注</abbr>".html_safe,:input_html=>{:maxlength=>12,:disabled=>(resource.name_last_changed_at and resource.name_last_changed_at > 1.months.ago)} %>
+      <%= f.input :slug, :label => "个性域名", :hint => "格式要求4-20个字符(可以是字母，数字，中横线),如果格式不对将会自动处理。" %>
+      <%= f.input :girl, :as => :boolean, :label => "我是女性" %>
+      <div class="row string email required"><label for="user_email" class="email required">邮箱 </label><input type="text" value="<%= resource.email %>" size="220" required="required" name="user[email]" id="user_email" class="string email required"></div>
+      <%= f.input :avatar, :label => "头像" %>
+      <% if not @user.avatar.blank? %>
+      <div class="row">
+        <label>预览</label>
+        <%= image_tag(@user.avatar.normal.url) %>
+      </div>
+      <% end %>
+      <%= f.input :website, :input_html => { :placeholder => "http://", :class => "long" }, :label => "个人站点" %>
+      <%= f.input :tagline, :input_html => { :class => "long" }, :label => "最能概括你的标志性语言" %>
+      <%= f.input :bio, :as => :text, :input_html => { :class => "long", :style => "height:120px;"}, :label => "个人经历" %>
+      <% content_for :butt2 do %>$("#user_bio").qeditor({'is_mobile_device': <%= is_mobile_device? ? 'true' : 'false' %>});<%end %>
+      <div class="actions">
+        <button type="submit">保存</button>
+      </div>
+    <% end %>
+  </div>
+  <div class="box">
+    <h2 id="mail_notify_settings">邮件提醒设置</h2>
+    <div class="content">
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :enctype =>  "multipart/form-data" }) do |f| %>
+        <%= f.input :mail_be_followed, :as => :boolean, :label => "被人关注" %>
+        <%= f.input :mail_new_answer, :as => :boolean, :label => "关注的点评有新点评" %>
+        <%= f.input :mail_invite_to_ask, :as => :boolean, :label => "有人邀请我点评点评" %>
+        <%= f.input :mail_ask_me, :as => :boolean, :label => "有人向我提问" %>
+        <div class="actions">
+          <button type="submit">保存</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% content_for :sidebar do %>
+  <%= render "/shared/omniauth_links" %>
+  <div class="box">
+    <h2>删除我的帐号</h2>
+    <p>不喜欢? <%= link_to "删除此帐号", registration_path(resource_name), :confirm => "删除后无法恢复，你确定吗?", :method => :delete %>.</p>
+  </div>
+<% end %>

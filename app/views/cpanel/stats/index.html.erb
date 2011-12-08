@@ -1,0 +1,45 @@
+<div id="stats_index">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>统计项</th>
+        <th>数值</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>话题总数</td>
+<td><%= Topic.count %></td>
+      </tr>
+      <tr>
+        <td>点评总数</td>
+        <td><%= Ask.count %></td>
+      </tr>
+      <tr>
+        <td>用户总数</td>
+        <td><%= User.count %></td>
+      </tr>
+      <tr>
+        <td>专家总数</td>
+        <td><%= User.all.to_a.collect(&:is_expert).compact.count %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<%= form_tag '/cpanel/stats/uv' do %>
+<h2>
+  UV查询
+</h2>
+<p>起始日期/时间: <input id="datepicker_from" name="datepicker_from" type="text"><input class="time" type="text" name="time_from" id="time_from" /></p>
+<p>截止日期/时间: <input id="datepicker_to" name="datepicker_to" type="text"><input class="time" type="text" name="time_to" id="time_to" /></p>
+<p><%= submit_tag 'UV查询' %></p>
+<%end %>
+
+<% content_for :butt2 do %>
+$(document).ready(function () {
+	$( "#datepicker_from" ).datepicker();
+	$( "#datepicker_to" ).datepicker();
+  $('#time_from').timePicker();
+  $('#time_to').timePicker();
+});
+<%end %>

@@ -1,0 +1,4 @@
+#!/bin/bash -x
+bundle exec rake integrity:counters
+#bundle exec rake integrity:tags
+bundle exec rake search:index

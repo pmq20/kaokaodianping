@@ -1,0 +1,226 @@
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    var ask_id = '<%= @ask.id %>';
+    var ask_redirected = false;
+  </script>
+<% end %>
+<%= render 'base' %>
+<% if not @rf_ask.blank? %>
+<% content_for :butt2 do %>
+    Asks.redirected_tip('<%= @rf_ask.title %>', '<%= @rf_ask.id %>','rf');
+<%end %>
+<% end %>
+<% if not @r_ask.blank? %>
+<% content_for :butt2 do %>
+    ask_redirected = true;
+    Asks.redirected_tip('<%= @r_ask.title %>', '<%= @r_ask.id %>','nr', '<%= @ask.id %>');
+<% end %>
+<% end %>
+<% if can_edit?(@ask) %>
+  <% if !@suggest_topics.blank? %>
+<% content_for :butt2 do %>
+      Asks.showSuggestTopics(<%=raw @suggest_topics.to_json %>);
+<%end %>
+  <% end %>
+<% end %>
+<div id="shouye_chang" class="change_with_preview_editor">
+  <div class="ask the-ask" id="ask_<%= @ask.id %>">
+    <div class="topics" style="float:left">
+      <div class="item_list">
+        <% if !@ask.topics.blank? %>
+          <%= topics_name_tag(@ask.topics) %>
+        <% else %>
+          <% if current_user %>
+            <span class="no_result">给这个点评选个培训机构吧，好让别人来点评</span>
+          <% end %>
+        <% end %>
+        <% if can_edit?(@ask) %>
+          <a href="#" onclick="return Asks.toggleEditTopics(true);" class="in_place_edit">修改</a>
+        <% end %>
+      </div>
+      <div class="edit_topics" style="display:none">
+        <div class="items">
+          <% if !@ask.topics.blank? %>
+            <% @ask.topics.each_with_index do |item,i| %>
+            <div class="topic">
+              <a href="#" onclick="Asks.removeTopic(this,<%= i %>,'<%= item %>');" class="remove"></a>
+              <span><%= item %></span>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <form data-remote="true" action="<%= ask_path(@ask.id) %>/update_topic" onsubmit="return Asks.beforeAddTopic(this);" method="post">
+          <%= auth_token  %>
+          <input type="text" class="name" id="searchTopic" style="width:100px;" name="name" value="" placeholder="搜索培训机构" /> 
+          <input type="hidden" name="add" value="1" /> 
+          <button type="submit" class="small">添加</button> 
+          <a href="#" onclick="return Asks.toggleEditTopics(false);">完成</a>
+        </form>
+        <% content_for :butt2 do %>Asks.completeTopic($("#searchTopic"));<%end %>
+      </div>
+    </div>
+    <div class="title">
+      <h1><%= "#{@ask.to_user.name}：" if !@ask.to_user.blank? %><span id="ask_title"><%= @ask.title %></span></h1>
+      <% if can_edit?(@ask) %>
+        <%= in_place_edit_tag @ask, :title, :type => :textarea, :width => 598, :height => 40, :rich => false, :text_id => "ask_title" %>
+      <% end %>
+    </div>
+    <div class="md_body">
+      <div id="ask_body"<% if @ask.chomp_body.blank? %> class="blank-body"<% end %>><%= md_body(@ask.chomp_body) %></div>
+      <% if can_edit?(@ask) %>
+        <% if @ask.chomp_body.blank? %>
+          <%= in_place_edit_tag @ask, :body, :type => :textarea, :text_id => "ask_body",:label => "添加补充资料" %>
+        <% else %>
+          <%= in_place_edit_tag @ask, :body, :type => :textarea, :text_id => "ask_body" %>
+        <% end %>
+      <% end %>
+    </div>
+<% if !@ask.type %>
+    <div class="action">
+  <% if @ask.comments_count == 0 %>
+    <a href="#" class="login_required" onclick="return Asks.toggleComments('ask','<%= @ask.id %>');">添加评论</a>
+  <% else %>
+    <a href="#" class="login_required" onclick="return Asks.toggleComments('ask','<%= @ask.id %>');"><%= @ask.comments_count %> 条评论</a>
+  <% end %>
+  • <a class="login_required" href="#new_answer" onclick="return $('#new_answer .qeditor_preview').focus();">添加<%= @ask.tianjia_what %></a>
+  • <a class="login_required" href="#" onclick="return Asks.report(this);">举报</a>
+  • <span class="date"><%= l @ask.created_at.getlocal, :format => :short %></span>
+    </div>
+<% end %>
+  </div>
+
+  <% if @ask.answers_count > 0 %>
+  <div class="answers-count">
+  	有<%= @ask.answers_count %>个点评
+  </div>
+  <% end %>
+
+  <div class="answers">
+    <% user_answered = false %>
+    <% if !@answers.blank? %>
+      <% @answers.each do |item| %>
+        <% user_answered = true if owner?(item) %>
+        <%= render("answer", :item => item) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if current_user %>
+    <% if user_answered %>
+      <div class="disabled_answer">你只能点评一次，但你可以对现有的点评进行修改。</div>
+    <% elsif !@ask.to_user.blank? and current_user.id != @ask.to_user_id %>
+      <div class="disabled_answer">这个点评是对 <%= user_name_tag(@ask.to_user) %> 提问的，只有<%= user_sex_title(@ask.to_user) %>才能点评。</div>
+    <% else %>
+      <div class="answer_form from" id="woyaodianping">
+        <h2>添加<%= @ask.tianjia_what %></h2>
+        <% if current_user %>
+        <div class="user_info">
+          <%= user_name_tag(current_user) %>,
+          <span id="answer_user_tagline"><%= user_tagline_tag(current_user) %></span>
+          <%= in_place_edit_tag current_user, :tagline, :text_id => "answer_user_tagline", :label => "修改简介" %>
+        </div>
+        <% end %>
+        <%= form_for(@answer, :remote => true, :html => { :onsubmit => "return Asks.beforeAnswer(this);" },
+                     :url => answer_ask_path(@ask.id)) do |f| %>
+          <div class="row">
+            <%= f.text_area :body, :style => "height:100px;", :class => "text long" %>
+          </div>
+          <div class="actions">
+            <button class="submit" type="submit">提交点评</button>
+          </div>
+        <% end %>
+        <% content_for :butt2 do %>
+          $("#answer_body").qeditor({'is_mobile_device': <%= is_mobile_device? ? 'true' : 'false' %>});
+        <%end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if params[:eawc] == "yes" or params[:easc] == "yes" %>
+  	<% content_for :scripts do %>
+  	  <script type="text/javascript">
+  			$(document).ready(function() {
+  				Asks.toggleComments('<%= params[:eawc] == "yes" ? "answer" : "ask" %>','<%= params[:eawc] == "yes" ? params[:awid] : params[:asid] %>');
+  			});
+  		</script>
+  	<% end %>
+  <% end %>
+  <br style="clear:both">
+
+</div>
+
+
+
+<% content_for :butt2 do %>
+  var change_with_preview_editor0 = $('#shouye_chang').height();
+  window.change_with_preview_editor = function(nowh){
+    $('#shouye_chang').height(change_with_preview_editor0+nowh+120)
+  }
+  $(document).ready(function () {
+    change_with_preview_editor($('.qeditor_preview').height())
+  })
+<%end %>
+
+
+
+
+
+
+
+
+<% content_for :sidebar do %>
+<% if current_user and current_user.ask_followed?(@ask) %>
+<a href="#" style="width:80px;" class="flat_button" onclick="return Asks.unfollow(this);">取消关注</a>
+<% else %>
+<a href="#" style="width:80px;" class="login_required gray_button green_button" onclick="return Asks.follow(this);">关注此<%= @ask.typewhat %></a>
+<% end %>
+<a href="#" class="dropdown" onclick="return Asks.dropdown_menu(this);"><span class="settings">选项</span></a>
+
+                    
+                    
+      <div class="box">
+        <div class="inner">
+        </div>
+      </div>
+
+    <div style="display:none" id="redirect_ask">
+      <div id="redirect_ask_panel" class="facebox_window simple_form">
+        <h2>指向另外个已经存在的点评</h2>
+        <form action="" onsubmit="return Asks.redirect_ask_save(this);">
+          <div class="field">
+            <label>把点评“<%= @ask.title %>”指向:</label>
+            <input type="text" class="search" style="width:450px;" placeholder="搜索标题" />
+            <input type="hidden" class="r_title" />
+            <input type="hidden" class="r_id" />
+          </div>
+          <div class="actions">
+            <button type="submit">确定重定向</button>
+            <a style="margin-left:10px;" onclick="$.facebox.close(); return false;" href="#">取消</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <%= render_cell :ask, :relation_asks, :ask => @ask %>
+
+    <% if current_user %>
+      <%= render_cell :ask, :invites, :ask => @ask, :current_user => current_user %>
+      <% content_for :butt2 do %>
+        Asks.completeInviteToAnswer();
+        $("#share_ask_box .inner .share a").facebox();
+      <%end %>
+    <% end %>
+
+		<div class="box standard gray">
+			<h2><%= @ask.typewhat %>状态</h2>
+			<div class="inner">
+				<p>最近活动：<%= l @ask.last_updated_at ? @ask.last_updated_at.getlocal : (@ask.answered_at ? @ask.answered_at.getlocal : @ask.updated_at.getlocal), :format => :min %></p>
+				<p>被浏览 <%= @ask.views_count %> 次，<%= @ask.followers.count %> 人关注了该点评</p>
+				<% if @ask.user %>
+				<p><%= user_name_tag(@ask.user) %> 创建了该<%= @ask.typewhat %></p>
+				<% end %>
+        <%= render_cell :ask, :followers, :ask => @ask %>
+			</div>
+    </div>
+<% end %>

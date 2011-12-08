@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homeland - Control Panel</title>
+  <%= stylesheet_link_tag "bbs_cpanel" %>
+  <%= javascript_include_tag "bbs" %>
+  <%= csrf_meta_tag %>
+  <style type="text/css" media="screen">
+    .container{
+      width:98%;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar" data-dropdown="dropdown">
+    <div class="topbar-inner">
+      <div class="container">
+        <a href="<%= bbs_cpanel_root_path %>" class="brand">论坛控制台</a>
+        <ul class="nav">
+          <li<%= " class=active" if params[:controller] == "cpanel/home" %>><a href="<%= bbs_cpanel_root_path %>">系统概况</a></li>
+          <li<%= " class=active" if params[:controller] == "cpanel/users" %>><a href="<%= bbs_cpanel_users_path %>">用户</a></li>
+          <li<%= " class='active'" if params[:controller] == "cpanel/sections" %>><a href="<%= bbs_cpanel_sections_path %>">分类</a></li>
+          <li<%= " class='active'" if params[:controller] == "cpanel/nodes" %>><a href="<%= bbs_cpanel_nodes_path %>">板块</a></li>
+          <li<%= " class='active'" if params[:controller] == "cpanel/topics" %>><a href="<%= bbs_cpanel_topics_path %>">帖子</a></li>
+          <li<%= " class='active'" if params[:controller] == "cpanel/replies" %>><a href="<%= bbs_cpanel_replies_path %>">回复</a></li>
+          <li<%= " class='active'" if params[:controller] == "cpanel/photos" %>><a href="<%= bbs_cpanel_photos_path %>">图片</a></li>
+        </ul>
+        <ul class="nav secondary-nav" id="userbar">
+          <li>
+            <a href="#" class="dropdown-toggle"><%= current_user.name %></a>
+            <ul class="dropdown-menu">
+              <li><a href="<%= root_path %>">回到前台</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="main" class="box">
+      <%= notice_message %>
+      <%= yield %>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="suggest">
+        潘 &amp; 邵 &amp; 姜 Fighting Together! <%= link_to '主控制台','/cpanel' %>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

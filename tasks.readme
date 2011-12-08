@@ -1,0 +1,7 @@
+发送邮件：
+rake mail:sendpack
+rake mail:sendpack_expert
+
+僵尸粉
+（先保证列表在auxiliary/zombies.txt）
+rake experts:zombify

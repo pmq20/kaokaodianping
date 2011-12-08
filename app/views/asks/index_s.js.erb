@@ -1,0 +1,12 @@
+<% if !@asks_s.blank? %>
+  <% @asks_s.each do |item| %>
+    $(".pagination_s").before('<%= escape_javascript(render("/asks/ask",:item => item)) %>');
+  <% end %>
+  current_page = "<%= (params[:page_s] || "1").to_i + 1 %>";
+  <% if @asks_s.count < @per_page_s %>
+  $(".pagination_s").remove();
+  <% end %>
+<% else %>
+  $(".pagination_s").remove();
+<% end %>
+

@@ -1,0 +1,42 @@
+自<%= @from_time.strftime "%m/%d/%Y %H:%M" %>至<%= @to_time.strftime "%m/%d/%Y %H:%M" %>
+<div id="stats_index">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>UV / PV统计项</th>
+        <th>数值</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td>点评邀请行为 UV / PV</td>
+      <td><%= @asklogs.collect(&:user_id).uniq.count %> / <%= @asklogs.count %></td>
+      </tr>
+      <tr>
+      <td>新增点评数量 UV / PV</td>
+      <td><%= @asks.collect(&:user_id).uniq.count %> / <%= @asks.count %></td>
+      </tr>
+      <tr>
+        <td>新增话题数量</td>
+        <td><%= @topics.count %></td>
+      </tr>
+      <tr>
+        <td>用户关注行为 UV / PV</td>
+        <td><%= @userlogs.collect(&:user_id).uniq.count %> / <%= @userlogs.count %></td>
+      </tr>
+      <tr>
+        <td>新增用户数量 UV / PV</td>
+        <td><%= @users.collect(&:id).uniq.count %> / <%= @users.count %></td>
+      </tr>
+      <tr>
+        <td>点评新增数量 UV / PV</td>
+        <td><%= @answers.collect(&:user_id).uniq.count %> / <%= @answers.count %></td>
+      </tr>
+      <tr>
+        <td>评论新增数量 UV / PV</td>
+        <td><%= @comments.collect(&:user_id).uniq.count %> / <%= @comments.count %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

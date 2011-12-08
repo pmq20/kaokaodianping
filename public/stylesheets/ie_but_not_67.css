@@ -1,0 +1,3 @@
+#default_tabs .tab, #user_channels .tab {
+  width: expression(this.style.width = this.getElementsByTagName('span')[0] && this.getElementsByTagName('span')[0].offsetWidth ? this.getElementsByTagName('span')[0].offsetWidth+'px':'auto');
+}

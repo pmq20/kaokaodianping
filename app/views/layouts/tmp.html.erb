@@ -1,0 +1,25 @@
+<%= spaceless do %>
+<div style="background:#FFF; font-size:12px; font-family:'helvetica neue', helvetica, arial, sans-serif;">
+  <table>
+    <tr style="height:35px;">
+      <td valign="middle">
+        <h3 style="color:#000000;margin:0;padding:0;font-size:15px;">亲爱的<%= user_name_tag(User.first, :url => true) %>,</h3>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" style="font-size:12px;">
+        <% 1.times do %>
+          <%= yield %>
+        <%end %>
+        <div style="margin-top:25px; padding:8px; text-align:right;">
+          <a href="<%= root_url %>" style="color:#333;">考考点评</a><br />
+        </div>
+        <div style="margin-top:5px; padding-top:10px; color:#999; border-top:1px solid #ccc;">
+          这封邮件发自<%= Setting.app_name %>, 帮你挑选最适合你的培训机构。<br />
+          <a style="color:#999;" href="<%= root_url %>"><%= root_url %></a> &nbsp;|&nbsp; <a style="color:#999;" href="<%= edit_user_registration_url %>#mail_notify_settings">邮件通知设置</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<% end %>

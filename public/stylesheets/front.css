@@ -1,0 +1,58 @@
+.newbie {
+	font-size: 1.2em;
+}
+
+.newbie h2 {
+	font-weight: normal;
+	font-size: 14px;
+}
+
+.newbie ul.hot-topics, .newbie ul.hot-asks {
+	margin: 10px 5px;
+}
+
+.newbie ul.hot-topics li {
+	list-style: none;
+	float: left;
+	margin: 3px 20px 3px 5px;
+	line-height: 19px;
+}
+
+.newbie ul.hot-asks li {
+	margin: 5px 0 5px 10px;
+}
+
+
+
+
+
+.followers { margin: 7px 0; }
+.followers a { margin: 0 1px 3px 0; }
+
+.answers-count {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: 8px 0;
+	color: #999;
+	font-size: 13px;
+}
+
+.listing-title {
+	font-size: 14px;
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+
+.full-body {
+	display: none;
+}
+
+.badge { background: none repeat scroll 0 0 #C3412F;
+	color: white; display: block; font-size: 11px;
+	line-height: 13px; padding: 1px 5px; position: absolute;
+	right: -8px; text-decoration: none; top: -7px;
+	-webkit-border-radius: 30px; -moz-border-radius: 30px; -o-border-radius: 30px;
+	border-radius: 30px; }
+

@@ -1,0 +1,60 @@
+<!--
+<%= form_tag traverse_path,method:'get' do %>
+<input type="text" value="" name="q" style="width:400px">
+<input type="submit" value="搜索全部"  style="width:100px">
+<%end %>
+-->
+
+<div id="shouye_chang">
+
+
+<% if params[:q] %>
+<div class="searchresult">
+
+	<div class="focList">
+		<div class="focListT">
+			<strong>关于“<%=params[:q]%>”的分类</strong>
+		</div>
+		<div class="focListC" style="margin-left:20px">
+      <%i=0%>
+      <%= '0个相关分类' if @tags.empty? %>
+      <%@tags.each do |tag|%>
+      			<a href="<%="/tags/#{tag.name}"%>"><%=tag.name%></a>
+      <%='|' unless i==@tags.size-1%>
+      <%i+=1%>
+      <%end%>
+		</div>
+	</div>
+
+
+	<div class="focList">
+		<div class="focListT">
+			<strong>关于“<%=params[:q]%>”的机构</strong>
+		</div>
+		<div class="focListC" style="margin-left:20px">
+    <%i=0%>
+
+  <%= '0个相关培训机构' if @topics.empty? and @asks.empty? %>
+  <%@topics.each do |topic|%>
+		<a href="<%="/topics/#{topic['title']}"%>"><%=topic['title']%></a><span>（关注<%=topic['followers_count']%>次）</span>
+    <%='<br>'.html_safe unless i==@topics.size-1%>
+    <%i+=1%>
+  <%end%>
+
+  <%@asks.each{|ask|%>
+  		<a href="<%="/asks/#{ask['id']}"%>"><%=ask['title']%></a><br>
+  <%}%>
+
+
+
+		</div>
+	</div>
+	
+</div>
+
+
+<% end %>
+
+</div>
+
+<%= render "asks/sidebar" %>

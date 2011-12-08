@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>考考点评 - 挑选最适合你的培训机构</title>
+<meta name="description" content="培训机构点评">
+<meta name="author" content="P.S.V.R, Sounder, Junbo, Yanhu">
+<%= stylesheet_link_tag "commoncss" %>
+<%= stylesheet_link_tag "spzz_general" %>
+</head>
+
+<body id="<%= pos_signature %>" class="<%= params[:controller].parameterize %> <%= 'global' unless 'home_index'==pos_signature %>">
+  <div id="page_container">
+  <div id="header_container">
+  <div class="logo"><a href="/"><img width="343" vspace="0" height="67" border="0" src="/images/default.gif" title="考考点评" alt="考考点评"></a></div>
+  <form action="/search" method="get" id="searchForm_new_shorten">
+  <div class="inner">
+  <input type="text" maxlength="256" name="keyword" class="keyword">
+  <input type="image" src="/images/buttons/search_go_new_frame.gif" value="Go!" name="SEARCH_GO" class="button">
+  </div>
+  </form>
+  <div id="sponsor_container">
+  <div id="placeholder"> </div>
+  <div id="browseBttnPod">
+  <dl id="browsePod">
+  <dt id="browseButton"><a href="/category-guide"><!--<img src="static/sz2/us/images/browse_departments/bttn_browse.gif" width="107" height="50" border="0" alt="Browse Departments" tal:attributes="src siteUrlHelper/akamaiImageUrlFromSrc(attrs/src)"/>-->See all departments</a></dt>
+  <dd id="sbrowsePod1" style="display: none;">
+  <div id="browse">
+  <iframe frameborder="0" id="coverup"> </iframe>
+  <div class="wrapper">
+  <div class="departmentsContent">
+  <div id="browsePodCloseBox" class="closeBox"><a href="#"><img width="12" height="12" border="0" src="/images/bttn_closeBox.gif" alt="Close Window"></a></div>
+  <table width="650" summary="layout table" class="departmentsTable">
+  <tbody><tr>
+  <td class="left">
+  <div class="browseL1"><a href="/appliances/18000000/browse" class="url">Appliances</a></div>
+  <div class="browseL2"><a href="/vacuums-accessories/13110106/products" class="url">Vacuums</a> <span class="black">|</span> <a href="/refrigerators/13050901/products" class="url">Refrigerators</a> <span class="black">|</span> <a href="/heaters/13110108/products" class="url">Heaters</a> <span class="black">|</span> <a href="/appliances/18000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/automotive/22000000/browse" class="url">Automotive</a></div>
+  <div class="browseL2"><a href="/automotive-accessories/22000400/products" class="url">Accessories</a> <span class="black">|</span> <a href="/automotive-parts/22000200/products" class="url">Parts</a> <span class="black">|</span> <a href="/appliances/22000700/products" class="url">Tires</a> <span class="black">|</span> <a href="/automotive/22000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/babies_kids/17000000/browse" class="url">Babies &amp; Kids</a></div>
+  <div class="browseL2"><a href="/kids-clothes/10020000/products" class="url">Kid's Clothing</a> <span class="black">|</span> <a href="/baby-kids-furniture/13060100/products" class="url">Furniture</a> <span class="black">|</span> <a href="/baby-kids-bedding/13060200/products" class="url">Bedding</a> <span class="black">|</span> <a href="/babies_kids/17000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/clothing_accessories/10000000/browse" class="url">Clothing &amp; Accessories</a></div>
+  <div class="browseL2"><a href="/women-s-clothing/10090000/products" class="url">Women's Clothing</a> <span class="black">|</span> <a href="/handbags-luggage/10010000/products" class="url">Handbags</a> <span class="black">|</span> <a href="/men-s-shoes/10150000/products" class="url">Men's Shoes</a> <span class="black">|</span> <a href="/clothing_accessories/10000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/computers_software/4/browse" class="url">Computer Software</a></div>
+  <div class="browseL2"><a href="/digital-cameras/402/products" class="url">Digital Camera</a> <span class="black">|</span> <a href="/mp3-media-players/499/products" class="url">MP3s</a> <span class="black">|</span> <a href="/laptop-computers/462/products" class="url">Laptops</a> <span class="black">|</span> <a href="/computers_software/4/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/electronics/11000000/browse" class="url">Electronics</a></div>
+  <div class="browseL2"><a href="/cell-phones/11580100/products" class="url">Cell Phones</a> <span class="black">|</span> <a href="/television-tv/11520000/products" class="url">TVs</a> <span class="black">|</span> <a href="/global-positioning-systems-gps/11210000/products" class="url">GPS Systems</a> <span class="black">|</span> <a href="/electronics/11000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/gifts_flowers_food/16000000/browse" class="url">Gifts, Flowers &amp; Food</a></div>
+  <div class="browseL2"><a href="/party-supplies/16010900/products" class="url">Party Supplies</a> <span class="black">|</span> <a href="/chocolate-sweets/16030100/products" class="url">Chocolates &amp; Sweets</a> <span class="black">|</span> <a href="/flowers-plants/16010400/products" class="url">Flowers</a> <span class="black">|</span> <a href="/gifts_flowers_food/16000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/health_beauty_supplies/50/browse" class="url">Health &amp; Beauty</a></div>
+  <div class="browseL2"><a href="/dental-care/22008/products" class="url">Dental Care</a> <span class="black">|</span> <a href="/vision-care/145/products" class="url">Vision Care</a> <span class="black">|</span> <a href="/vitamins-nutrition/150/products" class="url">Vitamins</a> <span class="black">|</span> <a href="/health_beauty_supplies/50/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/home_garden/13000000/browse" class="url">Home &amp; Garden</a></div>
+  <div class="browseL2"><a href="/furniture/13170100/products" class="url">Furniture</a> <span class="black">|</span> <a href="/home-decor/13020200/products" class="url">Home Decor</a> <span class="black">|</span> <a href="/bedding/13030200/products" class="url">Bedding</a> <span class="black">|</span> <a href="/home_garden/13000000/browse" class="url">More</a></div>
+  </td>
+  <td class="right">
+  <div class="browseL1"><a href="/jewelry_watches/30000000/browse" class="url">Jewelry &amp; Watches</a></div>
+  <div class="browseL2"><a href="/watches/30020100/products" class="url">Watches</a> <span class="black">|</span> <a href="/rings/30010106/products" class="url">Rings</a> <span class="black">|</span> <a href="/necklaces-pendants/30010104/products" class="url">Necklaces &amp; Pendants</a> <span class="black">|</span> <a href="/jewelry_watches/30000000/browse" class="url">More</a></div>
+  <div class="browseL1">Media</div>
+  <div class="browseL2"><a href="/DVDs_Videos/51/browse" class="url">DVDs &amp; Videos</a> <span class="black">|</span> <a href="/books_magazines/80/browse" class="url">Books &amp; Magazines</a> <span class="black">|</span> <a href="/music/52/browse" class="url">Music</a></div>
+  <div class="browseL1"><a href="/musical_instruments_accessories/21000000/browse" class="url">Musical Instruments</a></div>
+  <div class="browseL2"><a href="/guitar-bass/521900/products" class="url">Guitar/Bass</a> <span class="black">|</span> <a href="/drums-percussion/521902/products" class="url">Drums</a> <span class="black">|</span> <a href="/keyboards-midi/521903/products" class="url">Keyboards</a> <span class="black">|</span> <a href="/musical_instruments_accessories/21000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/office_supplies/24/browse" class="url">Office Supplies</a></div>
+  <div class="browseL2"><a href="/office-basics/212/products" class="url">Office Basics</a> <span class="black">|</span> <a href="/calendars-organizers-planners/12/products" class="url">Calendars</a> <span class="black">|</span> <a href="/calculator/209/products" class="url">Calculators</a> <span class="black">|</span> <a href="/office_supplies/24/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/pet_supplies/31000000/browse" class="url">Pet Supplies</a></div>
+  <div class="browseL2"><a href="/dog-supplies/31000300/products" class="url">Dog</a> <span class="black">|</span> <a href="/fish-supplies/31000400/products" class="url">Fish</a> <span class="black">|</span> <a href="/cat-supplies/31000200/products" class="url">Cat</a> <span class="black">|</span> <a href="/pet_supplies/31000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/sports_equipment_outdoor_gear/12000000/browse" class="url">Sporting Goods</a></div>
+  <div class="browseL2"><a href="/fitness-equipment/12050100/products" class="url">Fitness Equipment</a> <span class="black">|</span> <a href="/bicycles-equipment/12130100/products" class="url">Bicycles</a> <span class="black">|</span> <a href="/golf-gifts-equipment/12070300/products" class="url">Golf</a> <span class="black">|</span> <a href="/sports_equipment_outdoor_gear/12000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/toys_games/14000000/browse" class="url">Toys &amp; Games</a></div>
+  <div class="browseL2"><a href="/costumes-accessories/14010202/products" class="url">Costumes</a> <span class="black">|</span> <a href="/action-figures/14010100/products" class="url">Action Figures</a> <span class="black">|</span> <a href="/dolls/14010600/products" class="url">Dolls</a> <span class="black">|</span> <a href="/toys_games/14000000/browse" class="url">More</a></div>
+  <div class="browseL1"><a href="/video_games/15000000/browse" class="url">Video Games</a></div>
+  <div class="browseL2"><a href="/video-games/15010100/products" class="url">Games</a> <span class="black">|</span> <a href="/video-game-consoles/15010300/products" class="url">Consoles</a> <span class="black">|</span> <a href="/video-game-accessories/15010200/products" class="url">Accessories</a> <span class="black">|</span> <a href="/video_games/15000000/browse" class="url">More</a></div>
+  <div class="browseL1">
+  <div class="browseAll"><a href="/category-guide">See all departments</a></div>
+  </div></td>
+  </tr>
+  </tbody></table>
+  </div>
+  </div>
+  </div>
+  </dd>
+  </dl>
+  </div>
+  </div>
+  <br clear="all">
+  </div>
+  <div class="frame_container">
+  <div class="top_corners"><div class="corner_top_left">&nbsp;</div><div class="corner_top_right">&nbsp;</div></div>
+  <div class="frame_center">
+  <div class="frame_center_border">
+  <div class="whitepage">
+  <div class="top_corners_white"><div class="left_corner">&nbsp;</div><div class="right_corner">&nbsp;</div></div>
+  <div class="main_content">
+    <% if !notice.blank? %>
+      <div class="notice_message"><%= notice %></div>
+    <% end %>
+    <% if !alert.blank? %>
+      <div class="alert_message"><%= alert %></div>
+    <% end %>
+  <%= yield %>
+  </div>
+  <div class="bottom_corners_white"><div class="corner_bottom_left_white">&nbsp;</div><div class="corner_bottom_right_white">&nbsp;</div></div>
+  </div>
+  </div>
+  <div style="padding: 13px 0 0 0; text-align: center;" class="frame_center_border">
+  <form action="/search" method="get">
+  <span style="font-weight: bold;">Shop for </span>
+  <input type="text" style="width: 200px;" maxlength="256" name="keyword">
+  <input type="submit" value="Search" name="SEARCH_GO">
+  </form>
+  </div>
+  </div>
+  <div class="bottom_corners"><div class="corner_bottom_left">&nbsp;</div><div class="corner_bottom_right">&nbsp;</div></div>
+  </div>
+
+  <%= render file:'shared/_shopzilla_footer' %>
+  </div>
+  <div id="loading" style="display:none">
+      <div class="logo"></div>
+      <div class="text">加载中…</div>
+  </div>
+</body>
+</html>

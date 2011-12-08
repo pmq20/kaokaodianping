@@ -1,0 +1,13 @@
+<%= form_for(@photo, :url => (@photo.new_record? ? bbs_cpanel_replies_path : bbs_cpanel_photo_path(@photo.id))) do |f| %>
+  <fieldset>
+    <legend></legend>
+  <%= render 'shared/error_messages', :target => @photo %>
+
+  <div class="clearfix">
+    <%= f.label :image %><div class="input">
+    <%= f.file_field :image %></div>
+  </div>
+  <div class="actions">
+    <button type="submit" class="btn primary">上传</button> or <%= link_to 'Back', photos_path %>
+  </div>
+<% end %>

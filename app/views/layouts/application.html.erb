@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=960"/>
+        <meta http-equiv="x-dns-prefetch-control" content="off"/>
+        <title><%= raw @page_title %><%= Setting.app_name %></title>
+        <link rel="shortcut icon" href="/favicon.ico?v=003" />
+         
+        <%= auto_discovery_link_tag(:rss,feed_bbs_topics_url,:title => '订阅最新贴') if pos_bbs? %>
+        <%= stylesheet_link_tag "bbs" if pos_bbs? %>
+        <%= stylesheet_link_tag "application","users","asks","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.tipsy",'global','dashboard','jquery-ui-1.8.16.custom','facebox','others' %>
+
+        <% if @is_ie %>
+          <%= stylesheet_link_tag 'ie'  %>
+          <% if @is_ie6 or @is_ie7 %>
+            <%= stylesheet_link_tag 'ie6' %>
+          <% else %>
+            <%= stylesheet_link_tag 'ie_but_not_67' %>
+          <% end %>
+        <% end %>
+        <%= yield :styles %>
+        <%= csrf_meta_tag %>
+        
+        <meta name="keywords" content="<%= @meta_keywords %>" />
+        <meta name="description" content="<%= @meta_description %>" />
+    </head>
+    <body id="<%= pos_signature %>">    
+
+      <% if !user_signed_in? %>
+        <%=render 'shared/loginreg' %>
+      <% end %>
+
+
+      <div id="container">
+        <div id="header_container">
+          <%= render 'shared/header' %>
+        </div>
+
+
+        <img src="/images/content_top.png" alt="" id="content_top" />
+        <div id="content">
+          <!-- New posts notice -->
+
+
+          <!-- Dashboard controls -->
+          <div id="right_column" class="swipeable" style="<%= yield :sidebarstyle %>">
+          <%= yield :sidebar %>
+          </div>
+
+          <!-- Left column -->
+          <div id="left_column">
+            <% if !@notice.blank? %>
+              <% if cookies[:hide_notice] != @notice.id.to_s %>
+                <div id="sys_notice">
+                  <%= raw @notice.body %>
+                  <div class="info">
+                    <span class="date"><%= l @notice.updated_at.getlocal, :format => :long %></span>
+                    <a href="#" class="gray_button small" onclick="return App.hideNotice('<%= @notice.id %>');">我知道了</a>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+            <% if !notice.blank? %>
+              <div class="notice_message"><%= notice %></div>
+              <% content_for :butt2 do %>
+                $(".notice_message").fadeOut().fadeIn();
+              <% end %>
+            <% end %>
+            <% if !alert.blank? %>
+              <div class="alert_message"><%= alert %></div>
+              <% content_for :butt2 do %>
+                $(".alert_message").fadeOut().fadeIn();
+              <% end %>
+            <% end %>
+
+            <%= yield %>
+          </div>
+
+          <div class="clear"></div>
+        </div>
+
+        <img src="/images/content_bottom.png" alt="" id="content_bottom" />
+
+        <%= render 'shared/footer' %>
+      </div>
+      <div id="report_tumblelog_bar" style="display:none;">
+        <input type="hidden" id="report_tumblelog_target" />
+        <span id="report_tumblelog_with_name" style="display:none;">
+            Report <span id="report_tumblelog_name"></span>? </span>
+        <span id="report_tumblelog_without_name" style="display:none;">Report this person?</span>
+        <button class="chrome" onclick="report_tumblelog($('report_tumblelog_target').value, 'PLkymNBLCVuyXJ8quh0Hohvo4', '1');"><div class="chrome_button"><div class="chrome_button_left"></div>Spam<div class="chrome_button_right"></div></div></button>
+        <button class="chrome" onclick="report_tumblelog($('report_tumblelog_target').value, 'PLkymNBLCVuyXJ8quh0Hohvo4', '2');"><div class="chrome_button"><div class="chrome_button_left"></div>Harassment<div class="chrome_button_right"></div></div></button>
+        <button class="chrome" onclick="report_tumblelog($('report_tumblelog_target').value, 'PLkymNBLCVuyXJ8quh0Hohvo4', 'other');"><div class="chrome_button"><div class="chrome_button_left"></div>No thanks<div class="chrome_button_right"></div></div></button>
+      </div>
+      <a style="width:30px;position:fixed;right:0;top:200px;_position:absolute;_top:expression(documentElement.scrollTop+200);height:100px" href="/bugtrack">
+        <img src="/images/feedback.png" border="0" title="意见反馈" />
+      </a>
+      <div style="display: none;" id="loading">
+        <div class="logo"></div>
+        <div class="text">加载中…</div>
+      </div>
+      <a id="return_to_top" style="display: block;" onclick="Effect.ScrollTo('container'); return false;" href="#"><div class="return_to_top_icon"></div></a>
+      <a id="return_to_home" style="display: block;" href="<%= pos_bbs? ? '/bbs' : root_path %>"><div class="return_to_home_icon"></div></a>
+
+
+      <div style="width:0px;height:0px;overflow:hidden;">
+        <%= image_tag("loading.gif") %>
+        <div id="report_page">
+          <h2>举报内容</h2>
+          <form id="report_page_form" action="/report.js" onsubmit="App.loading();" method="post" class="simple_form">
+            <%= auth_token %>
+            <div class="row">
+              <input type="hidden" id="report_page_url_readonly" name="url_readonly" value="<%= request.url %>" />
+              <input type="hidden" id="report_page_url" name="url" value="<%= request.url %>" />
+              <label class="string">请填写举报原因，我们会尽快删除不良内容:</label>
+              <textarea name="desc" style="width:400px;height:40px;"></textarea>
+            </div>
+            <div class="acitons">
+              <button type="submit">提交</button> <a href="#" style="margin-left:5px;" onclick="$.facebox.close(); return false;">关闭</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+      
+      
+
+      <script type="text/javascript">
+        <% if user_signed_in? %>
+        window.logined = true;
+        <% else %>
+        window.logined = false;
+        <% end %>
+        window.login_trigger = function(){
+          $('#login_link').trigger('click');
+        }
+      </script>
+
+
+
+
+      <% if pos_bbs? %>
+        <%= javascript_include_tag "bbs" %>
+      <% else %>
+        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy",'jquery-ui-1.8.16.custom.min',"jcaches","application","asks","topics","users","inbox" %>
+      <% end %>
+
+      <%= yield :scripts %>
+      <script type="text/javascript" charset="utf-8">
+        <%= yield :butt2 %>
+      </script>
+      <%= yield :butt %>
+
+
+
+
+      <script type="text/javascript" charset="utf-8">
+        if(!window.logined){
+          $('.login_required').attr('onclick','').unbind('click').click(function(){
+            login_trigger();
+            return false;
+          })
+        }
+      </script>
+
+
+      
+      
+      
+    </body>
+</html>
+
