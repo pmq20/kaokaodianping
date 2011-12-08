@@ -64,6 +64,7 @@
   background:none !important;
   border:none;
   width:550px;
+  padding-bottom:20px;
 }
 #help_query{
   z-index:100;

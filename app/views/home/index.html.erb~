@@ -135,7 +135,7 @@
       <div class="ask_item">
         <table border="0" cellspacing="0" cellpadding="0" style="width:100%">
           <tr>
-            <td class="avatar_td" valign="center"><div><%= user_avatar_tag(ans.user,:normal) %></div></td>
+            <td class="avatar_td" valign="center"><div><%# user_avatar_tag(ans.user,:normal) %></div></td>
             <td>
               <div style="float:right;color:#999999"><%= gap(ans.created_at) %>前</div>
               <div style="margin-bottom:8px;"><%= user_name_tag(ans.user) %><strong>点评了</strong><%= link_to item.title,item %></div>
