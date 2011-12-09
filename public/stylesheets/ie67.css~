@@ -1,0 +1,66 @@
+
+#tabs_container li.selected{
+  width:20px;
+}
+#right_column .controls_section li{
+  cursor:pointer
+}
+#right_column .controls_section li a div{
+  cursor:pointer;
+}
+
+
+#right_column .controls_section li a {
+    background-image: url('/images/icons_sprite_ie.png?2');
+}
+#right_column .controls_section li.selected a {
+    background-image: url('/images/icons_sprite_ie_selected.png?2');
+}
+#right_column .controls_section li:hover a {
+  background-image:url('/images/icons_sprite_ie.png?2');
+}
+
+#header .selection_nipple{
+  border-left: 12px solid #395775;
+  border-right: 12px solid #395775;
+}
+#search_controls_button{
+  background: #2A445E url('/images/ieusersearch.png') no-repeat;
+}
+#default_tabs a,#user_channels a,#user_tools a{
+  text-decoration:none;
+}
+#bbs_selection_nipple{
+  margin-top:3px !important;
+  background-color:transparent;
+}
+.avatar_and_i2{
+  color:#BEC6CE;
+  font-size:18px;
+  font-weight:bold;
+  padding-bottom:38px;
+}
+.hot_seaches{
+  
+}
+#help_query{
+  color:black;
+  background-color: red;
+}
+#help_query_btn{
+  background: red;
+}
+
+
+#help_search{
+  width:480px;
+  margin-bottom:0px;
+  padding-bottom:0;
+}
+#help_query{
+}
+#help_query_btn{
+}
+#right_column .controls_section .gradient{
+  background:none !important;
+}

@@ -893,3 +893,6 @@ ol#photo_list li .caption {
     white-space: nowrap;
 }
 /*end_edit_post*/
+.colorBlack{
+color:black !important;
+}

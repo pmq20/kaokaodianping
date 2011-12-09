@@ -126,9 +126,8 @@ type="text"
 name="q"
 id="search_query"
 value="搜索用户昵称"
-onclick="if(!this.alreadygot){this.style.color='#FFF';this.value='';this.alreadygot=true}"
+onclick="if(!this.alreadygot){this.style.color='#000';this.value='';this.alreadygot=true}"
 title="搜索用户昵称"
-style="color:#CCC"
 />
 
 <div id="search_controls_wrapper">

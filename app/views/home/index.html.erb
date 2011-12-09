@@ -27,26 +27,28 @@
     <button id="help_query_btn" onclick="if($('#help_query').val()!=''){$('#help_search').submit();}else{$('#help_query').focus()}return false;"></button>
   <% end %>
     <br style="clear:both"/>
-    <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
+
+
+  <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
     热门搜索: 
     <% @hot_searches.each do |search|%>
-      <%= link_to search,'#',onclick:"$('#help_query').val('#{search}');$('#help_query').focus()" %>, 
+      <%= link_to search,'#',onclick:"dhelp('#{search}')" %>, 
     <% end %>
     <%= link_to '[更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show()' %>
-
     <span id="more_topics" style="display:none">
       <% @more_tags.each_with_index do |search,index| %>
-        <%= link_to search,'#',onclick:"$('#help_query').val('#{search}');$('#help_query').focus()" %>,
+        <%= link_to search,'#',onclick:"dhelp('#{search}')" %>,
       <% end %>
       <%= link_to '[更更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics2").show()' %>
       <span id="more_topics2" style="display:none">
         <% @more_topics.each_with_index do |search,index| %>
-          <%= link_to search,'#',onclick:"$('#help_query').val('#{search}');$('#help_query').focus()" %><%= ',' unless index == @more_topics.length-1 %>
+          <%= link_to search,'#',onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
         <% end %>
       </span>
     </span>
     <br style="clear:both"/>
-    </div>
+  </div>
+  
 </td>
 </tr>
 </table>
@@ -64,6 +66,14 @@
 
 <li class="post is_mine with_avatar new_post" id="new_post" style="background:none repeat scroll 0 0 #F9F9F9">
 
+  <%= form_tag traverse_path,method:'get',:id=>"help_search" do %>
+    <input style="margin:3px 0 0 0;width:382px;padding-top:13px;color:#CCC" type="text"
+    value="培训项目或机构名"
+    onclick="if(!this.alreadygot){this.style.color='#000';this.value='';this.alreadygot=true}"
+    title="培训项目或机构名" 
+    id="help_query" class="" name="q">
+    <button id="help_query_btn" onclick="if($('#help_query').val()!=''){$('#help_search').submit();}else{$('#help_query').focus()}return false;"></button>
+  <% end %>
 
 
   <span class="arrow"></span>
@@ -73,23 +83,23 @@
   </div>
 
   <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
-  热门搜索: 
-  <% @hot_searches.each do |search|%>
-    <%= link_to search,'#',onclick:"$('#help_query').val('#{search}');$('#help_query').focus()" %>, 
-  <% end %>
-  <%= link_to '[更多]','#',style:'float:right;margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show()' %>
-  <span id="more_topics" style="display:none">
-    <% @more_tags.each_with_index do |search,index| %>
-      <%= link_to search,'#',onclick:"$('#help_query').val('#{search}');$('#help_query').focus()" %>,
+    热门搜索: 
+    <% @hot_searches.each do |search|%>
+      <%= link_to search,'#',onclick:"dhelp('#{search}')" %>, 
     <% end %>
-    <%= link_to '[更更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics2").show()' %>
-    <span id="more_topics2" style="display:none">
-      <% @more_topics.each_with_index do |search,index| %>
-        <%= link_to search,'#',onclick:"$('#help_query').val('#{search}');$('#help_query').focus()" %><%= ',' unless index == @more_topics.length-1 %>
+    <%= link_to '[更多]','#',style:'float:right;margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show()' %>
+    <span id="more_topics" style="display:none">
+      <% @more_tags.each_with_index do |search,index| %>
+        <%= link_to search,'#',onclick:"dhelp('#{search}')" %>,
       <% end %>
+      <%= link_to '[更更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics2").show()' %>
+      <span id="more_topics2" style="display:none">
+        <% @more_topics.each_with_index do |search,index| %>
+          <%= link_to search,'#',onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
+        <% end %>
+      </span>
     </span>
-  </span>
-  <br style="clear:both"/>
+    <br style="clear:both"/>
   </div>
 </li>
 
@@ -104,6 +114,17 @@
 <%= render :partial => 'logs/notifies' %>
             
 <% content_for :butt2 do %>
+
+window.dhelp = function(val){
+  var tt=$('#help_query');
+  var t=tt[0];
+  if(!t.alreadygot){
+    t.style.color='#000';
+    t.alreadygot=true;
+  }
+  tt.val(val);
+  tt.focus();
+}
   Asks.completeAll($("#help_query"));
   $("#help_query").bind( "input.autocomplete", function(){
     $(this).trigger('keydown.autocomplete');
