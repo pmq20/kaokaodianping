@@ -30,10 +30,6 @@
 #default_tabs a,#user_channels a,#user_tools a{
   text-decoration:none;
 }
-#bbs_selection_nipple{
-  margin-top:3px !important;
-  background-color:transparent;
-}
 .avatar_and_i2{
   color:#BEC6CE;
   font-size:18px;

@@ -16,9 +16,6 @@
 #right_column .controls_section li.selected a {
     background-image: url('/images/icons_sprite_ie_selected.png?2');
 }
-#right_column .controls_section li:hover a {
-  background-image:url('/images/icons_sprite_ie.png?2');
-}
 
 #header .selection_nipple{
   border-left: 12px solid #395775;
