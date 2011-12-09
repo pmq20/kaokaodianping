@@ -1,7 +1,7 @@
 #help_search {
     margin:0;border:none;padding:10px 25px 11px 25px
     background: none repeat scroll 0 0 #F9F9F9;
-
+    border: 1px solid #EDEDED;
     border-radius: 10px 10px 10px 10px;
     display: block;
     margin: -15px 0 0;

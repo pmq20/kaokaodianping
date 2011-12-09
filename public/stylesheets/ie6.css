@@ -36,13 +36,11 @@
   margin-top:3px !important;
   background-color:transparent;
 }
-.avatar_and_i{
-/*  left:-362px;*/
+.avatar_and_i2{
   color:#BEC6CE;
-}
-#posts.no_css3 .post .arrow{
-  background-image:url(/images/dashboard_master_sprite_ie.png);
-/*  left:-277px;*/
+  font-size:18px;
+  font-weight:bold;
+  padding-bottom:38px;
 }
 .hot_seaches{
   
@@ -57,21 +55,14 @@
 
 
 #help_search{
-  z-index:99;
-  position:absolute;
-  top:70px;
-  left:70px;
-  background:none !important;
-  border:none;
-  width:550px;
+  width:480px;
+  margin-bottom:0px;
+  padding-bottom:0;
 }
 #help_query{
-  z-index:100;
-  border:none;
 }
 #help_query_btn{
-  z-index:101;
-  position:relative;
-  top:3px;
-  left:16px;
+}
+#right_column .controls_section .gradient{
+  background:none !important;
 }

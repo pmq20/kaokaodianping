@@ -3,29 +3,29 @@
 <!-- Top pagination -->
 
 
-<!-- Posts -->
-<ol id="posts" class=" no_css3    ">
     
   <% if @is_ie6 or @is_ie7 %>
+  
+<!-- Posts -->
+<ol id="posts" class=" no_css3    " style="margin-left:0">
+<table>
+<tr>
+<td class="avatar_and_i2" id="wozhengyaobao" style="width:150px">
+我正要报
+</td>
+<td class="arrow">
+<img src="/images/dashboard_master_sprite_ie_nipple.png" style="margin-bottom:40px"/>
+</td>
+<td style="background-color:white;padding-top:10px;padding-bottom:5px;">
 
   <%= form_tag traverse_path,method:'get',:id=>"help_search" do %>
     <input style="margin:3px 0 0 0;width:382px;padding-top:13px;color:#CCC" type="text"
     value="培训项目或机构名"
+    onclick="if(!this.alreadygot){this.style.color='#000';this.value='';this.alreadygot=true}"
+    title="培训项目或机构名" 
     id="help_query" class="" name="q">
     <button id="help_query_btn" onclick="if($('#help_query').val()!=''){$('#help_search').submit();}else{$('#help_query').focus()}return false;"></button>
-  <%end %>
-
-  <li class="post is_mine with_avatar new_post" id="new_post" style="background:none repeat scroll 0 0 #F9F9F9">
-
-<div style="width:100%;height:80px">
-  
-</div>
-
-    <span class="arrow"></span>
-
-    <div class="avatar_and_i" id="wozhengyaobao">
-    我正要报
-    </div>
+  <% end %>
     <br style="clear:both"/>
     <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
     热门搜索: 
@@ -47,26 +47,25 @@
     </span>
     <br style="clear:both"/>
     </div>
-  </li>
+</td>
+</tr>
+</table>
 
 
+<!-- START POSTS -->
 
+<!-- END POSTS -->
+</ol>
 
   <% else %>
 
+<!-- Posts -->
+<ol id="posts" class=" no_css3    ">
 
 <li class="post is_mine with_avatar new_post" id="new_post" style="background:none repeat scroll 0 0 #F9F9F9">
 
 
 
-  <%= form_tag traverse_path,method:'get',:id=>"help_search" do %>
-    <input style="margin:3px 0 0 0;width:382px;padding-top:13px;color:#CCC" type="text"
-    value="培训项目或机构名"
-    onclick="if(!this.alreadygot){this.style.color='#000';this.value='';this.alreadygot=true}"
-    title="培训项目或机构名" 
-    id="help_query" class="" name="q">
-    <button id="help_query_btn" onclick="if($('#help_query').val()!=''){$('#help_search').submit();}else{$('#help_query').focus()}return false;"></button>
-  <%end %>
   <span class="arrow"></span>
 
   <div class="avatar_and_i" id="wozhengyaobao">
@@ -94,6 +93,10 @@
   </div>
 </li>
 
+<!-- START POSTS -->
+
+<!-- END POSTS -->
+</ol>
 
   <% end %>
 
@@ -107,10 +110,6 @@
   });
 <%end %>
 
-<!-- START POSTS -->
-
-<!-- END POSTS -->
-</ol>
 
 
 <!-- No posts found -->
@@ -135,7 +134,7 @@
       <div class="ask_item">
         <table border="0" cellspacing="0" cellpadding="0" style="width:100%">
           <tr>
-            <td class="avatar_td" valign="center"><div><%= user_avatar_tag(ans.user,:normal) %></div></td>
+            <td class="avatar_td" valign="center"><div><%# user_avatar_tag(ans.user,:normal) %></div></td>
             <td>
               <div style="float:right;color:#999999"><%= gap(ans.created_at) %>前</div>
               <div style="margin-bottom:8px;"><%= user_name_tag(ans.user) %><strong>点评了</strong><%= link_to item.title,item %></div>
