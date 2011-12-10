@@ -26,5 +26,5 @@
   margin-right:5px;
 }
 #search_controls_button{
-  height:29px
+  height:30px !important;
 }

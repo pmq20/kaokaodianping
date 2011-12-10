@@ -86,7 +86,7 @@ style="<%= ' width:100px; ' if request.path=="/users/#{current_user.slug}" and (
   <%=image_tag(current_user.avatar_url(:small),:id=>'topavatarie6')%>
   <%=user_name_tag(current_user,:id=>'topavatartxtie6') %>
 <%else%>
-            <%= user_name_tag(current_user,{with_avatar:true,id:'the_header_avatar'}) %>
+  <%= user_name_tag(current_user,{with_avatar:true,id:'the_header_avatar'}) %>
 <%end%>
             <div class="selection_nipple"></div>
           </li>

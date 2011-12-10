@@ -152,3 +152,15 @@ Help Docs                <span class="check" style="display:none"></span>
 </form>
 
 <% end %>
+
+<%if @is_ie6%>
+<% content_for :butt2 do %>
+
+$('#right_column .controls_section li').not('.selected').hover(function(){
+  $(this.children[0]).css('background-image',"url('/images/icons_sprite_ie_hover.png')");
+},function(){
+  $(this.children[0]).css('background-image',"url('/images/icons_sprite_ie.png')");
+});
+
+<%end%>
+<%end%>

@@ -126,8 +126,9 @@ type="text"
 name="q"
 id="search_query"
 value="搜索用户昵称"
-onclick="if(!this.alreadygot){this.style.color='#000';this.value='';this.alreadygot=true}"
+onclick="if(!this.alreadygot){this.style.color='#FFF';this.value='';this.alreadygot=true}"
 title="搜索用户昵称"
+style="color:#CCC"
 />
 
 <div id="search_controls_wrapper">
@@ -151,3 +152,15 @@ Help Docs                <span class="check" style="display:none"></span>
 </form>
 
 <% end %>
+
+<%if @is_ie6%>
+<% content_for :butt2 do %>
+
+$('#right_column .controls_section li').hover(function(){
+  $(this.children[0]).css('background-image',"url('/images/icons_sprite_ie_hover.png')");
+},function(){
+  $(this.children[0]).css('background-image',"url('/images/icons_sprite_ie.png')");
+});
+
+<%end%>
+<%end%>

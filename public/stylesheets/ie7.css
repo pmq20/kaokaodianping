@@ -2,6 +2,7 @@
   margin-top:0px !important;
   background-color:transparent;
 }
+
 #right_column .controls_section li:hover a {
   background-image:url('/images/icons_sprite_ie_hover.png');
 }

@@ -57,9 +57,13 @@
 #right_column .controls_section .gradient{
   background:none !important;
 }
-.return_to_top_icon{
-  background-image:url('/images/dashboard_master_sprite_ie.png');
+
+#right_column .controls_section li:hover a {
+  background-image:url('/images/icons_sprite_ie_hover.png');
 }
-.return_to_home_icon{
-  background-image:url('/images/dashboard_master_sprite_ie.png');
+#right_column .controls_section li.selected:hover a {
+  background-image:url('/images/icons_sprite_ie_selected.png');
+}
+#right_column .controls_section li:hover{
+  background-color:#3a536d
 }

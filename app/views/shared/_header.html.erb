@@ -79,7 +79,7 @@
         </ul>
       <%else %>
         <ul style="visibility: visible;" id="user_channels">
-          <li id="tab-ofpsvr" class="tab <%= ' selected ' if request.path=="/users/#{current_user.slug}" %>"
+          <li id="tab-ofpsvr2" class="tab <%= ' selected ' if request.path=="/users/#{current_user.slug}" %>"
 style="<%= ' width:100px; ' if request.path=="/users/#{current_user.slug}" and (@is_ie6 or @is_ie7)%>"
 >
 <%if @is_ie6%>
