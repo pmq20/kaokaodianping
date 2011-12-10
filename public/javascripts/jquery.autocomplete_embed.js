@@ -29,6 +29,7 @@ $.fn.extend({
 		
 		// if the formatMatch option is not specified, then use formatItem for backwards compatibility
 		options.formatMatch = options.formatMatch || options.formatItem;
+		
 		return this.each(function() {
 			new $.Autocompleter(this, options);
 		});
@@ -87,8 +88,18 @@ $.Autocompleter = function(input, options) {
 			return false;
 		}
 	});
-	// only opera doesn't trigger keydown multiple times while pressed, others don't work with keypress at all	
+  var copy_content_to_parent = function(times){     
+    if(times<3){
+     origin = $('div.ac_results');
+     target = $(parent.document.getElementById('results'));
+     target.html(origin.html());
+     setTimeout(function(){copy_content_to_parent(times+1)},200);
+    }
+   }
+
+	// only opera doesn't trigger keydown multiple times while pressed, others don't work with keypress at all
 	$input.bind(($.browser.opera ? "keypress" : "keydown") + ".autocomplete", function(event) {
+
 		// a keypress means the input has focus
 		// avoids issue where input had focus before the autocomplete was applied
 		hasFocus = 1;
@@ -153,15 +164,18 @@ $.Autocompleter = function(input, options) {
 				timeout = setTimeout(onChange, options.delay);
 				break;
 		}
+		copy_content_to_parent(0);
 	}).focus(function(){
 		// track whether the field has focus, we shouldn't process any
 		// results if the field no longer has focus
 		hasFocus++;
+		copy_content_to_parent(0);
 	}).blur(function() {
 	  hasFocus = 0;
 		if (!config.mouseDownOnSelect) {
 			hideResults();
 		}
+		copy_content_to_parent(0);
 	}).click(function() {
 		// show select when clicking in a focused field
 		// but if clickFire is true, don't require field
@@ -173,6 +187,7 @@ $.Autocompleter = function(input, options) {
   			onChange(0, true);
   		}
 		}
+		copy_content_to_parent(0);
 	}).bind("search", function() {
 		// TODO why not just specifying both arguments?
 		var fn = (arguments.length > 1) ? arguments[1] : null;
@@ -192,17 +207,21 @@ $.Autocompleter = function(input, options) {
 		$.each(trimWords($input.val()), function(i, value) {
 			request(value, findValueCallback, findValueCallback);
 		});
+		copy_content_to_parent(0);
 	}).bind("flushCache", function() {
 		cache.flush();
+		copy_content_to_parent(0);
 	}).bind("setOptions", function() {
 		$.extend(true, options, arguments[1]);
 		// if we've updated the data, repopulate
 		if ( "data" in arguments[1] )
 			cache.populate();
+		copy_content_to_parent(0);
 	}).bind("unautocomplete", function() {
 		select.unbind();
 		$input.unbind();
 		$(input.form).unbind(".autocomplete");
+		copy_content_to_parent(0);
 	});
 	
 	
@@ -247,16 +266,15 @@ $.Autocompleter = function(input, options) {
 			/*// select.hide();*/
 			/*return;*/
 		/*}*/
-    if (typeof skipPrevCheck != "boolean"){skipPrevCheck = true;} //add 2011-10-20 by lesanc.li
+		
 		var currentValue = $input.val();
     if(currentValue.length == 0){
       // TODO show default tip
-      if (options.defaultHTML != ""){ //modify 2011-11-3 by lesanc.li
-        select.display("default", "");
-        select.show();
-      }
+      select.display("default", "");
+      select.show();
       return;
     }
+		
 		if ( !skipPrevCheck && currentValue == previousValue )
 			return;
 		
@@ -267,7 +285,7 @@ $.Autocompleter = function(input, options) {
 			$input.addClass(options.loadingClass);
 			if (!options.matchCase)
 				currentValue = currentValue.toLowerCase();
-			  request(currentValue, receiveData, function(){});
+			request(currentValue, receiveData, function(){});
 		} else {
 			stopLoading();
 			select.hide();
@@ -350,7 +368,6 @@ $.Autocompleter = function(input, options) {
 			select.display(data, q);
 			autoFill(q, data[0].value);
 			select.show();
-      $(".ac_last").bind("click", function(){window.location.href=$(".ac_last a").attr("href");return false;}); //add 2011-10-17 by lesanc.li
 		} else {
       // 没有搜索到内容
       // return false;
@@ -446,10 +463,9 @@ $.Autocompleter.defaults = {
 	multipleSeparator: " ",
 	inputFocus: true,
 	clickFire: false,
-	hideOnNoResult : false,
-  defaultHTML : "先搜下问题是否已存在，如果没有可以去提问哦",
+	hideOnNoResult : true,
+  defaultHTML : "输入文本开始搜索",
   noResultHTML : "没有找到相关内容.",
-  addSearch: true,
 	highlight: function(value, term) {
 		return value.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + term.replace(/([\^\$\(\)\[\]\{\}\*\.\+\?\|\\])/gi, "\\$1") + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>");
 	},
@@ -617,6 +633,7 @@ $.Autocompleter.Select = function (options, input, select, config) {
 		.hide()
 		.addClass(options.resultsClass)
 		.css("position", "absolute")
+        .css("display", "none")
 		.appendTo(document.body)
 		.hover(function(event) {
 		  // Browsers except FF do not fire mouseup event on scrollbars, resulting in mouseDownOnSelect remaining true, and results list not always hiding.
@@ -699,17 +716,13 @@ $.Autocompleter.Select = function (options, input, select, config) {
       if(options.hideOnNoResult){
         list.empty();
         var li = $("<li/>").html( options.noResultHTML ).addClass("ac_no_result").appendTo(list)[0];
-        $.data(li,"ac_data", null);       
-      }
-      if ($.trim(term) != ""){
-        list.empty();
-        $.data($("<li/>").html( options.noResultHTML.replace("{kw}", term) ).addClass("ac_default").appendTo(list)[0], "ac_data", null); //add 2011-10-19 by lesanc.li
+        $.data(li,"ac_data", null);
       }
     }
     else if(data == "default"){
       list.empty();
-      var li = $("<li/>").html( options.defaultHTML ).addClass("ac_default").appendTo(list)[0];
-      $.data(li,"ac_data", null);
+			var li = $("<li/>").html( options.defaultHTML ).addClass("ac_default").appendTo(list)[0];
+			$.data(li,"ac_data", null);
     }
     else{
       list.empty();
@@ -722,9 +735,6 @@ $.Autocompleter.Select = function (options, input, select, config) {
           continue;
         var li = $("<li/>").html( options.highlight(formatted, term) ).addClass(i%2 == 0 ? "ac_even" : "ac_odd").appendTo(list)[0];
         $.data(li, "ac_data", data[i]);
-      }
-      if (options.addSearch){ //modify 2011-11-3 by lesanc.li
-        $.data($("<li/>").html('<a href="/traverse/index?q='+((encodeURIComponent)?encodeURIComponent(term):term)+'">搜索"<b>'+term+'</b>"</a>').addClass("ac_last").css({"background":"#eee"}).appendTo(list)[0], "ac_data", data[max]); //add 2011-10-17 by lesanc.li
       }
       listItems = list.find("li");
       if ( options.selectFirst ) {
@@ -781,7 +791,7 @@ $.Autocompleter.Select = function (options, input, select, config) {
 				width: typeof options.width == "string" || options.width > 0 ? options.width : $(input).width(),
 				top: offset.top + input.offsetHeight,
 				left: offset.left
-			}).show();
+			});//.show();
             if(options.scroll) {
                 list.scrollTop(0);
                 list.css({

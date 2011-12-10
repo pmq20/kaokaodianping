@@ -67,13 +67,13 @@ var App = {
     type = type.toLowerCase();
     if(type == "json"){
       if(result.success == false){
-        location.href = "/login";
+        location.href = "/login_to_zhaopin?redirect_path=" + encodeURIComponent(window.location.pathname);
         return false;
       }
     }
     else{
       if(result == "_nologin_"){
-        location.href = "/login";
+        location.href = "/login_to_zhaopin?redirect_path=" + encodeURIComponent(window.location.pathname);
         return false;
       }
     }
@@ -100,13 +100,20 @@ var App = {
     if(editHeight != undefined){
       sizeStyle += "height:"+editHeight+"px;"
     }
-    
+
     editHtml = '<input type="text" class="main_edit" name="value" style="'+sizeStyle+'" />';
+    if (linkId.indexOf('user__tagline') > -1){  //add 2011-9-30 by lesanc.li
+	  	editHtml = '<input type="text" maxlength="40" class="main_edit" name="value" style="'+sizeStyle+'" />';
+	  }
     if(editType == "textarea"){
       editHtml = '<textarea name="value" style="'+sizeStyle+'"></textarea>';
+      if (linkId.indexOf('topic__summary') > -1){  //add 2011-9-30 by lesanc.li
+        editHtml += '<div class="limitwords">最多输入100个汉字。</div><br />';
+      } else if (linkId.indexOf('ask__title') > -1){  //add 2011-11-3 by lesanc.li
+        editHtml += '<div class="limitwords" style="margin:5px;">最多输入200个汉字。</div><br />';
+      }
     }
     
-
     var csrf_token = $('meta[name=csrf-token]').attr('content'),
         csrf_param = $('meta[name=csrf-param]').attr('content');
 
@@ -119,6 +126,69 @@ var App = {
                   <a href="#" class="cancel">取消</a>\
                 </form>');
     link.parent().after(editPanel);
+
+	//add 2011-9-29 by lesanc.li
+    if (linkId.indexOf('topic__summary') > -1 && editType == "textarea"){
+      var timeId = setInterval(function(){
+          if ($('.qeditor_preview').text()){
+            if ($('.qeditor_preview').text().length > 100){
+             $('.limitwords', editPanel).html('<span style="color:red">已超过' + ($('.qeditor_preview').text().length - 100) + '字</span>');
+            }else{
+             $('.limitwords', editPanel).html('还可以输入' + (100 - $('.qeditor_preview').text().length) + '字');
+            }
+          }
+      }, 500);
+      editPanel.keypress(function(event){
+          event = event || window.event;
+        var _etext = $('.qeditor_preview', editPanel).text();
+        if (_etext.length >= 100 && $(event.target).attr('class') == 'qeditor_preview' && event.keyCode != 8){
+          return false;
+        }
+      });
+
+      editPanel.bind("paste", function(e){
+        setTimeout(function(){
+          var editPre = $('.qeditor_preview', editPanel);
+          editPre.html($.trim(editPre.text().replace(/\s+/g, " ")));
+          setTimeout(function(){
+            if (editPre.text().length > 100){
+              $('.limitwords', editPanel).html('<span style="color:red">已超过' + (editPre.text().length - 100) + '字</span>');
+            } else {
+              $('.limitwords', editPanel).html('还可以输入' + (100 - editPre.text().length) + '字');
+            }
+          }, 500);
+        }, 500);
+      });
+    }
+
+    //add 2011-11-3 by lesanc.li
+    if (linkId.indexOf('ask__title') > -1 && editType == "textarea"){
+      var txtArea =  $('textarea', editPanel);
+      txtArea.bind("blur", function(){clearInterval(timeId);});
+      var timeId2 = setInterval(function(){
+        if (txtArea.val().length > 200){
+         txtArea.next('.limitwords').html('<span style="color:red">已超过' + (txtArea.val().length - 200) + '字</span>');
+        }else{
+         txtArea.next('.limitwords').html('还可以输入' + (200 - txtArea.val().length) + '字');
+        }
+      }, 500);
+      txtArea.keypress(function(event){
+        event = event || window.event;
+        if (txtArea.val().length >= 200 && event.keyCode != 8){
+          return false;
+        }
+      });
+
+      txtArea.bind("paste", function(e){
+        setTimeout(function(){
+          if (txtArea.val().length > 200){
+            txtArea.next('.limitwords').html('<span style="color:red">已超过' + (txtArea.val().length - 200) + '字</span>');
+          } else {
+            txtArea.next('.limitwords').html('还可以输入' + (200 - txtArea.val().length) + '字');
+          }
+        }, 500);
+      });
+    }
 
     if(editType == "textarea"){
 			var _html = textPanel.html();
@@ -144,7 +214,31 @@ var App = {
     });
 
     editPanel.submit(function(){
-      editPanel = $(this);
+      //add 2011-9-30 by lesanc.li
+      if (linkId.indexOf('topic__summary') > -1 && editType == "textarea" && $('#ipe_'+linkId+' .qeditor_preview').text() && $('#ipe_'+linkId+' .qeditor_preview').text().length > 100){ 
+	  	  return false;
+	    }
+      if (linkId.indexOf('user__tagline') > -1 && $('#ipe_'+linkId+' .main_edit').val() && $('#ipe_'+linkId+' .main_edit').val().length > 40){
+	  	  return false;
+	    }
+      //add 2011-11-3 by lesanc.li
+      if (linkId.indexOf('ask__title') > -1 && $('textarea', editPanel).val().length > 200){
+	  	  return false;
+	    }
+      //add 2011-11-11 by lesanc.li
+      if (linkId.indexOf('ask__body') > -1 && $('textarea', editPanel).val().length > 3000){
+	  	  return false;
+	    }
+
+      if (timeId){
+        clearTimeout(timeId);
+      }
+
+      if (timeId2){
+        clearTimeout(timeId2);
+      }
+
+	  editPanel = $(this);
       App.loading();
       $.ajax({
         url : remote_url,
@@ -204,6 +298,63 @@ var App = {
         callback(name, user_id);
       }
     });
+  },
+
+  //add 2011-11-8 by lesanc.li
+  inputLimit: function(el, n, vtype){
+    var editPanel = $(el).parents("form");
+    vtype = vtype || "val";
+    var elLen = 0;
+    if(!$(el).next('.limitwords').length)$(el).after("<div class=\"limitwords\"></div>");
+    $(el).bind("blur", function(){clearInterval(timeId);});
+    var timeId = setInterval(function(){
+      elLen = (vtype == "val")?$(el).val().length:$(el).text().length;
+      if (elLen > n){
+        $(el).next('.limitwords').html('<span style="color:red">已超过' + (elLen - n) + '字</span>');
+      }else{
+        $(el).next('.limitwords').html('还可以输入' + (n - elLen) + '字');
+      }
+    }, 500);
+    $(el).bind("keypress", function(event){
+      event = event || window.event;
+      elLen = (vtype == "val")?$(el).val().length:$(el).text().length;
+      if (elLen >= n && event.keyCode != 8){
+        return false;
+      }
+    });
+    $(el).bind("paste", function(e){
+      setTimeout(function(){
+        if (vtype == "val"){
+          $(el).val($.trim($(el).val().replace(/\s+/g, " ")).substring(0, n));
+        } else {
+          $(el).html($.trim($(el).text().replace(/\s+/g, " ")).substring(0, n));
+        }
+        setTimeout(function(){
+          elLen = (vtype == "val")?$(el).val().length:$(el).text().length;
+          if (elLen > n){
+            $(el).next('.limitwords').html('<span style="color:red">已超过' + (elLen - n) + '字</span>');
+          } else {
+            $(el).next('.limitwords').html('还可以输入' + (n - elLen) + '字');
+          }
+        }, 500);
+      }, 500);
+    });
+    editPanel.bind("submit", function(){
+      elLen = (vtype == "val")?$(el).val().length:$(el).text().length;
+      if (elLen > n){return false;}
+    });
+  },
+  // 输入框默认提示 add 2011-11-8 by lesanc.li
+  placeHolder : function(el, tips){
+    $(el).bind("focus", function(){
+      if($(this).val() == tips){
+        $(this).val("").css("color","#000000");
+      }
+    }).bind("blur", function(){
+      if($.trim($(this).val()) == "" || $(this).val() == tips){
+        $(this).val(tips).css("color","#999999");
+      }
+    }).trigger("blur");
   },
 
   varsion : function(){

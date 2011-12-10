@@ -1,5 +1,5 @@
 var Inbox = {
-  newMsg : function(){
+  newMessage : function(){
     $.facebox({ ajax : "/inbox/new", overlay : false });
     return false;
   },

@@ -1,7 +1,7 @@
 /* 
  * QEditor
  *
- * This is a simple Rich Editor for web application, clone from Kkdp.
+ * This is a simple Rich Editor for web application, clone from Quora.
  * Author: 
  *  Jason Lee <huacnlee@gmail.com>
  *
@@ -43,6 +43,7 @@ var QEditor = {
     if(qeditor_preview != undefined){
       qeditor_preview.change();
     }
+
     return false;
 	},
 
@@ -78,15 +79,32 @@ var QEditor = {
 	          pobj = $(this);
 	          t = pobj.parent().find('.qeditor');
 	          t.val(pobj.html());
-	          if(window.change_with_preview_editor){
-	            change_with_preview_editor($(this).height());
-	          }
 	        });
 	        preview_editor.keyup(function(){ $(this).change(); });
 	        obj.hide();
 	        obj.wrap('<div class="qeditor_border"></div>');
 	        obj.after(preview_editor);
 	        QEditor.renderToolbar(preview_editor);
+          // add 2011-11-4 by lesanc.li
+          var pid = $(".qeditor_preview").parents("form").attr("id");
+          if (/user_edit|user__bio/.exec(pid)){
+            var tipsObj = $("#" + pid + " .qeditor_preview");
+            tipsObj.bind("focus", function(){
+              if($(this).text() == "完善你的个人经历，能获得更多关注哦~"){
+                $(this).html("").css("color","#000000");
+              }
+            }).bind("blur", function(){
+              if($.trim($(this).text()) == "" || $(this).text() == "完善你的个人经历，能获得更多关注哦~"){
+                $(this).html("完善你的个人经历，能获得更多关注哦~").css("color","#999999");
+              }
+            }).trigger("blur");
+            $("#" + pid).bind("submit", function(){
+              if(tipsObj.text() == "完善你的个人经历，能获得更多关注哦~"){
+                tipsObj.html("");
+                console.log(tipsObj.html());
+              }
+            });
+          }
 				}
       });
     }

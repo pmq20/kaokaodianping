@@ -150,7 +150,7 @@
       <% if pos_bbs? %>
         <%= javascript_include_tag "bbs" %>
       <% else %>
-        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy",'jquery-ui-1.8.16.custom.min',"jcaches","application","asks" %>
+        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy",'jquery-ui-1.8.16.custom.min',"jcaches","application","asks","topics","users","inbox" %>
       <% end %>
       
       

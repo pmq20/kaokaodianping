@@ -31,7 +31,7 @@
         <meta name="keywords" content="<%= @meta_keywords %>" />
         <meta name="description" content="<%= @meta_description %>" />
     </head>
-    <body id="<%= pos_signature %>">    
+    <body id="<%= pos_signature %>">
 
       <% if !user_signed_in? %>
         <%=render 'shared/loginreg' %>
@@ -154,6 +154,25 @@
       <% end %>
       
       
+      
+      <%= yield :scripts %>
+      <script type="text/javascript" charset="utf-8">
+        <%= yield :butt2 %>
+      </script>
+      <%= yield :butt %>
+
+
+      <script type="text/javascript" charset="utf-8">
+        if(!window.logined){
+          $('.login_required').attr('onclick','').unbind('click').click(function(){
+            login_trigger();
+            return false;
+          })
+        }
+      </script>
+
+
+
       
     </body>
 </html>
