@@ -447,7 +447,7 @@ $.Autocompleter.defaults = {
 	inputFocus: true,
 	clickFire: false,
 	hideOnNoResult : false,
-  defaultHTML : "先搜下问题是否已存在，如果没有可以去提问哦",
+  defaultHTML : "请输入要搜索的培训项目或机构名",
   noResultHTML : "没有找到相关内容.",
   addSearch: true,
 	highlight: function(value, term) {

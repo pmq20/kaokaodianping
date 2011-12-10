@@ -150,8 +150,7 @@ var Asks = {
       scroll : false,
       selectFirst : false,
       clickFire : true,
-      hideOnNoResult : false,
-      noResultHTML : "未找到与“{kw}”相关的内容，请提问或尝试其他关键词",  // modify 2011-10-19 by lesanc.li
+      hideOnNoResult : true,
       formatItem : function(data, i, total){
         klass = data[data.length - 1];
         switch(klass){
@@ -649,43 +648,23 @@ html='';// ticket 509
 
 }
 
+
 /* 添加问题 */
 function addAsk(){      
   if(!logined){
-    userLogin();
+    location.href = "/login";
     return false;
   }
-  //var txtTitle = $("#hidden_new_ask textarea:nth-of-type(1)");
-  var txtTitle = $("#hidden_new_ask textarea").eq(0);
-  ask_search_text = $("#add_ask input").val() != "搜索求职、职场疑问" ? $("#add_ask input").val() : "";
+  var txtTitle = $("#hidden_new_ask textarea:nth-of-type(1)");
+  ask_search_text = $("#add_ask input").val();
   txtTitle.text(ask_search_text);
   txtTitle.focus();
   $.facebox({ div : "#hidden_new_ask", overlay : false });
-  //Asks.limitWord(txtTitle, 200); //add 2011-9-29 by lesanc.li
-  // 用户提问提交前检测  //add 2011-10-27 by lesanc.li
-  $("#inner_new_ask", $("#facebox")).bind("submit", function(){
-    var titleBox = $("textarea",$("#facebox")).eq(0);
-    if(titleBox.val() == ""){
-      setTimeout(function(){titleBox.css({"border-color":"#f8d97c","background":"#ffffe1"});}, 0);
-      setTimeout(function(){titleBox.css({"border-color":"#d9edce","background":"#ffffff"});}, 200);
-      setTimeout(function(){titleBox.css({"border-color":"#f8d97c","background":"#ffffe1"});}, 400);
-      setTimeout(function(){titleBox.css({"border-color":"#d9edce","background":"#ffffff"});}, 600);
-      setTimeout(function(){titleBox.css({"border-color":"#f8d97c","background":"#ffffe1"});}, 800);
-      setTimeout(function(){titleBox.css({"border-color":"#d9edce","background":"#ffffff"});}, 1000);
-      return false;
-    }
-  });
-
-  $("#inner_new_ask textarea[name=\"ask\[title\]\"]", $("#facebox")).bind("click", function(){
-    App.inputLimit($(this), 200);
-  });
-
-  $("#inner_new_ask textarea[name=\"ask\[body\]\"]", $("#facebox")).bind("click", function(){
-    App.inputLimit($(this), 3000);
-  });
-
   return false;
 }
+
+
+
 
   function judgeEmail(sValue) {
     if (sValue == "") {
@@ -773,8 +752,6 @@ function checkUploadImg(fileObj){
 }
 
 $(document).ready(function(){
-  //autocompletehere输入框提示
-  App.placeHolder($("#autocompletehere"), "搜索求职、职场疑问");
   //个人页 对某人提问相关提示
   var strATU = $("#ask_to_user>form>.row textarea").val();
   $("#ask_to_user>form>.row textarea").bind("focus", function(){
@@ -819,25 +796,6 @@ $(document).ready(function(){
     $(".in_place_editing[data-text-id=\"ask_body\"] .qeditor_preview").bind("click", function(){
       App.inputLimit($(this), 3000, "text");
     });
-  });
-  //用户名登录检测
-  if (location.href.indexOf('error=1') > -1){
-    userLogin();
-    $("#facebox .user_login_err").html("用户名或密码错误").css("color", "red");
-  }
-  // 登录和注册、退出按钮的点击事件
-  $("a", $("#user_bar")).each(function(){
-    switch($(this).html()){
-      case "登录":
-        $(this).click(userLogin);
-        break;
-      case "注册":
-        $(this).click(userReg);
-        break;
-      case "退出":
-        $(this).click(userLogout);
-        break;
-    }
   });
   $(".focListB li>a").each(function(){
     var el=$(this);
@@ -895,13 +853,26 @@ $(document).ready(function(){
       });
     }
   });
-  //  图片上传检测
+  //图片上传检测
   $("#facebox #user_avatar").live("change", function(){
     checkUploadImg($("#facebox #user_avatar"));
   });
   $("#user_avatar").bind("change", function(){
     checkUploadImg($(this));
   });
+  //个人设置页 个人一句话描述输入框提示 2011-11-2 by lesanc.li
+  if ($("#user_tagline").length){
+    App.placeHolder($("#user_tagline"), "如：GRE大牛");
+    $("#user_edit").bind("submit", function(){
+      if($("#user_tagline").val() == "如：GRE大牛"){
+        $("#user_tagline").val("");
+      }
+      if (/[^a-zA-Z0-9-_]+/.test($("#user_slug").val())){
+        $("#user_slug")[0].focus();
+        return false;
+      }
+    });
+  }
   // 个人设置页 个性域名输入限制
   if ($("#user_slug").length){
     $("#user_slug").val($("#user_slug").val().replace(/[\. ]/g,"_"));
