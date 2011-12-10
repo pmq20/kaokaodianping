@@ -72,7 +72,7 @@ class Ask
 
   redis_search_index(:title_field => :title,
   										 :prefix_index_enable => true,
-                     :ext_fields => [:topics])
+                      :ext_fields => [:topics])
   #Workaround by PSVR
   #https://github.com/huacnlee/redis-search/pull/3
   # after_create :redis_search_index_create

@@ -3,11 +3,8 @@ class Tag
   include Mongoid::Document
   include Mongoid::Timestamps
   include Redis::Search
-
   field :topics_count, :type => Integer, :default => 0
-  redis_search_index(:title_field => :name,
-										 :prefix_index_enable => true,
-                     :ext_fields => [:topics_count])
+
   field :name
   field :pinyin
   before_save Proc.new{

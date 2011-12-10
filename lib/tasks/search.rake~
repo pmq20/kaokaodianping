@@ -1,11 +1,6 @@
 namespace :search do
   task :index => :environment do 
     print "Now indexing search to Redis..."
-    Tag.all.each do |item|
-      item.redis_search_index_create
-      item = nil
-       print "."
-    end
     Ask.all.each do |item|
       item.redis_search_index_create
 			item = nil

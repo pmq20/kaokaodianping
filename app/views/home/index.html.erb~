@@ -134,7 +134,7 @@ window.dhelp = function(val){
 
 
 <!-- No posts found -->
-<div id="shouye_chang" style="margin: 35px 0 0;height:438px;overflow:hidden;">
+<div id="shouye_chang" style="margin: 35px 0 0;height:438px;overflow:hidden;font-size:15px">
   <%= render 'asks/base' %>
   <%= content_for :scripts do %>
     <script type="text/javascript">

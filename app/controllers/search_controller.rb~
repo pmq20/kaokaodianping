@@ -87,10 +87,10 @@ end
     def complete_line_tag(item,hash=true)
       if hash
         item['title'] = item['title'].strip
-        "#{item['title'].escape_javascript}#!##{item['topics_count']}#!#Tag"
+        "#{item['title'].escape_javascript}#!##{item['topics_count']}#!##{item['cover_small']}#!#Tag"
       else
         item.name = item.name.strip
-        "#{item.name}#!##{item.topics_count}#!#Tag"
+        "#{item.name}#!##{item.followers_count}#!##{item.cover_small}#!#Tag"
       end
     end  
   

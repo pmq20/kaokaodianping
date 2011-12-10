@@ -309,7 +309,12 @@ var Asks = {
     }
     
     html = "";
-    html += '<span class="cate">机构分类</span>';
+    if(data[2] != null){
+      topics = data[2].split(",")
+      if(topics.length > 0){
+        html += '<span class="cate">'+topics[0]+'</span>';
+       }
+    }
     html += '<a href="/asks/'+data[1]+'">'+data[0].replace("/","")+'</a>';
     return html;
   },

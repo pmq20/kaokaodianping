@@ -447,7 +447,7 @@ $.Autocompleter.defaults = {
 	inputFocus: true,
 	clickFire: false,
 	hideOnNoResult : false,
-  defaultHTML : "请输入培训项目或机构名, 拼音也可以哦：）",
+  defaultHTML : "请输入要搜索的培训项目或机构名, 拼音也可以哦：）",
   noResultHTML : "没有找到相关内容.",
   addSearch: true,
 	highlight: function(value, term) {
