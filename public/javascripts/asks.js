@@ -32,7 +32,7 @@ var Asks = {
         if(!App.requireUser(res,"text")){
           return false;
         }
-        $(el).replaceWith('<span class="muted">已关注</span>');
+        $(el).replaceWith('<a onclick="return Asks.simple_unfollow(this,\''+id+'\')" href="#">取消关注</a>'); //20111121 by lesanc.li
 				// $(el).parent().parent().fadeOut("slow");
     });
     return false;
@@ -45,8 +45,8 @@ var Asks = {
         if(!App.requireUser(res,"text")){
           return false;
         }
-        // $(el).replaceWith('<a href="/asks'+id+'/follow">关注</a>');
-				$(el).parent().parent().fadeOut("fast");
+		 $(el).replaceWith('<a onclick="return Asks.simple_follow(this,\'' + id + '\')" href="#">关注</a>'); //modify 2011-9-29 by lesanc.li
+		//		$(el).parent().parent().fadeOut("fast");
     });
     return false;
   },
@@ -57,7 +57,7 @@ var Asks = {
       html += '<li><a onclick="return Asks.redirect_ask_cancel(this);" href="#">取消重定向</a></li>';
     }
     else{
-      html += '<li><a onclick="return Asks.redirect_ask(this);" href="#">点评重定向</a></li>';
+      html += '<li><a onclick="return Asks.redirect_ask(this);" href="#">问题重定向</a></li>';
     }
     html += '<li><a onclick="return Asks.report(this);" href="#">举报</a></li>';
     $(el).jDialog({
@@ -72,32 +72,33 @@ var Asks = {
   },
 
   redirect_ask : function(el){
-    if(!logined){
-      location.href = "/login";
+    if(!logined){  //add 2011-10-14 by lesanc.li
+      userLogin();
       return false;
     }
     jDialog.close();
     $.facebox({ div : "#redirect_ask", overlay : false });
-    $("#redirect_ask_panel input.search").autocomplete("/search/asks",{
+    $(".facebox_window.simple_form input.search").autocomplete("/search/asks",{
       minChars: 1,
       delay: 50,
       width: 456,
       scroll : false,
+      addSearch: false
     });
-    $("#redirect_ask_panel input.search").result(function(e,data,formatted){
+    $(".facebox_window.simple_form input.search").result(function(e,data,formatted){
       if(data){
-        $("#redirect_ask_panel .r_id").val(data[1]);
-        $("#redirect_ask_panel .r_title").val(data[0]);
+        $(".facebox_window.simple_form .r_id").val(data[1]);
+        $(".facebox_window.simple_form .r_title").val(data[0]);
       }
     });
   },
 
   redirect_ask_save : function(el){
     App.loading();
-    r_id = $("#redirect_ask_panel .r_id").val();
-    r_title = $("#redirect_ask_panel input.r_title").val();
+    r_id = $(".facebox_window.simple_form .r_id").val();
+    r_title = $(".facebox_window.simple_form input.r_title").val();
     if(r_id.length == ""){
-      $("#redirect_ask_panel input.search").focus();
+      $(".facebox_window.simple_form input.search").focus();
     }
     $.get("/asks/"+ask_id+"/redirect",{ new_id : r_id }, function(res){
         App.loading(false);
@@ -126,7 +127,7 @@ var Asks = {
       $("#redirected_tip").remove();
     }
     else{
-      label_text = "点评已重定向到: "
+      label_text = "问题已重定向到: "
       ask_link = "/asks/" + id + "?nr=1&rf=" + rf_id;
       if(type == "rf"){
         label_text = "重定向来自: ";
@@ -139,18 +140,18 @@ var Asks = {
     }
   },
 
-  /* 点评，培训机构，人搜索自动完成 */
+  /* 问题，话题，人搜索自动完成 */
   completeAll : function(el){
     input = $(el);
     input.autocomplete("/search/all",{
       mincChars: 1,
       delay: 50,
-      width: 580,
+      width: 478,
       scroll : false,
       selectFirst : false,
       clickFire : true,
       hideOnNoResult : false,
-      noResultHTML : "没有找到类似的内容",
+      noResultHTML : "未找到与“{kw}”相关的内容，请提问或尝试其他关键词",  // modify 2011-10-19 by lesanc.li
       formatItem : function(data, i, total){
         klass = data[data.length - 1];
         switch(klass){
@@ -193,34 +194,20 @@ var Asks = {
       delay: 50,
       width: 200,
       scroll : false,
+      defaultHTML : (el.attr("id")=="searchTopic")?"":"输入文本开始搜索",
+      addSearch : (el.attr("id")=="searchTopic")?false:true,
       formatItem : function(data, i, total){
         return Asks.completeLineTopic(data,false);
       }
     });
   },
 
-  toggleShareAsk : function(el,type){
-    $(el).parent().find("a").removeClass("actived");
-    klass = $(el).attr("class");
-    if(klass.length > 0){
-      if(klass.split(" ").indexOf("actived")){
-        return false;
-      }
-    }
-    $(el).addClass("actived");
-    if(type == "share"){
-      $(el).parent().parent().find(".inner .invite").hide();
-      $(el).parent().parent().find(".inner .share").show();
-    }
-    else{
-      $(el).parent().parent().find(".inner .share").hide();
-      $(el).parent().parent().find(".inner .invite").show();
-      $.facebox.close();
-    }
+  toggleShareAsk : function(el,type){ //modify 2011-11-8 by lesanc.li
+    $(el).parents("#share_ask_box").find(".inner .invite").show();
 		return false;
   },
 
-  /* 邀请人点评点评 */
+  /* 邀请人回答问题 */
   completeInviteToAnswer : function(){
     input = $("#ask_to_answer");
     input.autocomplete("/search/users", {
@@ -228,6 +215,9 @@ var Asks = {
       delay: 50,
       width: 206,
       scroll : false,
+      defaultHTML : "输入文本开始搜索",
+      noResultHTML : "未找到与“{kw}”相关的人",  // add 2011-10-19 by lesanc.li
+      addSearch : false,
       formatItem : function(data, i, total){
         return Asks.completeLineUser(data,false);
       }
@@ -260,7 +250,12 @@ var Asks = {
   
   inviteToAnswer : function(user_id, is_drop){
     App.loading();
-    $.get("/asks/"+ask_id+"/invite_to_answer.js",{ user_id : user_id, drop : is_drop });
+    $.get("/asks/"+ask_id+"/invite_to_answer.js",{ user_id : user_id, drop : is_drop }, function(data){
+      /\(\'#shared_span_count\'\).html\(\' \((\d+)\)\' \)/.exec(data);    //add 2011-11-4 by lesanc.li
+      if (RegExp["$1"] > 0 && $("#ask_invited_users").text().indexOf("已邀请") == -1){
+        $("#ask_invited_users div").before("已邀请：<br />");
+      }
+    });
   },
 
   completeLineTopic : function(data,allow_link){
@@ -280,7 +275,7 @@ var Asks = {
     else{
       html += '<span class="name">'+data[0]+'</span>';
     }
-    html += '<span class="scate">培训机构</span>';
+    html += '<span class="scate">话题</span>';
     html += '</p>';
     html += '<p class="count">'+count+' 个关注者</p></div>';
     return html;
@@ -329,7 +324,11 @@ var Asks = {
   },
 
   thankAnswer : function(el,id){
-    klasses = $(el).attr("class").split(" ");
+    if(!logined){  //add 2011-10-14 by lesanc.li
+      userLogin();
+      return false;
+    }
+    klasses = $(el).attr("class");
     if(klasses.indexOf("thanked") > 0){
       return false;
     }
@@ -341,7 +340,11 @@ var Asks = {
   },
 
   spamAsk : function(el, id){
-    if(!confirm("多人评价为烂点评后，此点评将会被屏蔽，而且无法撤销！\n你确定要这么评价吗？")){
+    if(!logined){  //add 2011-10-14 by lesanc.li
+      userLogin();
+      return false;
+    }
+    if(!confirm("多人评价为烂问题后，此问题将会被屏蔽，而且无法撤销！\n你确定要这么评价吗？")){
       return false;
     }
 
@@ -351,7 +354,7 @@ var Asks = {
       if(!App.requireUser(count,"text")){
         return false;
       }
-      $("#ask_spam_count").val(count);
+      $("#spams_count").text(count);
       App.loading(false);
     });
     return false;
@@ -363,6 +366,10 @@ var Asks = {
   },
 
   spamAnswer : function(el, id){
+    if(!logined){  //add 2011-10-14 by lesanc.li
+      userLogin();
+      return false;
+    }
     App.loading();
     $(el).addClass("spamed");
     $(el).text("已提交");
@@ -379,6 +386,7 @@ var Asks = {
     if(isShow){
       $(".ask .edit_topics").show();
       $(".ask .item_list").hide();
+      App.placeHolder($("#searchTopic"),"输入话题");
     }
     else{
       $(".ask .item_list").show();
@@ -392,29 +400,42 @@ var Asks = {
 
   addTopic : function(name){
     App.loading(false);
-    if(name.trim() == ""){
+    if((name.trim && name.trim() == "") || typeof name == "undefined" || name == ""){ //modify 2011-9-26 by lesanc.li
       return false;
     }
     $(".ask .topics .item_list .in_place_edit").before("<a href='/topics/"+name+"' class='topic'>"+name+"</a>");
     $(".ask .topics .item_list .no_result").remove();
     exit_topic_count = $(".ask .edit_topics .items .topic").length;
     $(".ask .edit_topics .items").append('<div class="topic"> \
-          <a href="#" onclick="Asks.removeTopic(this,'+(exit_topic_count+1)+',\''+name+'\');" class="remove"></a>\
           <span>'+name+'</span>\
+          <a href="#" onclick="Asks.removeTopic(this,'+(exit_topic_count+1)+',\''+name+'\');" class="remove"></a>\
         </div>');
   },
 
   removeTopic : function(el, idx, name){
     App.loading();
+	  var val = $(el).parent().find('span').html(); //add 2011-9-22 by lesanc.li
     $.get("/asks/"+ask_id+"/update_topic", { name : name }, function(res){
       $(el).parent().remove();
-      $(".ask .topics .item_list .topic:nth-of-type("+(idx+1)+")").remove();
+      //$(".ask .topics .item_list .topic:nth-of-type("+(idx+1)+")").remove();
+	    $(".ask .topics .item_list .topic").each(function(){ //add 2011-9-22 by lesanc.li
+	      if($(this).html() == val){$(this).remove();} 
+	    });
+      if ($(".ask .edit_topics .items .topic").length == 0 && $("#ask_suggest_topics").length == 0 && $("#suggestTopics").length > 0){ //add 2011-10-27 by lesanc.li
+        eval('var topics = '+$("#suggestTopics").text()+'');  
+        Asks.showSuggestTopics(topics); 
+      }
+
       App.loading(false);
     });
     return false;
   },
 
   follow : function(el){
+    if(!logined){  //add 2011-11-8 by lesanc.li
+      userLogin();
+      return false;
+    }
     App.loading();
     $(el).attr("onclick", "return false;");
     $.get("/asks/"+ask_id+"/follow",{}, function(res){
@@ -425,16 +446,24 @@ var Asks = {
   },
 
   unfollow : function(el){
+    if(!logined){  //add 2011-11-8 by lesanc.li
+      userLogin();
+      return false;
+    }
     App.loading();
     $(el).attr("onclick", "return false;");
     $.get("/asks/"+ask_id+"/unfollow",{}, function(res){
       App.loading(false);
-      $(el).replaceWith('<a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow(this);">关注此点评</a>');
+      $(el).replaceWith('<a href="#" style="width:80px;" class="gray_button green_button" onclick="return Asks.follow(this);">关注此问题</a>');
     });
     return false;
   },
 
   toggleComments : function(type, id){
+    if(!logined){  //add 2011-10-14 by lesanc.li
+      userLogin();
+      return false;
+    }
     var el = $("#"+type+"_"+id);
     var comments = $(".comments",el);
     if(comments.length > 0){
@@ -442,40 +471,52 @@ var Asks = {
     }
     else{
       App.loading();
-      $.get("/comments",{ type : type, id : id }, function(html){
+      $.ajax({url:"/comments",data:{ type : type, id : id }, success:function(html){
         $(".action",el).after(html);
         App.loading(false);
-      });
+      }, dataType:"text"});
     }
     return false;
   },
 
   vote : function(id, type){
+    if(!logined){  //add 2011-10-14 by lesanc.li
+      userLogin();
+      return false;
+    }
     var answer = $("#answer_"+id);
-    vtype = "down";
-    if(type == 1) { vtype = "up"; }
-    $(".vote_buttons a",answer).removeClass("voted");
-    $(".vote_buttons a.vote_"+vtype,answer).addClass("voted");
+    var vtype = "down";
+    if(type == 1) {  //modify  2011-11-8 by lesanc.li
+      vtype = "up";
+      $(".vote_buttons a.vote_up",answer).attr("class", "voted_up");
+      $(".vote_buttons a.voted_down",answer).attr("class", "vote_down");
+    } else {
+      $(".vote_buttons a.voted_up",answer).attr("class", "vote_up");
+      $(".vote_buttons a.vote_down",answer).attr("class", "voted_down");
+    }
     $(".action a",answer).removeClass("voted");
     $(".action a.vote_"+vtype,answer).addClass("voted");
     App.loading();
     $.get("/answers/"+id+"/vote",{ inc : type },function(res){
+      res = res.replace("'","");
       if(!App.requireUser(res,"text")){
         return false;
       }
       res_a = res.split("|");
-      Asks.vote_callback(id, vtype, res_a[0], res_a[1]);
+      Asks.vote_callback(id, vtype, res_a[0], res_a[1],res_a[2]);
       App.loading(false);
     });
     return false;
   },
 
-  vote_callback : function(id, vtype, new_up_count, new_down_count){
+  vote_callback : function(id, vtype, new_up_count, new_down_count,new_who){
     var answer = $("#answer_"+id);
     var answer_votes = $(".votes",answer);
     answer.attr("data-uc", new_up_count);
     answer.attr("data-dc", new_down_count);
-    
+    // add 2011-10-24 by lesanc.li
+    $(".vote_buttons", answer).html($(".vote_buttons", answer).html().replace(/赞 成\(\d+\)/,"赞 成("+new_up_count+")").replace(/反 对\(\d+\)/,"反 对("+new_down_count+")"));
+ 
     /* Change value for visable label */
     if(answer_votes.length > 0){
       if(new_up_count <= 0){
@@ -484,11 +525,12 @@ var Asks = {
       }
       else{
         $(".num",answer_votes).text(new_up_count);
+		$(".voters",answer_votes).html(new_who.replace('/<span class="voters">(.*?)</span>/i', '$1')); //add 2011-09-29 by lesanc.li
       }
     }
     else {
       if(vtype == "up"){
-        $(".author",answer).after("<div class=\"votes\"><span class=\"num\">"+new_up_count+"</span> 票</div>");
+        $(".author",answer).after("<div class=\"votes\"><span class=\"num\">"+new_up_count+"</span>票"+'，来自'+new_who+'</div>'); //modify 2011-09-29 by lesanc.li
       }
     }
 
@@ -526,34 +568,31 @@ var Asks = {
   },
 
   report : function(){
+    if(!logined){  //add 2011-10-14 by lesanc.li
+      userLogin();
+      return false;
+    }
     $.facebox({ div : "#report_page", overlay : false });
-    jDialog.close();
-    return false;
-  },
-
-  reportAnswer : function(thing){
-    $.facebox({ div : "#report_page", overlay : false });
-    var base = $('#report_page_url_readonly').val()
-    $('#report_page_url').val(base + '#'+$(thing).parent().parent().parent()[0].id)
     jDialog.close();
     return false;
   },
 
   showSuggestTopics : function(topics){
-    html = '<div id="ask_suggest_topics" class="ask"><div class="container"><label>根据您的点评，我们推荐这些培训机构(点击添加):</label>';
+    html = '<div id="ask_suggest_topics" class="ask"><div class="container"><label>根据您的问题，我们推荐这些话题(点击添加):</label>';
     for(var i=0;i<topics.length;i++) {
-      html += '<a href="#" class="topic" onclick="return Asks.addSuggestTopic(this,\''+topics[i]+'\');">'+topics[i]+'</a>';
+      html += '<a href="#" class="topic nofloat" onclick="return Asks.addSuggestTopic(this,\''+topics[i]+'\');">'+topics[i]+'</a>';
     }
-    html += '<a class="gray_button small" href="#" onclick="return Asks.closeSuggestTopics();">完成</a>';
+    html += '<a class="silver_button silver_button_small" href="#" onclick="return Asks.closeSuggestTopics();">完成</a>'; //modify 2011-9-29 by lesanc.li
     html += "</div></div>";
+html='';// ticket 509
     $("#main").before(html);
   },
 
   addSuggestTopic : function(el,name){
     App.loading();
-    var csrf = App.getCSRF();
     $.ajax({
-      url : "/asks/"+ask_id+"/update_topic.js?"+ csrf.key + "=" + csrf.value,
+      //url : "/asks/"+ask_id+"/update_topic.js?"+ csrf.key + "=" + csrf.value,
+	  url : "/asks/"+ask_id+"/update_topic.js",  //add 2011-9-26 by lesanc.li
       data : {
         name : name,
         add : 1
@@ -562,7 +601,7 @@ var Asks = {
       type : "post",
       success : function(res){
         App.loading(false);
-        Asks.addTopic(name);
+        Asks.addTopic(name); 
         $(el).remove();
         if($("#ask_suggest_topics a.topic").length == 0){
           $("#ask_suggest_topics").remove();
@@ -576,23 +615,429 @@ var Asks = {
     $("#ask_suggest_topics").fadeOut("fast",function(){ $(this).remove(); });
     return false;
   },
+  
+  // limit input    add 2011-9-29 by lesanc.li
+  //limitWord : function(el, nums){
+	//$(el).keypress(function(event){
+      //if($(el).val() > 200){return false;}
+	//});
+  //},
+
+  shortDetail : function(){
+    $(".ask[class='ask']>.md_body").each(function(){
+      var mdHtml = $(this).html();
+      var mdText = $.trim($(this).text());
+      if(mdText.length > 270){
+        var mdSpan = $(document.createElement("span"));
+        $(this).html(mdSpan.html(mdText.substring(0,270)+"。。。 "));
+        var mdLink = $(document.createElement("a"));
+        mdLink.text("展开").attr("href","#").css({"background":"","padding":"0"}).appendTo($(this));
+        mdLink.toggle(function(){
+          mdSpan.html(mdHtml);
+          mdLink.text("收起");
+        },function(){
+          mdSpan.html(mdText.substring(0,270)+"。。。 ");
+          mdLink.text("展开")
+        });
+
+      }
+    });
+  },
 
   version : function(){
   }
 
 }
 
-/* 添加点评 */
+/* 添加问题 */
 function addAsk(){      
   if(!logined){
-    location.href = "/login";
+    userLogin();
     return false;
   }
-  var txtTitle = $("#hidden_new_ask textarea:nth-of-type(1)");
-  ask_search_text = $("#add_ask input").val();
-  //txtTitle.text(ask_search_text);
+  //var txtTitle = $("#hidden_new_ask textarea:nth-of-type(1)");
+  var txtTitle = $("#hidden_new_ask textarea").eq(0);
+  ask_search_text = $("#add_ask input").val() != "搜索求职、职场疑问" ? $("#add_ask input").val() : "";
+  txtTitle.text(ask_search_text);
   txtTitle.focus();
   $.facebox({ div : "#hidden_new_ask", overlay : false });
+  //Asks.limitWord(txtTitle, 200); //add 2011-9-29 by lesanc.li
+  // 用户提问提交前检测  //add 2011-10-27 by lesanc.li
+  $("#inner_new_ask", $("#facebox")).bind("submit", function(){
+    var titleBox = $("textarea",$("#facebox")).eq(0);
+    if(titleBox.val() == ""){
+      setTimeout(function(){titleBox.css({"border-color":"#f8d97c","background":"#ffffe1"});}, 0);
+      setTimeout(function(){titleBox.css({"border-color":"#d9edce","background":"#ffffff"});}, 200);
+      setTimeout(function(){titleBox.css({"border-color":"#f8d97c","background":"#ffffe1"});}, 400);
+      setTimeout(function(){titleBox.css({"border-color":"#d9edce","background":"#ffffff"});}, 600);
+      setTimeout(function(){titleBox.css({"border-color":"#f8d97c","background":"#ffffe1"});}, 800);
+      setTimeout(function(){titleBox.css({"border-color":"#d9edce","background":"#ffffff"});}, 1000);
+      return false;
+    }
+  });
+
+  $("#inner_new_ask textarea[name=\"ask\[title\]\"]", $("#facebox")).bind("click", function(){
+    App.inputLimit($(this), 200);
+  });
+
+  $("#inner_new_ask textarea[name=\"ask\[body\]\"]", $("#facebox")).bind("click", function(){
+    App.inputLimit($(this), 3000);
+  });
+
   return false;
 }
 
+  // login add 2011-10-9 by lesanc.li
+  function userLogin(){
+    if (!$("#hidden_user_login").html()){
+      var lhtml = '<div style="display: none;" id="hidden_user_login">';
+      lhtml += '<h4 style="font-size:18px;margin:20px 0 0;border-bottom:2px solid green;"><span style="float:right;margin-top:-5px;"><a href="#" onclick="$.facebox.close(); return false;"><img src="/images/snap1.jpg" alt="关闭" /></a></span>欢迎使用智联招聘账号登录问道</h4>';
+      lhtml += '<form name="frmLogin" method="post" action="http://my.zhaopin.com/loginmgr/loginproc.asp">';
+      lhtml += '<table align="center" style="margin:10px 50px 0px;">';
+      lhtml += '<tr height="40"><td width="60"><b>帐&nbsp;&nbsp;号：</b></td><td><input type="text" name="loginname" maxlength="100" value="输入邮箱或用户名" onclick="javascript:this.value=\'\'" style="color:#aaa;" /></td></tr>';
+      lhtml += '<tr height="40"><td><b>密&nbsp;&nbsp;码：</b></td><td><input type="password" name="password" maxlength="25" value="" /><br /><span class="user_login_err"></span></td></tr>';
+      lhtml += '<input type="hidden" name="Validate" id="Validate" value="campusspecial2011unify" />';
+      lhtml += '<input type="hidden" name="errbkurl" id="errbkurl" value="'+location.href+((location.href.indexOf('error=1')>-1)?'':'?error=1')+'" />';
+      lhtml += '<input type="hidden" name="bkurl" id="bkurl" value="'+location.href.replace('?error=1', '')+'" />';
+      lhtml += '<tr height="40"><td></td><td><span style="float:right;margin-top:10px;">没有智联招聘账号？<a href="#" onclick="userReg()">注册</a></span><button type="submit" class="submit">确 定</button></td></tr>';
+      $("body").append($(lhtml));
+    }
+    $.facebox({ div : "#hidden_user_login", overlay : false });
+    return false;
+  }
+
+  // logout add 2011-10-9 by lesanc.li
+  function userLogout(){
+    var url = location.href;
+    if (/(^http:\/\/[^\/]+\/)/i.test(url)){
+      location.href='http://my.zhaopin.com/loginmgr/logout.asp?strBkUrl='+RegExp['$1'];
+    }
+    return false;
+  }
+  
+  // reg add 2011-10-9 by lesanc.li
+  function userReg(){
+    var url = location.href;
+    if (/(^http:\/\/[^\/]+\/)/i.test(url)){
+      url=RegExp['$1'];
+    }
+    if (!$("#hidden_user_reg").html()){
+      var lhtml = '<div style="display: none;" id="hidden_user_reg">';
+      lhtml += '<h4 style="font-size:18px;margin:20px 0 0;border-bottom:2px solid green;"><span style="float:right;margin-top:-5px;"><a href="#" onclick="$.facebox.close(); return false;"><img src="/images/snap1.jpg" alt="关闭" /></a></span>注册智联招聘账号</h4>';
+      lhtml += '<form name="regform" id="regform" method="post" action="http://my.zhaopin.com/loginmgr/registerProc.asp">';
+      lhtml += '<input type="hidden" name="redirect_url" value="'+url+'" />';
+      lhtml += '<table align="center" style="margin:10px 50px 0px;">';
+      lhtml += '<tr height="40"><td width="80"><b>常用邮箱：</b></td><td><input type="text" size="32" name="email" class="user_email" value="" maxlength="100" /><br /><span class="user_email_err"></span></td></tr>';
+      lhtml += '<tr height="40"><td><b>登录密码：</b></td><td><input type="password" name="password1" id="password1" value="" size="32" /></td></tr>';
+      lhtml += '<tr height="40"><td><b>确认密码：</b></td><td><input type="password" name="password2" id="password2" value="" size="32" /></td></tr>';
+      lhtml += '<tr height="40"><td></td><td><input type="checkbox" class="accept" name="accept" checked="checked" style="width:20px;" /> 我接受智联招聘的 <a target="_blank" href="/agreement">用户协议</a> 和 <a target="_blank" href="http://jobseeker.zhaopin.com/zhaopin/aboutus/secrecy.html">隐私政策</a></td></tr>';
+      lhtml += '<tr height="40"><td></td><td><span style="float:right;margin-top:10px;">已有智联招聘账号？<a href="#" onclick="userLogin()">登录</a></span><button type="submit" class="submit reg">确 定</button></td></tr>';
+      lhtml += '</table></form></div>';
+      $("body").append($(lhtml));
+    }
+    $.facebox({ div : "#hidden_user_reg", overlay : false });
+    $("#facebox .user_email").bind("blur", function(){
+      if(judgeEmail(this.value)){checkEmail(this.value);}
+    });
+    $("#facebox .accept").bind("click", function(){
+      if(!$(this)[0].checked){
+        $("#facebox .reg").attr("disabled","disabled").css("color","#999999");
+      }else{
+        $("#facebox .reg").removeAttr("disabled").css("color","#5EA738");
+      }
+    });
+    return false;
+  }
+
+  function CallbackPosition(data, page){
+    var chkes = document.getElementById('chkEmailScript');
+    if (chkes){
+      document.getElementsByTagName('head')[0].removeChild(chkes);
+    }
+    var chks = document.createElement('script');
+    chks.id = 'chkEmailScript';
+    chks.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].insertBefore(chks, document.getElementsByTagName('script')[0]);
+    chks.onload = chks.onreadystatechange = function(){
+      if (typeof cefmarkhome != 'undefined'){
+        if (cefmarkhome == 1){
+          writeFileErrMsg('您填写的email地址已经注册过了，如果您忘记了密码，<BR><a href="http://my.zhaopin.com/loginmgr/forgetpassword.asp" target="_blank" class="purple12">请点击此处</a> 我们将会把密码发送至您的邮箱。</font>');
+        } else if (cefmarkhome == 9){
+          writeFileErrMsg("");
+        } else if (cefmarkhome == 0){
+          writeFileErrMsg("");
+        }
+      }
+    }
+    chks.src = page + '&' + data;
+  }
+
+  function judgeEmail(sValue) {
+    if (sValue == "") {
+        writeFileErrMsg("请输入您的电子邮件地址");
+        return false;
+    }
+    var CheckEmail = isemail_b(sValue);
+    if (CheckEmail.length > 0) {
+        writeFileErrMsg(CheckEmail);
+        return false;
+    }
+    writeFileErrMsg("");
+    return true;
+  }
+
+  //检查Email是否存在
+  function checkEmail(strEmail) {
+      var d = new Date();
+      var url = "http://my.zhaopin.com/myzhaopin/CEF_markhome.asp?timestamp=" + d.getTime();
+      var query = "opt=1&email=" + strEmail;
+      CallbackPosition(query, url)
+  }
+  function writeFileErrMsg(strMessage){
+      $("#facebox .user_email_err").html(" "+strMessage).css("color", "red");
+  }
+
+function isemail_b(s) {
+  // Writen by david, we can delete the before code
+  if (s.length > 100) {
+      //window.alert("email地址长度不能超过100位!");
+      return "email地址长度不能超过100位!";
+  }
+  s = s.toLowerCase();
+  var strSuffix = "cc|com|edu|gov|int|net|org|biz|info|pro|name|coop|al|dz|af|ar|ae|aw|om|az|eg|et|ie|ee|ad|ao|ai|ag|at|au|mo|bb|pg|bs|pk|py|ps|bh|pa|br|by|bm|bg|mp|bj|be|is|pr|ba|pl|bo|bz|bw|bt|bf|bi|bv|kp|gq|dk|de|tl|tp|tg|dm|do|ru|ec|er|fr|fo|pf|gf|tf|va|ph|fj|fi|cv|fk|gm|cg|cd|co|cr|gg|gd|gl|ge|cu|gp|gu|gy|kz|ht|kr|nl|an|hm|hn|ki|dj|kg|gn|gw|ca|gh|ga|kh|cz|zw|cm|qa|ky|km|ci|kw|cc|hr|ke|ck|lv|ls|la|lb|lt|lr|ly|li|re|lu|rw|ro|mg|im|mv|mt|mw|my|ml|mk|mh|mq|yt|mu|mr|us|um|as|vi|mn|ms|bd|pe|fm|mm|md|ma|mc|mz|mx|nr|np|ni|ne|ng|nu|no|nf|na|za|aq|gs|eu|pw|pn|pt|jp|se|ch|sv|ws|yu|sl|sn|cy|sc|sa|cx|st|sh|kn|lc|sm|pm|vc|lk|sk|si|sj|sz|sd|sr|sb|so|tj|tw|th|tz|to|tc|tt|tn|tv|tr|tm|tk|wf|vu|gt|ve|bn|ug|ua|uy|uz|es|eh|gr|hk|sg|nc|nz|hu|sy|jm|am|ac|ye|iq|ir|il|it|in|id|uk|vg|io|jo|vn|zm|je|td|gi|cl|cf|cn"
+  var regu = "^[a-z0-9][_a-z0-9\-]*([\.][_a-z0-9\-]+)*@([a-z0-9\-\_]+[\.])+(" + strSuffix + ")$";
+  var re = new RegExp(regu);
+  if (s.search(re) != -1) {
+      return "";
+  } else {
+      return "请输入有效合法的E-mail地址 ！";
+  }
+}
+
+function trim(str) {
+    regExp1 = /^ */;
+    regExp2 = / *$/;
+    return str.replace(regExp1, '').replace(regExp2, '');
+}
+
+// 搜索页 更多显示 add 2011-10-17 by lesanc.li
+function loadResults(el, q, curpage){
+  App.loading();
+  $.get("/traverse/asks_from?q="+((encodeURIComponent)?encodeURIComponent(q):q)+"&current_key="+curpage,function(data){
+    $(el).parent().before(data).remove();
+    App.loading(false);
+  });
+  return false;
+}
+
+//图片大小检测 add 2011-11-1 by lesanc.li
+function checkUploadImg(fileObj){
+  var hint = fileObj.next("p.hint");
+  hint.html("支持jpg, gif, png 格式的图片，不要超过2MB。建议图片尺寸大于100 X 100。");
+  $("button[type='submit']").unbind("click");
+  if (fileObj.val() == ""){
+    return false;
+  } else if(!(/(?:.jpeg|.png|.gif|.jpg)$/.test(fileObj.val()))){
+    hint.html(hint.html().replace("支持jpg, gif, png 格式的图片","<span style=\"color:red\">支持jpg, gif, png 格式的图片</span>"));
+    $("button[type='submit']").click(function(){return false;});
+  } else if(fileObj.val().indexOf(":")>-1){
+    var uploadImg = $("#uploadImg");
+    if(!uploadImg.attr("src")){
+      uploadImg = document.createElement("img");
+      uploadImg = $(uploadImg);
+      uploadImg.css({"position":"absolute", "visibility":"hidden"}).bind("readystatechange", function(){
+        if(uploadImg[0].readyState!= "complete") return false;
+        imgSize = uploadImg[0].fileSize;
+        if (imgSize > 2048000){
+          hint.html(hint.html().replace("不要超过2MB","<span style=\"color:red\">不要超过2MB</span>"));
+          $("button[type='submit']").click(function(){return false;});
+        }
+      }).appendTo($("body"));
+    }
+    uploadImg.attr("src", fileObj.val());
+  } else {
+    var imgSize = (fileObj[0].files)?fileObj[0].files.item(0).fileSize:0;
+    if (imgSize > 2048000){
+      hint.html(hint.html().replace("不要超过2MB","<span style=\"color:red\">不要超过2MB</span>"));
+      $("button[type='submit']").click(function(){return false;});
+    }
+  }
+}
+
+$(document).ready(function(){
+  //autocompletehere输入框提示
+  App.placeHolder($("#autocompletehere"), "搜索求职、职场疑问");
+  //个人页 对某人提问相关提示
+  var strATU = $("#ask_to_user>form>.row textarea").val();
+  $("#ask_to_user>form>.row textarea").bind("focus", function(){
+    if(!logined){
+      userLogin();
+      return false;
+    }
+    App.inputLimit($(this), 200);
+    $("#ask_to_user>form>div>div.row textarea").bind("focus", function(){
+      App.inputLimit($(this), 3000);
+    });
+    if($(this).val() == strATU){
+      $(this).val("").css("color","#000000");
+    }
+  }).bind("blur", function(){
+    if($.trim($(this).val()) == "" || $(this).val() == strATU){
+      $(this).val(strATU).css("color","#999999");
+    }
+  }).trigger("blur");
+  $("#ask_to_user form").bind("submit", function(){
+    if(!logined){
+      userLogin();
+      return false;
+    }
+    if($.trim($("#ask_to_user>form>.row textarea").val()) == "" || $("#ask_to_user>form>.row textarea").val() == strATU){
+      return false;
+    }
+    return true;
+  });
+  // asks/new 用户提问前检测登录状态
+  $("#new_ask").bind("submit", function(){
+    if(!logined){
+      userLogin();
+      return false;
+    }
+  });
+  // 问题补充字数限制
+  $("#new_ask .qeditor_preview").bind("click", function(){
+    App.inputLimit($(this), 3000, "text");
+  });
+  $("a.in_place_edit").bind("click", function(){
+    $(".in_place_editing[data-text-id=\"ask_body\"] .qeditor_preview").bind("click", function(){
+      App.inputLimit($(this), 3000, "text");
+    });
+  });
+  //用户名登录检测
+  if (location.href.indexOf('error=1') > -1){
+    userLogin();
+    $("#facebox .user_login_err").html("用户名或密码错误").css("color", "red");
+  }
+  // 登录和注册、退出按钮的点击事件
+  $("a", $("#user_bar")).each(function(){
+    switch($(this).html()){
+      case "登录":
+        $(this).click(userLogin);
+        break;
+      case "注册":
+        $(this).click(userReg);
+        break;
+      case "退出":
+        $(this).click(userLogout);
+        break;
+    }
+  });
+  // 问道广场 欢迎页热门话题关注 2011-10-11 by lesanc.li
+  $(".focListB li").hover(function(){
+    $(this).addClass("focListHover");
+    $(this).find("a.focBtn").addClass("show");
+  }, function(){
+    $(this).removeClass("focListHover");
+    $(this).find("a.focBtn").removeClass("show");
+  });
+  $(".focListB li>a").each(function(){
+    var el=$(this);
+    el.attr("href","javascript:void(0)");
+    var topicName = el.siblings("div").text();
+    if (el.text() == "+关注"){
+      el.bind("click",function(){
+          if(!logined){
+            userLogin();
+            return false;
+          }
+          Topics.hotFollow(el, topicName)});
+    } else if(el.text() == "取消关注"){
+      el.bind("click",function(){
+          if(!logined){
+            userLogin();
+            return false;
+          }
+          Topics.hotUnfollow(el, topicName)});
+    }
+  });
+  // 欢迎页热门话题全部关注和取消 2011-10-12 by lesanc.li
+  $(".focList").each(function(){
+    var elAll = $(this);
+    var folAll = $(".focListT .btnFa",elAll);
+    folAll.attr("href","javascript:void(0)");
+    if (folAll.text() == "关注全部"){
+      folAll.bind("click",function(){
+        if(!logined){
+          userLogin();
+          return false;
+        }
+        Topics.followAll(elAll);
+      });
+    } else if(folAll.text() == "取消关注"){
+      folAll.bind("click",function(){
+        if(!logined){
+          userLogin();
+          return false;
+        }
+        Topics.unfollowAll(elAll);
+      });
+    }   
+  });
+  // 个人页 鼠标经过个人图像事件
+  var userImgEdit = $(".user_profile .uname .edit");
+  $(".user_profile .uname .avatar img").hover(function(e){
+    if (e.relatedTarget != $("a", userImgEdit)[0]) userImgEdit.show();
+  },function(e){
+    if (e.relatedTarget != $("a", userImgEdit)[0]){
+      userImgEdit.hide();
+    } else {
+      userImgEdit.mouseout(function(e1){
+        if (e1.relatedTarget != $(".user_profile .uname .avatar img")[0])$(this).hide();
+      });
+    }
+  });
+  //  图片上传检测
+  $("#facebox #user_avatar").live("change", function(){
+    checkUploadImg($("#facebox #user_avatar"));
+  });
+  $("#user_avatar").bind("change", function(){
+    checkUploadImg($(this));
+  });
+  //个人设置页 个人一句话描述输入框提示 2011-11-2 by lesanc.li
+  if ($("#user_tagline").length){
+    App.placeHolder($("#user_tagline"), "如：智联招聘行政专员，清华大学应届生");
+    $("#user_edit").bind("submit", function(){
+      if($("#user_tagline").val() == "如：智联招聘行政专员，清华大学应届生"){
+        $("#user_tagline").val("");
+      }
+      if (/[^a-zA-Z0-9-_]+/.test($("#user_slug").val())){
+        $("#user_slug")[0].focus();
+        return false;
+      }
+    });
+  }
+  // 个人设置页 个性域名输入限制
+  if ($("#user_slug").length){
+    $("#user_slug").val($("#user_slug").val().replace(/[\. ]/g,"_"));
+    $("#user_slug").bind("keydown", function(e){
+      e = e || window.event;
+      if (e.keyCode == 190 || e.keyCode == 110 || e.keyCode == 32){
+        return false;
+      }
+    }).bind("blur", function(){
+      if (/[^a-zA-Z0-9-_]+/.test($(this).val())){
+        if ($("#user_slug_err").attr("id")){
+          $("#user_slug_err").show();
+        } else {
+          $(this).after("&nbsp;&nbsp;<span id=\"user_slug_err\" style=\"color:red\">输入的格式不正确！</span>");
+        }
+      } else {
+        $("#user_slug_err").hide();
+      }
+    });
+  }
+  // 所有问题、个人页问题补充描述截断
+  Asks.shortDetail();
+  // 问题页代码迁移至此 2011-10-14 by lesanc.li
+  Asks.completeInviteToAnswer(); 
+  $("#share_ask_box h2 a").facebox();
+});
