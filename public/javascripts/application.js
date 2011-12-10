@@ -67,13 +67,13 @@ var App = {
     type = type.toLowerCase();
     if(type == "json"){
       if(result.success == false){
-        location.href = "/login_to_zhaopin?redirect_path=" + encodeURIComponent(window.location.pathname);
+        location.href = "/login?redirect_path=" + encodeURIComponent(window.location.pathname);
         return false;
       }
     }
     else{
       if(result == "_nologin_"){
-        location.href = "/login_to_zhaopin?redirect_path=" + encodeURIComponent(window.location.pathname);
+        location.href = "/login?redirect_path=" + encodeURIComponent(window.location.pathname);
         return false;
       }
     }

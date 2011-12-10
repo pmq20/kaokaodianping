@@ -687,91 +687,6 @@ function addAsk(){
   return false;
 }
 
-  // login add 2011-10-9 by lesanc.li
-  function userLogin(){
-    if (!$("#hidden_user_login").html()){
-      var lhtml = '<div style="display: none;" id="hidden_user_login">';
-      lhtml += '<h4 style="font-size:18px;margin:20px 0 0;border-bottom:2px solid green;"><span style="float:right;margin-top:-5px;"><a href="#" onclick="$.facebox.close(); return false;"><img src="/images/snap1.jpg" alt="关闭" /></a></span>欢迎使用智联招聘账号登录问道</h4>';
-      lhtml += '<form name="frmLogin" method="post" action="http://my.zhaopin.com/loginmgr/loginproc.asp">';
-      lhtml += '<table align="center" style="margin:10px 50px 0px;">';
-      lhtml += '<tr height="40"><td width="60"><b>帐&nbsp;&nbsp;号：</b></td><td><input type="text" name="loginname" maxlength="100" value="输入邮箱或用户名" onclick="javascript:this.value=\'\'" style="color:#aaa;" /></td></tr>';
-      lhtml += '<tr height="40"><td><b>密&nbsp;&nbsp;码：</b></td><td><input type="password" name="password" maxlength="25" value="" /><br /><span class="user_login_err"></span></td></tr>';
-      lhtml += '<input type="hidden" name="Validate" id="Validate" value="campusspecial2011unify" />';
-      lhtml += '<input type="hidden" name="errbkurl" id="errbkurl" value="'+location.href+((location.href.indexOf('error=1')>-1)?'':'?error=1')+'" />';
-      lhtml += '<input type="hidden" name="bkurl" id="bkurl" value="'+location.href.replace('?error=1', '')+'" />';
-      lhtml += '<tr height="40"><td></td><td><span style="float:right;margin-top:10px;">没有智联招聘账号？<a href="#" onclick="userReg()">注册</a></span><button type="submit" class="submit">确 定</button></td></tr>';
-      $("body").append($(lhtml));
-    }
-    $.facebox({ div : "#hidden_user_login", overlay : false });
-    return false;
-  }
-
-  // logout add 2011-10-9 by lesanc.li
-  function userLogout(){
-    var url = location.href;
-    if (/(^http:\/\/[^\/]+\/)/i.test(url)){
-      location.href='http://my.zhaopin.com/loginmgr/logout.asp?strBkUrl='+RegExp['$1'];
-    }
-    return false;
-  }
-  
-  // reg add 2011-10-9 by lesanc.li
-  function userReg(){
-    var url = location.href;
-    if (/(^http:\/\/[^\/]+\/)/i.test(url)){
-      url=RegExp['$1'];
-    }
-    if (!$("#hidden_user_reg").html()){
-      var lhtml = '<div style="display: none;" id="hidden_user_reg">';
-      lhtml += '<h4 style="font-size:18px;margin:20px 0 0;border-bottom:2px solid green;"><span style="float:right;margin-top:-5px;"><a href="#" onclick="$.facebox.close(); return false;"><img src="/images/snap1.jpg" alt="关闭" /></a></span>注册智联招聘账号</h4>';
-      lhtml += '<form name="regform" id="regform" method="post" action="http://my.zhaopin.com/loginmgr/registerProc.asp">';
-      lhtml += '<input type="hidden" name="redirect_url" value="'+url+'" />';
-      lhtml += '<table align="center" style="margin:10px 50px 0px;">';
-      lhtml += '<tr height="40"><td width="80"><b>常用邮箱：</b></td><td><input type="text" size="32" name="email" class="user_email" value="" maxlength="100" /><br /><span class="user_email_err"></span></td></tr>';
-      lhtml += '<tr height="40"><td><b>登录密码：</b></td><td><input type="password" name="password1" id="password1" value="" size="32" /></td></tr>';
-      lhtml += '<tr height="40"><td><b>确认密码：</b></td><td><input type="password" name="password2" id="password2" value="" size="32" /></td></tr>';
-      lhtml += '<tr height="40"><td></td><td><input type="checkbox" class="accept" name="accept" checked="checked" style="width:20px;" /> 我接受智联招聘的 <a target="_blank" href="/agreement">用户协议</a> 和 <a target="_blank" href="http://jobseeker.zhaopin.com/zhaopin/aboutus/secrecy.html">隐私政策</a></td></tr>';
-      lhtml += '<tr height="40"><td></td><td><span style="float:right;margin-top:10px;">已有智联招聘账号？<a href="#" onclick="userLogin()">登录</a></span><button type="submit" class="submit reg">确 定</button></td></tr>';
-      lhtml += '</table></form></div>';
-      $("body").append($(lhtml));
-    }
-    $.facebox({ div : "#hidden_user_reg", overlay : false });
-    $("#facebox .user_email").bind("blur", function(){
-      if(judgeEmail(this.value)){checkEmail(this.value);}
-    });
-    $("#facebox .accept").bind("click", function(){
-      if(!$(this)[0].checked){
-        $("#facebox .reg").attr("disabled","disabled").css("color","#999999");
-      }else{
-        $("#facebox .reg").removeAttr("disabled").css("color","#5EA738");
-      }
-    });
-    return false;
-  }
-
-  function CallbackPosition(data, page){
-    var chkes = document.getElementById('chkEmailScript');
-    if (chkes){
-      document.getElementsByTagName('head')[0].removeChild(chkes);
-    }
-    var chks = document.createElement('script');
-    chks.id = 'chkEmailScript';
-    chks.type = 'text/javascript';
-    document.getElementsByTagName('head')[0].insertBefore(chks, document.getElementsByTagName('script')[0]);
-    chks.onload = chks.onreadystatechange = function(){
-      if (typeof cefmarkhome != 'undefined'){
-        if (cefmarkhome == 1){
-          writeFileErrMsg('您填写的email地址已经注册过了，如果您忘记了密码，<BR><a href="http://my.zhaopin.com/loginmgr/forgetpassword.asp" target="_blank" class="purple12">请点击此处</a> 我们将会把密码发送至您的邮箱。</font>');
-        } else if (cefmarkhome == 9){
-          writeFileErrMsg("");
-        } else if (cefmarkhome == 0){
-          writeFileErrMsg("");
-        }
-      }
-    }
-    chks.src = page + '&' + data;
-  }
-
   function judgeEmail(sValue) {
     if (sValue == "") {
         writeFileErrMsg("请输入您的电子邮件地址");
@@ -786,13 +701,6 @@ function addAsk(){
     return true;
   }
 
-  //检查Email是否存在
-  function checkEmail(strEmail) {
-      var d = new Date();
-      var url = "http://my.zhaopin.com/myzhaopin/CEF_markhome.asp?timestamp=" + d.getTime();
-      var query = "opt=1&email=" + strEmail;
-      CallbackPosition(query, url)
-  }
   function writeFileErrMsg(strMessage){
       $("#facebox .user_email_err").html(" "+strMessage).css("color", "red");
   }
@@ -931,14 +839,6 @@ $(document).ready(function(){
         break;
     }
   });
-  // 问道广场 欢迎页热门话题关注 2011-10-11 by lesanc.li
-  $(".focListB li").hover(function(){
-    $(this).addClass("focListHover");
-    $(this).find("a.focBtn").addClass("show");
-  }, function(){
-    $(this).removeClass("focListHover");
-    $(this).find("a.focBtn").removeClass("show");
-  });
   $(".focListB li>a").each(function(){
     var el=$(this);
     el.attr("href","javascript:void(0)");
@@ -1002,19 +902,6 @@ $(document).ready(function(){
   $("#user_avatar").bind("change", function(){
     checkUploadImg($(this));
   });
-  //个人设置页 个人一句话描述输入框提示 2011-11-2 by lesanc.li
-  if ($("#user_tagline").length){
-    App.placeHolder($("#user_tagline"), "如：智联招聘行政专员，清华大学应届生");
-    $("#user_edit").bind("submit", function(){
-      if($("#user_tagline").val() == "如：智联招聘行政专员，清华大学应届生"){
-        $("#user_tagline").val("");
-      }
-      if (/[^a-zA-Z0-9-_]+/.test($("#user_slug").val())){
-        $("#user_slug")[0].focus();
-        return false;
-      }
-    });
-  }
   // 个人设置页 个性域名输入限制
   if ($("#user_slug").length){
     $("#user_slug").val($("#user_slug").val().replace(/[\. ]/g,"_"));
