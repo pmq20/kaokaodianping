@@ -6,3 +6,25 @@
   margin-top:3px !important;
   background-color:transparent;
 }
+#tab-ofpsvr{
+  margin-top:-8px
+}
+#return_to_top div{
+  float:right
+}
+#return_to_home div{
+  float:right
+}
+#help_query_btn{
+  background-image:url('/images/blue_search_sprite_ie.png') !important;
+}
+.return_to_top_icon{
+  background-image:url('/images/dashboard_master_sprite_ie.png') !important;
+}
+.return_to_home_icon{
+  background-image:url('/images/dashboard_master_sprite_ie.png') !important;
+  margin-right:5px;
+}
+#search_controls_button{
+  height:30px !important;
+}

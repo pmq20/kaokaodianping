@@ -20,7 +20,7 @@ module UsersHelper
     url = "/users/#{user.slug}"#options[:url] == true ? user_url(user.slug) : user_path2(user)
     
     if options[:with_avatar]
-      avaurl = user.avatar_url(:small)
+      avaurl = user.avatar_small
       style = "background: transparent url(#{avaurl}) no-repeat scroll 0 7px"
     else
       style = ''

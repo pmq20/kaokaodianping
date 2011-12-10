@@ -9,7 +9,7 @@ class User
   field :verified, :type => Boolean, :default => false
   field :state, :type => Integer, :default => 1
   def avatar_url(mtd)
-    avaurl = self.avatar.send(mtd).url
+    avaurl = self.avatar.small.url
     if avaurl.blank?
       avaurl = ''
     elsif "avatar/small.jpg"==avaurl

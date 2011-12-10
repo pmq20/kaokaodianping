@@ -106,9 +106,9 @@
         <div class="logo"></div>
         <div class="text">加载中…</div>
       </div>
+      
       <a id="return_to_top" style="display: block;" onclick="Effect.ScrollTo('container'); return false;" href="#"><div class="return_to_top_icon"></div></a>
       <a id="return_to_home" style="display: block;" href="<%= pos_bbs? ? '/bbs' : root_path %>"><div class="return_to_home_icon"></div></a>
-
 
       <div style="width:0px;height:0px;overflow:hidden;">
         <%= image_tag("loading.gif") %>
@@ -150,28 +150,8 @@
       <% if pos_bbs? %>
         <%= javascript_include_tag "bbs" %>
       <% else %>
-        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy",'jquery-ui-1.8.16.custom.min',"jcaches","application","asks","topics","users","inbox" %>
+        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy",'jquery-ui-1.8.16.custom.min',"jcaches","application","asks" %>
       <% end %>
-
-      <%= yield :scripts %>
-      <script type="text/javascript" charset="utf-8">
-        <%= yield :butt2 %>
-      </script>
-      <%= yield :butt %>
-
-
-
-
-      <script type="text/javascript" charset="utf-8">
-        if(!window.logined){
-          $('.login_required').attr('onclick','').unbind('click').click(function(){
-            login_trigger();
-            return false;
-          })
-        }
-      </script>
-
-
       
       
       
