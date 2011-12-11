@@ -915,5 +915,5 @@ $(document).ready(function(){
   Asks.shortDetail();
   // 问题页代码迁移至此 2011-10-14 by lesanc.li
   Asks.completeInviteToAnswer(); 
-  $("#share_ask_box h2 a").facebox();
+  $("#share_ask_box2 a").facebox();
 });

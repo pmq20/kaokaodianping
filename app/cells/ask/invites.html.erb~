@@ -1,6 +1,11 @@
 <% if !@ask.blank? %>
   <div id="share_ask_box" class="box standard">
+    <h2>
+      <span style="color:#333;">分享</span>
+        <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=email"><span class="has_icon email">Email</span></a>
+        <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=url"><span class="has_icon url">转发地址</span></a>
 
+    </h2>
     <div class="inner">
       <div class="share"><%unless @ask.to_user_id %>
       <a href="#" onclick="return Asks.toggleShareAsk(this,'invite');">邀请他人<%= @ask.tianjia_what %><% if @invites.count > 0 %><% end %><span id="shared_span_count"> (<%= @invites.count %>)</span></a>

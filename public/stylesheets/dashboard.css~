@@ -18,7 +18,6 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    behavior: url('/ie-css3.htc');
 }
 #right_column a#dashboard_switch_blog_menu_current {
     position: relative;

@@ -39,6 +39,7 @@
     border-bottom-right-radius: 0;
 }
 #shouye_chang{
+behavior: url('/ie-css3.htc');
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -893,3 +894,6 @@ ol#photo_list li .caption {
     white-space: nowrap;
 }
 /*end_edit_post*/
+.colorBlack{
+color:black !important;
+}

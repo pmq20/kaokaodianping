@@ -1,0 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<%=stylesheet_link_tag 'shareWeibo'%>
+</head> 
+<body> 
+<%=javascript_include_tag 'shareWeibo'%>
+<div class="change_btn">                          <div class="type4">                        	<span class="number" id="count_p">                        		<em id="count">...</em>                        		<img alt="" class="arrow" src="http://simg.sinajs.cn/platformstyle/images/common/transparent.gif">                        	</span>                        	<p><a hidefocus="true" href="javascript:;" onclick="share();" title="分享到新浪微博"><img alt="" class="icon" src="http://simg.sinajs.cn/platformstyle/images/common/transparent.gif"></a></p>                          </div>                        </div>
+</body> 
+</html> 

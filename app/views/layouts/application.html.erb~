@@ -31,7 +31,7 @@
         <meta name="keywords" content="<%= @meta_keywords %>" />
         <meta name="description" content="<%= @meta_description %>" />
     </head>
-    <body id="<%= pos_signature %>">    
+    <body id="<%= pos_signature %>">
 
       <% if !user_signed_in? %>
         <%=render 'shared/loginreg' %>
@@ -150,11 +150,26 @@
       <% if pos_bbs? %>
         <%= javascript_include_tag "bbs" %>
       <% else %>
-        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy",'jquery-ui-1.8.16.custom.min',"jcaches","application","asks","topics","users","inbox" %>
+        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy","jquery.ui","jcaches","application","asks","topics","users","inbox" %>
       <% end %>
       
       
       
+      <%= yield :scripts %>
+      <script type="text/javascript" charset="utf-8">
+        <%= yield :butt2 %>
+      </script>
+      <%= yield :butt %>
+
+
+      <script type="text/javascript" charset="utf-8">
+        if(!window.logined){
+          $('.login_required').attr('onclick','').unbind('click').click(function(){
+            login_trigger();
+            return false;
+          })
+        }
+      </script>
     </body>
 </html>
 

@@ -35,7 +35,7 @@
     </div>
   </form>
 </div>
-<script type="text/javascript" charset="utf-8">
+      <script type="text/javascript" charset="utf-8">
   $("#share_ask .dialog_tabs a").click(function(){
     a = $(this);
     $(".share_panel").hide();

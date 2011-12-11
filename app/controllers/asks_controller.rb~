@@ -70,7 +70,9 @@ class AsksController < ApplicationController
       render :text => "1"
     end
   end
-
+  def shareWeibo
+    render layout:false
+  end
   def share
     @ask = Ask.find(params[:id])
     if request.get?
