@@ -17,7 +17,7 @@
     <%= f.input :tagline, :label => "他的特点", :input_html => { :class => "long" }, :hint => "用简短的话描述这个人的特点,如: 某机构牛人,参加过什么培训班等等" %>
     <button type="submit" class="submit">发送邀请邮件</button>
   <% end %>
-</div>
+<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 
 <% content_for :sidebar do %>
   <div class="box">

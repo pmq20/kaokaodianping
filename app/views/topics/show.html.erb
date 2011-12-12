@@ -64,7 +64,7 @@
   </div>
   
   
-</div>
+<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 <% content_for :sidebar do %>
 
 <% if current_user %>

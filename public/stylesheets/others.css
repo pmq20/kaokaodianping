@@ -80,7 +80,7 @@ a.with_avatar{
   bottom:0;
   width:609px;
   _background:none;
-  _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://assets.dj10.net/images/home/list-cover.png',sizingMethod='crop');
+  _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/list-cover.png',sizingMethod='crop');
   pointer-events:none;
   z-index:2;
 }

@@ -2,5 +2,5 @@
   <% @topics.each do |topic| %>
   <%= link_to topic.name,"topics/#{topic.name}" %><br>
   <% end  %>
-</div>
+<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 <%= render "asks/sidebar" %>

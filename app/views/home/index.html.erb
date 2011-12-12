@@ -134,7 +134,7 @@ window.dhelp = function(val){
 
 
 <!-- No posts found -->
-<div id="shouye_chang" style="margin: 35px 0 0;height:438px;overflow:hidden;font-size:15px">
+<div id="shouye_chang" style="margin: 35px 0 0;height:<%= @is_ie ? 478 : 438 %>px;overflow:hidden;font-size:15px;">
   <%= render 'asks/base' %>
   <%= content_for :scripts do %>
     <script type="text/javascript">
@@ -166,11 +166,17 @@ window.dhelp = function(val){
         </table>
       </div>
     <% end %>
-    <div class="doListcover"></div>
+    <% if @is_ie %>
+    <div style="width:625px;height:26px;position: absolute;bottom:-1px;left:0;background:#FFF url('/images/ie_bottom.png') no-repeat left top;">
+      &nbsp;
+    </div>
+    <% else %>
+        <div class="doListcover" style="<%='margin-bottom:-1px;' if @is_ie %>"></div>
+    <% end %>
   </div>
   <%= render "asks/sidebar" %>
-
-</div>
+  
+<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 
 <% content_for :butt2 do %>
 $(document).ready(function () {

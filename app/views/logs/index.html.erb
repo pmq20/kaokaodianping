@@ -23,6 +23,7 @@
   <% if @logs.length == @per_page %>
     <div class="pagination"><a class="page_more" href="#" onclick="return loadLogs();">查看更多...</a></div>
   <% end %>
+  <% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%>
 </div>
 
 <%= render "asks/sidebar" %>
