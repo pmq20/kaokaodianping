@@ -48,7 +48,6 @@
   border-bottom: solid 2px #bbb;
   word-wrap: break-word;  
   background-color:white;font-size:13px;padding: 18px 15px 7px;
-behavior: url('/ie-css3.htc');
 }
 .ask_item{
   border-bottom: 1px dotted #DDDDDD;
