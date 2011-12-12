@@ -167,9 +167,7 @@ window.dhelp = function(val){
       </div>
     <% end %>
     <% if @is_ie %>
-    <div style="width:625px;height:26px;position: absolute;bottom:-1px;left:0;background:#FFF url('/images/ie_bottom.png') no-repeat left top;">
-      &nbsp;
-    </div>
+    <div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div>
     <% else %>
         <div class="doListcover" style="<%='margin-bottom:-1px;' if @is_ie %>"></div>
     <% end %>
