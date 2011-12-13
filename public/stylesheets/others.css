@@ -1,3 +1,9 @@
+#xiangguandianping{
+  padding:0;
+}
+#xiangguandianping li{
+  list-style-type:none;
+}
 #help_search {
     margin:0;border:none;padding:10px 25px 11px 25px
     background: none repeat scroll 0 0 #F9F9F9;
@@ -217,13 +223,13 @@ input{
     margin-top: 10px;
 }
 #tags .header .cell, #tags .row .cell {
-    display: table-cell;
+    display: inline;
     vertical-align: middle;
     padding: 10px 0;
 }
 #tags .header .cell {
     text-transform: uppercase;
-    font: bold 10px Arial, Helvetica, sans-serif;
+    font: bold 12px Arial, Helvetica, sans-serif;
     color: #9e9e9e;
     padding: 20px 0 8px 0;
     -webkit-font-smoothing: antialiased;

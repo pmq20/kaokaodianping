@@ -2,7 +2,7 @@
   <div id="relation_asks" class="box standard">
     <h2>相关点评</h2>
     <div class="inner">
-      <ul style="margin-left:-22px">
+      <ul id="xiangguandianping">
       <% @relation_asks.each_with_index do |ask,i| %>
         <li <%= "style='display:none;'" if i > 4 %>><a href="/asks/<%= ask.id %>"><%= ask.title %></a></li>
       <% end %>
