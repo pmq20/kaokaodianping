@@ -10,7 +10,7 @@
          
         <%= auto_discovery_link_tag(:rss,feed_bbs_topics_url,:title => '订阅最新贴') if pos_bbs? %>
         <%= stylesheet_link_tag "bbs" if pos_bbs? %>
-        <%= stylesheet_link_tag "application","users","asks","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.tipsy",'global','dashboard','jquery-ui-1.8.16.custom','facebox','others',cache:'cache_css'%>
+        <%= stylesheet_link_tag "application","users","asks","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.tipsy",'global','dashboard','jquery-ui-1.8.16.custom','facebox','others'%><%#cache:'cache_css'%>
 
         <% if @is_ie %>
           <%= stylesheet_link_tag 'ie'  %>
@@ -152,7 +152,7 @@
       <% if pos_bbs? %>
         <%= javascript_include_tag "bbs" %>
       <% else %>
-        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy","jquery.ui","jcaches","application","asks","topics","users","inbox",cache:'cache_js'%>
+        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy","jquery.ui","jcaches","application","asks","topics","users","inbox"%><%#cache:'cache_js'%>
       <% end %>
       
       
