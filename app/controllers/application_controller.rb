@@ -60,7 +60,7 @@ def check_browser
   @is_ie8 = (request.env['HTTP_USER_AGENT'].downcase.index('msie 8')!=nil)
 end
 def bugtrack
-  redirect_to '/asks/4ea0de69d1212f2c4d000006'
+  redirect_to 'bbs/n4ee736b6bc8115760a000029'
   return
 end
   def init
