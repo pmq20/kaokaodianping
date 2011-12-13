@@ -153,7 +153,7 @@ Help Docs                <span class="check" style="display:none"></span>
 
 <% end %>
 
-<%if @is_ie6%>
+<%if @is_ie6 or @is_ie7%>
 <% content_for :butt2 do %>
 
 $('#right_column .controls_section li').not('.selected').hover(function(){

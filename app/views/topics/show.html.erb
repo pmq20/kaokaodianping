@@ -59,7 +59,7 @@
     <% elsif params[:action] == "show_s" %>
       <div class="pagination"><a class="page_more" href="<%= show_cc_topic_path(@topic.name) %>">看完课程点评了？还有关于<%= @topic.name %>的提问呢！</a></div>
     <% else %>
-      <div class="pagination"><a class="page_more" href="#" onclick="return addAsk();">你有关于<%= @topic.name %>问题，也可以提出来哦！</a></div>
+      <div class="pagination"><a class="page_more" class="login_required" href="#" onclick="return addAsk();">你有关于<%= @topic.name %>问题，也可以提出来哦！</a></div>
     <% end %>
   </div>
   
