@@ -16,7 +16,7 @@
     </div> 
     <% if item.last_answer and (not(params[:controller] == "asks" and params[:action] == "index")) %>
       <div class="last_answer answer">
-        <div class="avatar_border_small">
+        <div class="avatar_border_small<%=2 if @is_ie6%>">
           <%= user_avatar_tag(item.last_answer.user, :small) %>
         </div>
         <div class="attr">
