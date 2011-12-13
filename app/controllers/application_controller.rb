@@ -32,7 +32,7 @@ before_filter Proc.new{
 } 
 #PSVR>
 #[TODO] don't let mobile users see zheye
-  has_mobile_fu
+  # has_mobile_fu
 
 before_filter :bao10jie_filter
 before_filter :check_browser

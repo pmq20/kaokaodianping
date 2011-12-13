@@ -1,25 +1,6 @@
 <% content_for :sidebarstyle do %> background-color:#2C4762; <% end %>
 <% content_for :sidebar do %>
 
-      <!-- Settings -->
-  <ul class="controls_section" id="dashboard_controls_tumblelog_settings">
-  <li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
-      <a href="/tuan" class="settings">
-          <div class="hide_overflow">团购课程</div>
-      </a>
-  </li>
-  <li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
-      <a href="/exp" class="settings">
-          <div class="hide_overflow">试听信息</div>
-      </a>
-  </li>
-  <li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
-      <a href="/cards" class="settings">
-          <div class="hide_overflow">会员卡</div>
-      </a>
-  </li>
-  </ul>
-
 <!-- Subnav -->
 <ul class="controls_section">
 <!-- Posts -->
@@ -28,7 +9,6 @@
 <div class="hide_overflow">考考首页</div>
 </a>
     </li>
-
 
         <!-- Queue -->
     <li class="<%= 'selected' if doing_path==request.path %>">
@@ -87,6 +67,35 @@
 
 
 </ul>
+
+
+
+
+
+
+
+    <!-- Settings -->
+<ul class="controls_section" id="dashboard_controls_tumblelog_settings">
+<li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
+    <a href="/tuan" class="settings">
+        <div class="hide_overflow">团购课程</div>
+    </a>
+</li>
+<li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
+    <a href="/exp" class="settings">
+        <div class="hide_overflow">试听信息</div>
+    </a>
+</li>
+<li class="forever_alone" onclick="window.location.href='<%=under_construction_path %>'">
+    <a href="/cards" class="settings">
+        <div class="hide_overflow">会员卡</div>
+    </a>
+</li>
+</ul>
+
+
+
+
 
 
 <ul class="controls_section" id="dashboard_controls_open_blog">
