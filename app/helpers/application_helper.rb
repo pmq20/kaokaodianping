@@ -1,6 +1,6 @@
 # coding: utf-8
 module ApplicationHelper
-  def is_mobile_device
+  def is_mobile_device?
     false
   end
 
