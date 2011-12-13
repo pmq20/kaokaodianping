@@ -224,6 +224,7 @@ input{
 }
 #tags .header .cell, #tags .row .cell {
     display: inline;
+    height:100%;
     vertical-align: middle;
     padding: 10px 0;
 }
