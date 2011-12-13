@@ -24,7 +24,7 @@
     </div>
   </div>
   <br>
-<%if @is_ie6%>
+<%if @is_ie6 or @is_ie7%>
 
     <table id="tags">
         <thead class="header">
@@ -79,7 +79,7 @@
 
 
 
-<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
+<% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 
 <% content_for :sidebar do %>
 
