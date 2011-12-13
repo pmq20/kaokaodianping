@@ -211,7 +211,10 @@ input{
 
 
 
-
+#choice_logo{
+  margin-left:-11px;
+  margin-top:37px
+}
 
 #tags {
     position: relative;
@@ -223,7 +226,7 @@ input{
     margin-top: 10px;
 }
 #tags .header .cell, #tags .row .cell {
-    display: inline;
+    display: table-cell;
     height:100%;
     vertical-align: middle;
     padding: 10px 0;

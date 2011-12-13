@@ -7,7 +7,8 @@
       <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <input type="hidden" name="redirect_to" value="<%= params[:redirect_to] %>"/>
         <%= devise_error_messages! %>
-  <div class="row string email required"><label for="user_email" class="email required">邮箱 </label><input type="text" value="" size="220" required="required" name="user[email]" id="user_email" class="string email required"></div>
+  <div class="row string required"><label for="user_email" class="required">邮箱 </label>
+    <input type="text" value="" size="220" required="required" name="user[email]" id="user_email" class="string required"></div>
         <%= f.input :password, :as => :password, :label => "密码" %>
         <% if devise_mapping.rememberable? -%>
           <div class="row"><%= f.check_box :remember_me, :style => "width:auto;" %> <%= f.label :remember_me,"记住登录状态", :style => "display:inline;" %></div>
@@ -24,7 +25,7 @@
     </div>
     <% end %>
   </div>
-<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
+<% if @is_ie %><div id="ie_every_foot" style="bottom:20px">&nbsp;</div><%end%></div>
 
 <% content_for :sidebar do %>
   <div class="box">

@@ -24,7 +24,31 @@
     </div>
   </div>
   <br>
+<%if @is_ie6%>
 
+    <table id="tags">
+        <thead class="header">
+            <td class="cell name">机构名称</td>
+            <td class="cell feedback">LOGO</td>
+            <td class="cell lead_editor">点评数</td>
+        </thead>
+        <tbody>
+  <% @topics.each_with_index do |item,i| %>
+          <tr class="row" style="background-color:<%=  i.even? ? '#EEE' : '#FFF'%>">
+              <td class="cell  name" >
+                  <%= link_to item.name,topic_path(item.name) %>
+              </td>
+              <td class="cell feedback">
+                  <%= image_tag(item.cover.normal.url) %>
+              </td>
+              <td class="cell lead_editor">
+                  <%= link_to item.answers_count,topic_path(item.name) %>
+              </td>
+          </tr>
+  <% end %>
+    </tbody>
+    </table>
+<%else%>
     <div id="tags">
         <div class="header">
                     <div class="cell name">机构名称<div class="sort_arrow"></div>
@@ -51,7 +75,7 @@
             <div class="gradient"></div>
         <div class="gradient right"></div>
     </div>
-
+<%end%>
 
 
 

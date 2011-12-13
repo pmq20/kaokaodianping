@@ -1,6 +1,7 @@
 <div id="header">
 <a href="<%= user_signed_in? ? '/':'/' %>">
   <img width="196" height="53" id="logo" alt="考考点评" src="/images/logo.png?alpha&amp;6">
+  <%=image_tag 'choice.png',:id=>'choice_logo'%>
 </a>
 <div id="tabs_outter_container">
 <% if user_signed_in? %>

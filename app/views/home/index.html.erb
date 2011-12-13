@@ -32,17 +32,17 @@
   <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
     热门搜索: 
     <% @hot_searches.each do |search|%>
-      <%= link_to search,"/tag/#{search}",onclick:"dhelp('#{search}')" %>,
+      <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
     <% end %>
     <%= link_to '[更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show()' %>
     <span id="more_topics" style="display:none">
       <% @more_tags.each_with_index do |search,index| %>
-        <%= link_to search,"/tag/#{search}",onclick:"dhelp('#{search}')" %>,
+        <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
       <% end %>
       <%= link_to '[更更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics2").show()' %>
       <span id="more_topics2" style="display:none">
         <% @more_topics.each_with_index do |search,index| %>
-          <%= link_to search,"/tag/#{search}",onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
+          <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
         <% end %>
       </span>
     </span>
@@ -85,17 +85,17 @@
   <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
     热门搜索: 
     <% @hot_searches.each do |search|%>
-      <%= link_to search,"/tag/#{search}",onclick:"dhelp('#{search}')" %>,
+      <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
     <% end %>
     <%= link_to '[更多]','#',style:'float:right;margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show()' %>
     <span id="more_topics" style="display:none">
       <% @more_tags.each_with_index do |search,index| %>
-        <%= link_to search,"/tag/#{search}",onclick:"dhelp('#{search}')" %>,
+        <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
       <% end %>
       <%= link_to '[更更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics2").show()' %>
       <span id="more_topics2" style="display:none">
         <% @more_topics.each_with_index do |search,index| %>
-          <%= link_to search,"/tag/#{search}",onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
+          <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
         <% end %>
       </span>
     </span>
