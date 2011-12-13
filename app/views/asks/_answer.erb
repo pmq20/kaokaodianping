@@ -18,7 +18,7 @@
     <% end %>
     <div class="md_body the_big_md_body">
       <div id="answer_body_<%= item.id %>">
-        <%= md_body(item.chomp_body) %>
+        <%= md_body(item.chomp_body(3000)) %>
       </div>
       <% if owner?(item) %>
         <%= in_place_edit_tag item, :body, :type => :textarea, :text_id => "answer_body_#{item.id}" %>

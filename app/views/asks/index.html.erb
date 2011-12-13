@@ -20,5 +20,5 @@
       <div class="pagination"><a class="page_more" href="#" onclick="return loadAsks();">查看更多...</a></div>
     <% end %>
   </div>
-<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
+<% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 <%= render "asks/sidebar" %>

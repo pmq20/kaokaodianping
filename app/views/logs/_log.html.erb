@@ -28,7 +28,7 @@ when "AskLog"
       <% when "NEW_TO_USER" %>
         <%= user_name_tag(log.user) %> 向 <%= user_name_tag(item.to_user) %> 提出了点评
       <% when "EDIT" %>
-      <%= user_name_tag(log.user) %> <%= log.target_attr == "TITLE" ? "修改了该点评" : "修改了该点评的补充说明" %>
+      <%= user_name_tag(log.user) %> <%= log.target_attr == "TITLE" ? "作出了一些修改" : "修改了其补充说明" %>
       <% when "ADD_TOPIC" %>
       <%= user_name_tag(log.user) %> 给该点评添加了培训机构 
         <%
