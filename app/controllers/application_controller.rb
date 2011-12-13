@@ -57,6 +57,7 @@ def check_browser
   @is_ie = (request.env['HTTP_USER_AGENT'].downcase.index('msie')!=nil)
   @is_ie6 = (request.env['HTTP_USER_AGENT'].downcase.index('msie 6')!=nil)
   @is_ie7 = (request.env['HTTP_USER_AGENT'].downcase.index('msie 7')!=nil)
+  @is_ie8 = (request.env['HTTP_USER_AGENT'].downcase.index('msie 8')!=nil)
 end
 def bugtrack
   redirect_to '/asks/4ea0de69d1212f2c4d000006'
