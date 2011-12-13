@@ -236,7 +236,9 @@
 	  Renren.ui(uiOpts);
 	}
   </script>
-  <script type="text/javascript">Renren.init({appId:172741});</script>
+<% content_for :butt2 do%>
+Renren.init({appId:172741});
+<% end %>
   <a href="javascript:sendFeed();">
   <%=image_tag 'renren.png'%>
   </a>
