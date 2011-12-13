@@ -85,7 +85,7 @@
 		<p><%= link_to @topic.website,@topic.website,:target=>'_blank' %></p>
 	</div>
 </div>
-<% if @topic.addr %>
+<% unless @topic.addr.blank? %>
 <div class="box standard gray">
 	<h2>机构地址</h2>
 	<div class="inner">

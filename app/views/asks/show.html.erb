@@ -174,8 +174,9 @@
 <% else %>
 <a href="#" style="width:80px;" class="login_required gray_button green_button" onclick="return Asks.follow(this);">关注此<%= @ask.typewhat %></a>
 <% end %>
+<%if @ask.type.blank?%>
 <a href="#" class="dropdown" onclick="return Asks.dropdown_menu(this);"><span class="settings">选项</span></a>
-
+<%end%>
                     
                     
       <div class="box">
