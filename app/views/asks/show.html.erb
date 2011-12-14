@@ -85,13 +85,17 @@
   • <a class="login_required" href="#new_answer" onclick="return $('#new_answer .qeditor_preview').focus();">添加<%= @ask.tianjia_what %></a>
   • <a class="login_required" href="#" onclick="return Asks.report(this);">举报</a>
   • <span class="date"><%= l @ask.created_at.getlocal, :format => :short %></span>
+                                <% if @ask.user %>
+                              •   <%=image_tag(@ask.user.avatar_url(:small),:id=>'topavatarie6')%><span class="date"><%= user_name_tag(@ask.user) %> 创建了该<%= @ask.typewhat %></span>
+                                <% end %>
+
     </div>
 <% end %>
   </div>
 
   <% if @ask.answers_count > 0 %>
   <div class="answers-count">
-  	有<%= @ask.answers_count %>个点评
+  	有<%= @ask.answers_count %>个<%=@ask.tianjia_what%>
   </div>
   <% end %>
 
@@ -147,7 +151,8 @@
   <% end %>
   <br style="clear:both">
 
-<% if @is_ie %><div id="ie_every_foot" style="left:0">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
+</div>
+
 
 
 
@@ -218,7 +223,7 @@
 		    "url":"http://www.yourdomain.com/feed.html",
 		    "name":<%=raw @ask.title.to_json%>,
 		    "description":'去考考点评看看吧\n<%=j ask_url(@ask)%>',
-		    "image":<%=raw ('http://kkdp.net/'+Topic.where(name:@ask.jigou).first.cover.normal.url).to_json%>,
+		    "image":<%=@ask.jigou.blank? ? '""' : raw(('http://kkdp.net/'+Topic.where(name:@ask.jigou).first.cover.normal.url).to_json)%>,
 		    "action_name": "考考点评",
 		    "action_link":<%=raw ask_url(@ask).to_json%>
 		  },onSuccess : function(response){
@@ -284,9 +289,6 @@ Renren.init({appId:172741});
 			<div class="inner">
 				<p>最近活动：<%= l @ask.last_updated_at ? @ask.last_updated_at.getlocal : (@ask.answered_at ? @ask.answered_at.getlocal : @ask.updated_at.getlocal), :format => :min %></p>
 				<p>被浏览 <%= @ask.views_count %> 次，<%= @ask.followers.count %> 人关注了该点评</p>
-				<% if @ask.user %>
-				<p><%= user_name_tag(@ask.user) %> 创建了该<%= @ask.typewhat %></p>
-				<% end %>
         <%= render_cell :ask, :followers, :ask => @ask %>
 			</div>
     </div>

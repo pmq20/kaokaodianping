@@ -75,7 +75,7 @@
 			<% else %>
       <a href="#" class="gray_button green_button" onclick="return Topics.follow(this, '<%= @topic.name %>','');">关注</a>
 			<% end %>
-			<a onclick="return addAsk();" class="gray_button green_button" style="font-size:12px" href="#">我要提问</a>
+			<a <% unless @is_ie6%>onclick="return addAsk();"<%end%>  class="gray_button green_button" style="font-size:12px" <%if @is_ie6 or @is_ie7%>href="/asks/new?topic_id=<%=@topic.id.to_s%>"<%else%>href="#"<%end%>>我要提问</a>
     </div>
 	</div>
 <% end %>

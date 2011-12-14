@@ -85,6 +85,11 @@ render text:'no such jigou' and return unless topic
     @ask.followers.each do |user|
       user.unfollow_ask(@ask)
     end
+    @ask.answers.each do |answer|
+      AnswerLog.any_of(target_id:answer.id,target_ids:answer.id,target_parent_id:answer.id).destroy_all
+      answer.destroy
+    end
+
     Log.any_of(target_id:@ask.id,target_ids:@ask.id,target_parent_id:@ask.id,title:@ask.title).destroy_all
     @ask.delete
 
