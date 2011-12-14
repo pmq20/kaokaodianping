@@ -11,6 +11,8 @@ class HomeController < ApplicationController
   def cards
     redirect_to root_path,:notice=>'考考点评的会员卡发放将在3月1日开启，请持续关注：）'
   end
+def contact
+end
 
   def under_construction
   end
