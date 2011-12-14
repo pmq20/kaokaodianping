@@ -1,7 +1,7 @@
 # coding: utf-8
 class HomeController < ApplicationController
   before_filter :require_user_text, :only => [:update_in_place,:mute_suggest_item]
-  before_filter :require_user, :except => [:about,:index,:under_construction,:tuan,:exp,:cards]
+  before_filter :require_user, :except => [:about,:index,:under_construction,:tuan,:exp,:cards,:contact]
   def tuan
     redirect_to root_path,:notice=>'考考点评的课程团购栏目将在3月1日开启，请持续关注：）'
   end
