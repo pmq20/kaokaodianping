@@ -34,3 +34,9 @@
 .avatar_border_small2{
   text-align:left;
 }
+.topics .topic .info{
+background:none
+}
+#replies .reply{
+background:none
+}

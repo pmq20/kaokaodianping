@@ -372,7 +372,7 @@ function mark_notifies_as_read(el, ids) {
 	App.loading();
 	$.get("/mark_notifies_as_read?ids="+ids,function(){
 		App.loading(false);
-		$(el).parent().parent().fadeOut();
+		$('#huanggaoyao').fadeOut();
 	});
 	$("#notify_badge").addClass("force-hide");
 	return false;

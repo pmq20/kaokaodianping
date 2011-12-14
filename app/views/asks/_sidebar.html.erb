@@ -94,6 +94,37 @@
 </ul>
 
 
+ <script type="text/javascript">
+  function sendFeed() {
+          var uiOpts = {
+                  url : "feed",
+                  display : "popup",
+                  params : {
+                    "url":"http://www.yourdomain.com/feed.html",
+                    "name":"<%= raw @page_title %><%= Setting.app_name %>",
+                    "description":'去考考点评看看吧\nhttp://www.kaokaodianping.com<%=request.path%>',
+                    "image":'<%=(@topic.blank? or @topic.cover.blank?) ? "http://www.kaokaodianping.com/images/logo.png" : "http://kkdp.net/"+@topic.cover.normal.url%>',
+                    "action_name": "考考点评",
+                    "action_link": 'http://www.kaokaodianping.com<%=request.path%>'
+                  },onSuccess : function(response){
+                          if(window.console) 
+                                  console.log("success: "+JSON.encode(response));
+                          if(response.access_token){
+                                  accessToken = response.access_token;
+                                  alert("access token: " + accessToken);
+                          }
+                  },
+                  onFailure : function(response){
+                          if(window.console) 
+                                  console.log("failure: " + response.error + ',' + response.error_description);
+                  } 
+          };
+          Renren.ui(uiOpts);
+        }
+  </script>
+<% content_for :butt2 do%>
+Renren.init({appId:172741});
+<% end %>
 
 
 
@@ -114,51 +145,12 @@
 
             <!-- Customize appearance -->
 <li class="recessed">
-    <a href="/customize/kjijjklk" class="customize">
-        <div class="hide_overflow">分享本页到微博</div>
-        <div class="gradient"></div>
-    </a>
-</li>
-<li class="recessed">
-    <a href="/customize/kjijjklk" class="customize">
+    <a href="javascript:sendFeed();" class="customize">
         <div class="hide_overflow">分享本页到人人网</div>
         <div class="gradient"></div>
     </a>
 </li>
     </ul>
-
-
-
-<form method="get" action="/search" id="search_form">
-<input
-type="text"
-name="q"
-id="search_query"
-value="搜索用户昵称"
-onclick="if(!this.alreadygot){this.style.color='#FFF';this.value='';this.alreadygot=true}"
-title="搜索用户昵称"
-style="color:#CCC"
-/>
-
-<div id="search_controls_wrapper">
-<div id="search_controls_button" onclick="just_clicked_search_menu = true;">▾</div>
-<div id="search_controls" style="display:none;">
-<a name="all_of_tumblr" class="first">
-Search Tags                <span class="check" style="display:none"></span>
-</a>
-            <a name="everyone_i_follow">
-    My Dashboard                    <span class="check" style="display:none"></span>
-</a>
-<a name="my_posts">
-    My posts                    <span class="check" style=""></span>
-</a>
-        <a name="help_docs" class="last">
-Help Docs                <span class="check" style="display:none"></span>
-</a>
-<div class="arrow"></div>
-</div>
-</div>
-</form>
 
 <% end %>
 

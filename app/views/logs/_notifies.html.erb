@@ -1,7 +1,7 @@
 <% if @notifies and @notifies.size > 0 %>
 
 <li id="rescued_post">
-  <div style="background-color:#feeb68; padding:10px 15px;
+  <div id="huanggaoyao" style="background-color:#feeb68; padding:10px 15px;
   text-shadow:none; border-bottom:solid 1px #efd62f; color:#63580c;" class="answer_container">
         <a onclick="return mark_notifies_as_read(this, '<%= @notifications.map {|n| n.id}.join(',') %>');" href="#" style="color:#feeb68; background-color:#887b22; float:right; text-decoration:none;
         font:normal 12px 'Lucida Grande',Verdana; padding:1px 4px 3px; margin-left:12px;

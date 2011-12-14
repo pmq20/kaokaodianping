@@ -3,6 +3,12 @@
   <li class="active">查看贴子</li>
 <% end %>
 <%= render 'sidebar' %>
+<style>
+.content p{
+max-width:605px;
+  word-wrap: break-word;
+}
+</style>
 <div class="content">
 	<div class="topics box">
 		<div class="topic">  
@@ -48,7 +54,7 @@
       <div class="reply" id="reply<%= i + 1 %>">
         <div class="pull-left face"><%= user_avatar_tag(reply.user, :bbs_normal) %></div>
         <div class="infos">
-          <div class="info clearfix">
+          <div class="info clearfix" style="background:none;filter:none">
             <span class="name"><%= bbs_user_name_tag(reply.user,:location => true) %></span>
             <span class="time"><%= i + 1 %>楼, 回复于 <%= timeago(reply.created_at) %>
               <% if owner?(reply) %>
@@ -76,7 +82,6 @@
       </div>
       <div class="pull-right">
         <button type="submit" class="btn primary">提交回复</button><br />
-        <span class="help-inline">按Ctrl+Enter快速提交</span>
       </div>
       <br style="clear:both">
     <% end %>

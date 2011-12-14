@@ -1,4 +1,6 @@
 <% content_for :sitemap do %><span class="current">设置</span><% end %>
+<div id="shouye_chang" style="margin: 0 0 0;overflow:hidden;font-size:15px;">
+
 <div class="leftbox">
   <div class="box">
     <h2>个人资料</h2>
@@ -39,6 +41,11 @@
     </div>
   </div>
 </div>
+
+<% if @is_ie %><div id="ie_every_foot" style="left:0px">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
+
+
+
 <% content_for :sidebar do %>
   <%= render "/shared/omniauth_links" %>
   <div class="box">
