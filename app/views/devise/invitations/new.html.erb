@@ -13,7 +13,7 @@
   <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name) do |f| %>
     <%= devise_error_messages! %>
     <%= f.input :name, :label => "姓名" %>
-    <%= f.input :email, :label => "邮箱" %>
+<div class="row string required"><label for="user_email" class=" required">邮箱 </label><input type="email" value="" size="220" required="required" name="user[email]" id="user_email" class="string required"></div>
     <%= f.input :tagline, :label => "他的特点", :input_html => { :class => "long" }, :hint => "用简短的话描述这个人的特点,如: 某机构牛人,参加过什么培训班等等" %>
     <button type="submit" class="submit">发送邀请邮件</button>
   <% end %>
