@@ -44,6 +44,14 @@ class RegistrationsController < ApplicationController
 
   # PUT /resource
   def update
+    param = params[resource_name]
+    unless param[:password].blank?
+      if param[:password]!=param[:password_confirmation]
+        flash[:alert]='密码与确认密码不符'
+        render_with_scope :edit
+        return
+      end
+    end
     if resource.update_attributes(params[resource_name])
       set_flash_message :notice, :updated
       sign_in resource_name, resource, :bypass => true

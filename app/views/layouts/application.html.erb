@@ -155,6 +155,8 @@
       <% else %>
         <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy","jquery.ui","jcaches","application","asks","topics","users","inbox",cache:'cache_js'%>
       <% end %>
+
+<% if !pos_bbs?%>
         <script type="text/javascript">
         if(!$.browser.msie){
           $("[rel=tipsy]").tipsy({gravity: $.fn.tipsy.autoNS});
@@ -162,7 +164,7 @@
           $("[rel=tipsyt]").tipsy({gravity: "s" });
       }
         </script>
-      
+<% end %>
       
       
       <%= yield :scripts %>

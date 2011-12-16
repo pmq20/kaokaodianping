@@ -40,6 +40,21 @@
       <% end %>
     </div>
   </div>
+
+  <div class="box">
+    <h2 id="mail_notify_settings">修改密码</h2>
+    <div class="content">
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :enctype =>  "multipart/form-data" }) do |f| %>
+        <%= f.input :password, :as=>:password, :label => "密码" %>
+        <%= f.input :password_confirmation, :as => :password, :label => "密码确认" %>
+        <div class="actions">
+          <button type="submit">保存</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
 </div>
 
 <% if @is_ie %><div id="ie_every_foot" style="left:0px">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>

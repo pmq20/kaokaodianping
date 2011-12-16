@@ -229,6 +229,45 @@
       <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=email"><span class="has_icon email">Email</span></a>
       <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=url"><span class="has_icon url">转发地址</span></a>
 </div>    <div id="share_ask_box3" class="box standard">
+
+
+
+<%@topic = Topic.where(name:@ask.jigou).first%>
+ <script type="text/javascript">
+  function sendFeed() {
+          var uiOpts = {
+                  url : "feed",
+                  display : "popup",
+                  params : {
+                    "url":"http://www.yourdomain.com/feed.html",
+                    "name":"<%= raw @page_title %><%= Setting.app_name %>",
+                    "description":'去考考点评看看吧\nhttp://www.kaokaodianping.com<%=request.path%>',
+                    "image":'<%=(@topic.blank? or @topic.cover.blank?) ? "http://www.kaokaodianping.com/images/logo.png" : "http://kkdp.net/"+@topic.cover.normal.url%>',
+                    "action_name": "考考点评",
+                    "action_link": 'http://www.kaokaodianping.com<%=request.path%>'
+                  },onSuccess : function(response){
+                          if(window.console) 
+                                  console.log("success: "+JSON.encode(response));
+                          if(response.access_token){
+                                  accessToken = response.access_token;
+                                  alert("access token: " + accessToken);
+                          }
+                  },
+                  onFailure : function(response){
+                          if(window.console) 
+                                  console.log("failure: " + response.error + ',' + response.error_description);
+                  } 
+          };
+          Renren.ui(uiOpts);
+        }
+  </script>
+<% content_for :butt2 do%>
+Renren.init({appId:172741});
+<% end %>
+
+
+
+
   <a href="javascript:sendFeed();">
   <%=image_tag 'renren.png'%>
   </a>

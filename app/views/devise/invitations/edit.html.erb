@@ -1,11 +1,13 @@
+<div id="shouye_chang">
+
 <h2>接受邀请，注册用户</h2>
 <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :invitation_token %>
-  <%= f.input :email, :input_html => { :disabled => :disabled } %>
+  <%= f.input :email,:label=>'E-mail', :input_html => { :disabled => :disabled } %>
   <%= f.input :name %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
+  <%= f.input :password,:label=>'密码' %>
+  <%= f.input :password_confirmation,:label=>'密码确认' %>
   <div class="actions">
     <button type="submit" class="submit">提交注册信息</button>
   </div>
@@ -14,9 +16,8 @@
   <div class="box">
     <h2>说明</h2>
     <div class="content">
-      你是通过他人邀请过来的。<br />
-      本站推崇实名制，请真正填写你的注册信息。<br />
-      注册成功以后，请仔细阅读一遍本站目前的内容。
+欢迎加入考考点评！
     </div>
   </div>
 <% end %>
+<% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>

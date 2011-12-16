@@ -10,6 +10,7 @@
 <% end %>
 
 <%= render 'sidebar' %>
+
 <div id="shouye_chang">
 	<div class="box">
     <% if !@node.blank? %>
@@ -20,7 +21,28 @@
       </p>
     </div>
     <% else %>
-      <h1><%= image_tag('kaokaodianpingbbs.png') %></h1>
+      <%=image_tag 'bbsblackboard.png',style:'position:absolute;top:12px;left:16px'%>
+        <div id="sections" style="position:absolute;top:93px;line-height:29px;left:50px;width:545px;color:yellow">
+≡互助区≡
+<a title="【出国交流】" href="/bbs/n4edb0d079bd4bf14c1000013">【出国交流】</a>
+<a title="【英语学习】" href="/bbs/n4edb0d3b9bd4bf14c1000015">【英语学习】</a>
+<a title="【考研互助】" href="/bbs/n4edb0d529bd4bf14c1000017">【考研互助】</a>
+<a title="【驾校攻略】" href="/bbs/n4edb0d9e9bd4bf14c1000019">【驾校攻略】</a>
+<a title="【会计证区】" href="/bbs/n4edb0e619bd4bf14c100001c">【会计证区】</a>
+<br>
+≡事务区≡
+<a title="【新手成长】" href="/bbs/n4edada929bd4bf129800000f">【新手成长】</a>
+<a title="【活动公告】" href="/bbs/n4edb0c9e9bd4bf14c100000b">【活动公告】</a>
+<a title="【广告专版】" href="/bbs/n4edb0cd19bd4bf14c100000f">【广告专版】</a>
+<a title="【意见反馈】" href="/bbs/n4ee81b69e138233980000010">【意见反馈】</a>
+<a title="【版主会议室】" href="/bbs/n4edb0e919bd4bf14c1000020">【版主会议室】</a>
+<br>
+≡娱乐区≡
+<a title="【休闲灌水】" href="/bbs/n4edb0e759bd4bf14c100001e">【休闲灌水】</a>
+<a title="【贴图区】" href="/bbs/n4edcd6abe1382304b7000003">【贴图区】</a>
+        </div>
+
+      <h1 style="margin-top:252px;font-size:20px">最新帖子</h1>
     <% end %>
     <% if params[:action] == "node" %> 
       <table class="node_topics">
@@ -113,22 +135,6 @@
     <% end %>
 	</div>
 	<% if params[:action] == "index" %>
-	<div id="sections" class="box">
-	<h2><%= image_tag 'kaokaodianpingdh.png' %></h2>
-	<ul>
-		<% @sections.each do |section| %>
-		<li>
-			<div><%= section.name %></div>
-			<div>
-			<% section.nodes.each do |node| %>
-			  <div style="<%unless @is_ie6%>float:left<%end%>"><a href="<%= bbs_node_topics_path(node.id) %>" title="<%= node.name %>"><%= node.name %></a></div>
-			<% end %>
-			<br style="clear:both">
-			</div>
-		</li>
-		<% end %>
-	</ul>
-	</div>
 	<% end %>
 <% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 

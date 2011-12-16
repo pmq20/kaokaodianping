@@ -4,7 +4,7 @@ class BaseMailer < ActionMailer::Base
 #the following line is critical for the assyncronous sending of mails
 #with this line, mails are sent through Resque, which can be inspected via /cpanel/resque
 #without, the mails are sended directly, with the risk of hindering the request and errors.
-  include Resque::Mailer
+#  include Resque::Mailer
   default :from => Setting.email_sender
   helper :application,:users,:asks
   layout "mailer"
