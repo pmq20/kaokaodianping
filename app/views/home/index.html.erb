@@ -149,7 +149,7 @@ window.dhelp = function(val){
       }
     </script>
   <% end %>
-  <div id="yishoulu">已收录<%= link_to Topic.count,topics_path %>家机构的<%= link_to Answer.count,doing_path %>条精彩点评</div>
+  <div id="yishoulu" style="display:none">已收录<%= link_to Topic.count,topics_path %>家机构的<%= link_to Answer.count,doing_path %>条精彩点评</div>
   <div id="asks">
     <% @answers.each do |ans| %>
       <%item=ans.ask %>
