@@ -5,9 +5,18 @@ class User
   include Mongoid::Timestamps
   include Mongoid::Voter
   include Redis::Search
+
+
   field :location
   field :verified, :type => Boolean, :default => false
   field :state, :type => Integer, :default => 1
+  field :replies_count, :type => Integer, :default => 0  
+  has_and_belongs_to_many :following_nodes, :class_name => 'Node', :inverse_of => :followers
+  has_many :land_topics, :dependent => :destroy  
+  has_many :land_notes
+  has_many :land_replies
+
+  
   def avatar_url(mtd)
     avaurl = self.avatar.send(mtd).url
     if avaurl.blank?

@@ -21,7 +21,8 @@
       </p>
     </div>
     <% else %>
-      <%=image_tag 'bbsblackboard.png',style:'position:absolute;top:12px;left:16px'%>
+    <% leftvalue = @is_ie6 ? 0 : 16 %>
+      <%=image_tag 'bbsblackboard.png',style:"position:absolute;top:12px;left:#{leftvalue}px"%>
         <div id="sections" style="position:absolute;top:93px;line-height:29px;left:50px;width:545px;color:yellow">
 ≡互助区≡
 <a title="【出国交流】" href="/bbs/n4edb0d079bd4bf14c1000013">【出国交流】</a>
