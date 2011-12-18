@@ -33,7 +33,18 @@ max-width:605px;
 			</div>			
 		</div>
 		<div class="body">
+			<% if @is_ie6 %>
+			<style type="text/css" media="screen">
+			.this_is_lightbox img{
+        width:604px;
+      }
+			</style>
+			<% end %>
 			<%= format_topic_body(@topic.body) %>
+			<% content_for :butt2 do %>
+			  $('a.this_is_lightbox').lightBox()
+			<% end %>
+
 		</div>
 		<div class="tools">
 		  <% if owner?(@topic) %>

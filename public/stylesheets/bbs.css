@@ -3089,3 +3089,7 @@ div.field .hint {
 #sections a{
 color:white
 }
+
+.this_is_lightbox img{
+  max-width:604px;
+}
