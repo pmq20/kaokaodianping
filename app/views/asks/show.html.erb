@@ -65,6 +65,7 @@
         <%= in_place_edit_tag @ask, :title, :type => :textarea, :width => 598, :height => 40, :rich => false, :text_id => "ask_title" %>
       <% end %>
     </div>
+<%@coordinates=@ask.coordinates%>
     <div class="md_body">
       <div id="ask_body"<% if @ask.chomp_body.blank? %> class="blank-body"<% end %>><%= md_body(@ask.chomp_body) %></div>
       <% if can_edit?(@ask) %>
@@ -75,6 +76,25 @@
         <% end %>
       <% end %>
     </div>
+
+<%if @coordinates%>
+<div id="location_canvas" style="width: 594px; height: 94px;"></div>
+<%content_for :butt2 do%>
+	var latlng = new google.maps.LatLng( <%=@coordinates[1]%>, <%=@coordinates[0]%> );
+  var myOptions = {
+    zoom: 13,
+    center: latlng,
+disableDefaultUI:true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("location_canvas"),myOptions);
+  var marker = new google.maps.Marker({
+      map: map, 
+      position: latlng
+  });
+
+<%end%>
+<%end%>
 <% if !@ask.type %>
     <div class="action">
   <% if @ask.comments_count == 0 %>
@@ -180,11 +200,6 @@
     change_with_preview_editor($('.qeditor_preview').height())
   })
 <%end %>
-
-
-
-
-
 
 
 

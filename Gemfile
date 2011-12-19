@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 gem 'rails', '3.0.5'
+gem 'geocoder'
 #gem 'ruby-debug'
 #gem 'ruby-debug19',:require=>'ruby-debug'
 # MongoDB
