@@ -8,6 +8,13 @@ class User
   field :location
   field :verified, :type => Boolean, :default => false
   field :state, :type => Integer, :default => 1
+
+  def integrity_op
+    self.asks_count = self.asks.count
+    self.answers_count = self.answers.count
+    self.answered_ask_ids = self.answers.collect(&:id)
+  end
+  
   def avatar_url(mtd)
     avaurl = self.avatar.send(mtd).url
     if avaurl.blank?

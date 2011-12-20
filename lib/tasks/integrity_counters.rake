@@ -18,5 +18,11 @@ namespace :integrity do
       topic.answers_count = asks.inject(0){|s,ask| s+ask.answers.count}
       topic.save!
     end
+    
+    User.all.each do |user|
+      user.integrity_op
+      user.save!
+    end
+    
   end
 end
