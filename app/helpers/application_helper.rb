@@ -1,5 +1,9 @@
 # coding: utf-8
 module ApplicationHelper
+  def is_mobile_device?
+    false
+  end
+
   def tt(path)
     I18n.t('t2ku.'+path)
   end

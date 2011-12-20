@@ -7,7 +7,8 @@
       <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <input type="hidden" name="redirect_to" value="<%= params[:redirect_to] %>"/>
         <%= devise_error_messages! %>
-  <div class="row string email required"><label for="user_email" class="email required">邮箱 </label><input type="text" value="" size="220" required="required" name="user[email]" id="user_email" class="string email required"></div>
+  <div class="row string required"><label for="user_email" class="required">邮箱 </label>
+    <input type="text" value="" size="220" required="required" name="user[email]" id="user_email" class="string required"></div>
         <%= f.input :password, :as => :password, :label => "密码" %>
         <% if devise_mapping.rememberable? -%>
           <div class="row"><%= f.check_box :remember_me, :style => "width:auto;" %> <%= f.label :remember_me,"记住登录状态", :style => "display:inline;" %></div>
@@ -18,13 +19,13 @@
     <% if Setting.allow_register %>
     <div class="box" style="margin-top:20px;">
       <div class="inner" style="line-height:180%;padding:8px;background:#fff5c9;">
-        <%= Setting.app_name %>本身需要邀请才可以注册的，但是我们会偶尔在一些特别的日子临时性的开放注册。<br />
+        欢迎来到<%= Setting.app_name %>！这是大学生自己的培训机构点评平台，在这里你可以看看过来人的意见，选出最适合你的机构；也可以分享你的考试报班经验，让学弟学妹少走弯路，结交更多朋友！<br />
         当你看到这个提示的时候赶紧<a href="/register" style="color:green;margin:0 4px;">注册</a>吧，如果你还没有<%= Setting.app_name %>帐号的话。
       </div>
     </div>
     <% end %>
   </div>
-</div>
+<% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%><%='bottom:-10px' if @is_ie6%>">&nbsp;</div><%end%></div>
 
 <% content_for :sidebar do %>
   <div class="box">

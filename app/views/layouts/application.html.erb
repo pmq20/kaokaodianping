@@ -9,8 +9,8 @@
         <link rel="shortcut icon" href="/favicon.ico?v=003" />
          
         <%= auto_discovery_link_tag(:rss,feed_bbs_topics_url,:title => '订阅最新贴') if pos_bbs? %>
-        <%= stylesheet_link_tag "bbs" if pos_bbs? %>
-        <%= stylesheet_link_tag "application","users","asks","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.tipsy",'global','dashboard','jquery-ui-1.8.16.custom','facebox','others' %>
+        <%= stylesheet_link_tag "bbs",'jquery.lightbox-0.5' if pos_bbs? %>
+        <%= stylesheet_link_tag "application","users","asks","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.tipsy",'global','dashboard','jquery-ui-1.8.16.custom','facebox','others',cache:'cache_css'%>
 
         <% if @is_ie %>
           <%= stylesheet_link_tag 'ie'  %>
@@ -32,8 +32,10 @@
         <meta name="description" content="<%= @meta_description %>" />
 
       <%= javascript_include_tag "renren" %>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
     </head>
     <body id="<%= pos_signature %>">
+
 
       <% if !user_signed_in? %>
         <%=render 'shared/loginreg' %>
@@ -150,11 +152,20 @@
 
 
       <% if pos_bbs? %>
-        <%= javascript_include_tag "bbs" %>
+        <%= javascript_include_tag "bbs",'jquery.lightbox-0.5.min' %>
       <% else %>
-        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy","jquery.ui","jcaches","application","asks","topics","users","inbox" %>
+        <%= javascript_include_tag "jquery.min","rails","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.cookie","jquery.tipsy","jquery.ui","jcaches","application","asks","topics","users","inbox",cache:'cache_js'%>
       <% end %>
-      
+
+<% if !pos_bbs?%>
+        <script type="text/javascript">
+        if(!$.browser.msie){
+          $("[rel=tipsy]").tipsy({gravity: $.fn.tipsy.autoNS});
+          $("[rel=tipsyr]").tipsy({gravity: "w" });
+          $("[rel=tipsyt]").tipsy({gravity: "s" });
+      }
+        </script>
+<% end %>
       
       
       <%= yield :scripts %>

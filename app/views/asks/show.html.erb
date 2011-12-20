@@ -65,6 +65,7 @@
         <%= in_place_edit_tag @ask, :title, :type => :textarea, :width => 598, :height => 40, :rich => false, :text_id => "ask_title" %>
       <% end %>
     </div>
+<%@coordinates=@ask.coordinates%>
     <div class="md_body">
       <div id="ask_body"<% if @ask.chomp_body.blank? %> class="blank-body"<% end %>><%= md_body(@ask.chomp_body) %></div>
       <% if can_edit?(@ask) %>
@@ -75,6 +76,25 @@
         <% end %>
       <% end %>
     </div>
+
+<%if @coordinates%>
+<div id="location_canvas" style="width: 594px; height: 94px;"></div>
+<%content_for :butt2 do%>
+	var latlng = new google.maps.LatLng( <%=@coordinates[1]%>, <%=@coordinates[0]%> );
+  var myOptions = {
+    zoom: 13,
+    center: latlng,
+disableDefaultUI:true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("location_canvas"),myOptions);
+  var marker = new google.maps.Marker({
+      map: map, 
+      position: latlng
+  });
+
+<%end%>
+<%end%>
 <% if !@ask.type %>
     <div class="action">
   <% if @ask.comments_count == 0 %>
@@ -85,13 +105,17 @@
   • <a class="login_required" href="#new_answer" onclick="return $('#new_answer .qeditor_preview').focus();">添加<%= @ask.tianjia_what %></a>
   • <a class="login_required" href="#" onclick="return Asks.report(this);">举报</a>
   • <span class="date"><%= l @ask.created_at.getlocal, :format => :short %></span>
+                                <% if @ask.user %>
+                              •   <%=image_tag(@ask.user.avatar_url(:small),:id=>'topavatarie6')%><span class="date"><%= user_name_tag(@ask.user) %> 创建了该<%= @ask.typewhat %></span>
+                                <% end %>
+
     </div>
 <% end %>
   </div>
 
   <% if @ask.answers_count > 0 %>
   <div class="answers-count">
-  	有<%= @ask.answers_count %>个点评
+  	有<%= @ask.answers_count %>个<%=@ask.tianjia_what%>
   </div>
   <% end %>
 
@@ -134,6 +158,21 @@
         <%end %>
       </div>
     <% end %>
+  <% else %>
+<h2>添加<%= @ask.tianjia_what %></h2>
+        <%= form_for(@answer, :remote => true, :html => { :onsubmit => "return Asks.beforeAnswer(this);" },
+                     :url => answer_ask_path(@ask.id)) do |f| %>
+          <div class="row">
+            <%= f.text_area :body, :style => "height:100px;", :class => "text long" %>
+          </div>
+          <div class="actions">
+            <button class="submit" type="submit">提交点评</button>
+          </div>
+        <% end %>
+        <% content_for :butt2 do %>
+          $("#answer_body").qeditor({'is_mobile_device': <%= is_mobile_device? ? 'true' : 'false' %>});
+          $('.qeditor_preview').click(function(){login_trigger();return false;})
+        <%end %>
   <% end %>
 
   <% if params[:eawc] == "yes" or params[:easc] == "yes" %>
@@ -151,6 +190,7 @@
 
 
 
+
 <% content_for :butt2 do %>
   var change_with_preview_editor0 = $('#shouye_chang').height();
   window.change_with_preview_editor = function(nowh){
@@ -163,19 +203,15 @@
 
 
 
-
-
-
-
-
 <% content_for :sidebar do %>
 <% if current_user and current_user.ask_followed?(@ask) %>
 <a href="#" style="width:80px;" class="flat_button" onclick="return Asks.unfollow(this);">取消关注</a>
 <% else %>
 <a href="#" style="width:80px;" class="login_required gray_button green_button" onclick="return Asks.follow(this);">关注此<%= @ask.typewhat %></a>
 <% end %>
+<%if @ask.type.blank?%>
 <a href="#" class="dropdown" onclick="return Asks.dropdown_menu(this);"><span class="settings">选项</span></a>
-
+<%end%>
                     
                     
       <div class="box">
@@ -208,61 +244,52 @@
       <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=email"><span class="has_icon email">Email</span></a>
       <a rel="nofollow" href="<%= share_ask_path(@ask.id) %>?type=url"><span class="has_icon url">转发地址</span></a>
 </div>    <div id="share_ask_box3" class="box standard">
-  <script type="text/javascript">
+
+
+
+<%@topic = Topic.where(name:@ask.jigou).first%>
+ <script type="text/javascript">
   function sendFeed() {
-	  var uiOpts = {
-		  url : "feed",
-		  display : "popup",
-		  params : {
-		    "url":"http://www.yourdomain.com/feed.html",
-		    "name":<%=raw @ask.title.to_json%>,
-		    "description":'去考考点评看看吧\n<%=j ask_url(@ask)%>',
-		    "image":<%=raw ('http://kkdp.net/'+Topic.where(name:@ask.jigou).first.cover.normal.url).to_json%>,
-		    "action_name": "考考点评",
-		    "action_link":<%=raw ask_url(@ask).to_json%>
-		  },onSuccess : function(response){
-			  if(window.console) 
-				  console.log("success: "+JSON.encode(response));
-			  if(response.access_token){
-				  accessToken = response.access_token;
-				  alert("access token: " + accessToken);
-			  }
-		  },
-		  onFailure : function(response){
-			  if(window.console) 
-				  console.log("failure: " + response.error + ',' + response.error_description);
-	 	  } 
-	  };
-	  Renren.ui(uiOpts);
-	}
+          var uiOpts = {
+                  url : "feed",
+                  display : "popup",
+                  params : {
+                    "url":"http://www.yourdomain.com/feed.html",
+                    "name":"<%= raw @page_title %><%= Setting.app_name %>",
+                    "description":'去考考点评看看吧\nhttp://www.kaokaodianping.com<%=request.path%>',
+                    "image":'<%=(@topic.blank? or @topic.cover.blank?) ? "http://www.kaokaodianping.com/images/logo.png" : "http://kkdp.net/"+@topic.cover.normal.url%>',
+                    "action_name": "考考点评",
+                    "action_link": 'http://www.kaokaodianping.com<%=request.path%>'
+                  },onSuccess : function(response){
+                          if(window.console) 
+                                  console.log("success: "+JSON.encode(response));
+                          if(response.access_token){
+                                  accessToken = response.access_token;
+                                  alert("access token: " + accessToken);
+                          }
+                  },
+                  onFailure : function(response){
+                          if(window.console) 
+                                  console.log("failure: " + response.error + ',' + response.error_description);
+                  } 
+          };
+          Renren.ui(uiOpts);
+        }
   </script>
-  <script type="text/javascript">Renren.init({appId:172741});</script>
+<% content_for :butt2 do%>
+Renren.init({appId:172741});
+<% end %>
+
+
+
+
   <a href="javascript:sendFeed();">
   <%=image_tag 'renren.png'%>
   </a>
-  
 
-<script type="text/javascript" charset="utf-8">
-(function(){
-  var _w = 142 , _h = 32;
-  var param = {
-    url:location.href,
-    type:'4',
-    count:'', /**是否显示分享数，1显示(可选)*/
-    appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
-    title:'', /**分享的文字内容(可选，默认为所在页面的title)*/
-    pic:'', /**分享图片的路径(可选)*/
-    ralateUid:'2503484723', /**关联用户的UID，分享微博会@该用户(可选)*/
-	language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
-    rnd:new Date().valueOf()
-  }
-  var temp = [];
-  for( var p in param ){
-    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
-  }
-  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'" style="margin-bottom:5px"></iframe>')
-})()
-</script>
+<iframe width="142" scrolling="no" height="32" frameborder="0" style="margin-bottom:5px" src="http://hits.sinajs.cn/A1/weiboshare.html?url=http%3A%2F%2Fwww.kkdp.net%2Fasks%2F4ecc5e7794118860c200001d&type=4&count=&appkey=&title=&pic=&ralateUid=2503484723&language=zh_cn&rnd=1323746309204" allowtransparency="true">
+</iframe>
+  
 <a style="margin-top:10px" href="javascript:void(0)" onclick="postToWb();return false;" class="tmblog"><img src="http://v.t.qq.com/share/images/s/b32.png"></a><script type="text/javascript">
        function postToWb(){
                var _url = encodeURIComponent(document.location);
@@ -300,9 +327,6 @@
 			<div class="inner">
 				<p>最近活动：<%= l @ask.last_updated_at ? @ask.last_updated_at.getlocal : (@ask.answered_at ? @ask.answered_at.getlocal : @ask.updated_at.getlocal), :format => :min %></p>
 				<p>被浏览 <%= @ask.views_count %> 次，<%= @ask.followers.count %> 人关注了该点评</p>
-				<% if @ask.user %>
-				<p><%= user_name_tag(@ask.user) %> 创建了该<%= @ask.typewhat %></p>
-				<% end %>
         <%= render_cell :ask, :followers, :ask => @ask %>
 			</div>
     </div>

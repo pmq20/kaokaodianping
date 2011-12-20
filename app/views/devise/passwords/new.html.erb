@@ -1,14 +1,15 @@
 <% content_for :sitemap do %><span class="current">忘记了密码</span><% end %>
+<div id="shouye_chang">
 <div class="leftbox">
   <div class="box">
     <h1>忘记了密码</h1>
     <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
       <%= render "shared/error_messages", :target => resource %> 
-      <%= f.input :email, :hint => "此功能将会发送一个找回密码的特别链接到你的邮箱" %>
-      <div class="actions"><button type="submit" class="button submit">找回密码</button></div>
+<div class="row string required"><label for="user_email" class="required">email </label><input type="email" value="" size="220" required="required" name="user[email]" id="user_email" class="string required"><p class="hint">此功能将会发送一个找回密码的特别链接到你的邮箱</p></div>      <div class="actions"><button type="submit" class="button submit">找回密码</button></div>
     <% end %>
   </div>
-</div>
+</div><% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><%end%></div>
+
 <% content_for :sidebar do %>
   <div class="box">
     <h2></h2>

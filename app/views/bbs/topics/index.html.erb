@@ -10,6 +10,7 @@
 <% end %>
 
 <%= render 'sidebar' %>
+
 <div id="shouye_chang">
 	<div class="box">
     <% if !@node.blank? %>
@@ -20,7 +21,29 @@
       </p>
     </div>
     <% else %>
-      <h1><%= image_tag('kaokaodianpingbbs.png') %></h1>
+    <% leftvalue = @is_ie6 ? 0 : 16 %>
+      <%=image_tag 'bbsblackboard.png',style:"position:absolute;top:12px;left:#{leftvalue}px"%>
+        <div id="sections" style="position:absolute;top:93px;line-height:29px;left:50px;width:545px;color:yellow">
+≡互助区≡
+<a title="【出国交流】" href="/bbs/n4edb0d079bd4bf14c1000013">【出国交流】</a>
+<a title="【英语学习】" href="/bbs/n4edb0d3b9bd4bf14c1000015">【英语学习】</a>
+<a title="【考研互助】" href="/bbs/n4edb0d529bd4bf14c1000017">【考研互助】</a>
+<a title="【驾校攻略】" href="/bbs/n4edb0d9e9bd4bf14c1000019">【驾校攻略】</a>
+<a title="【会计证区】" href="/bbs/n4edb0e619bd4bf14c100001c">【会计证区】</a>
+<br>
+≡事务区≡
+<a title="【新手成长】" href="/bbs/n4edada929bd4bf129800000f">【新手成长】</a>
+<a title="【活动公告】" href="/bbs/n4edb0c9e9bd4bf14c100000b">【活动公告】</a>
+<a title="【广告专版】" href="/bbs/n4edb0cd19bd4bf14c100000f">【广告专版】</a>
+<a title="【意见反馈】" href="/bbs/n4ee81b69e138233980000010">【意见反馈】</a>
+<a title="【版主会议室】" href="/bbs/n4edb0e919bd4bf14c1000020">【版主会议室】</a>
+<br>
+≡娱乐区≡
+<a title="【休闲灌水】" href="/bbs/n4edb0e759bd4bf14c100001e">【休闲灌水】</a>
+<a title="【贴图区】" href="/bbs/n4edcd6abe1382304b7000003">【贴图区】</a>
+        </div>
+
+      <h1 style="margin-top:252px;font-size:20px">最新帖子</h1>
     <% end %>
     <% if params[:action] == "node" %> 
       <table class="node_topics">
@@ -43,6 +66,34 @@
       <div class="topics">
         <% @topics.each do |topic| %>
           <div class="topic topic_line">
+<%if @is_ie6 or @is_ie7%>
+<table><tr><td>
+                                        <%= user_avatar_tag(topic.user,:bbs_normal) %>
+</td><td>
+              <div class="pull-right replies">
+                                        <% if topic.replies.count > 0 %>
+                <% readed_state = topic.user_readed?(current_user.id) if current_user %>
+                <a href="<%= bbs_topic_path(topic.id) %>" rel="twipsy" title="<%= topic_use_readed_text(readed_state) if current_user %>" class="count state<%= readed_state if current_user %>">
+                <%= topic.replies_count %>
+                </a>
+                                        <% end %>
+              </div>
+              <div class="infos">
+                <div class="title"><a href="<%= bbs_topic_path(topic) %>" title="<%= topic.title %>"><%= truncate(topic.title, :length => 100) %></a></div>
+                <div class="info leader">
+                  由 <%= bbs_user_name_tag(topic.user) %>
+                  在 <a href="<%= bbs_node_topics_path(topic.node_id) %>"><%= topic.node.name %></a> 中发起
+                </div>
+                <div class="info time">
+                  <% if topic.last_reply_user.blank? %>
+                    发布于 <%= timeago(topic.created_at) %>
+                  <% else %>
+                    最后由 <%= bbs_user_name_tag(topic.last_reply_user) %> 回复于 <%= timeago(topic.replied_at) %>
+                  <% end %>
+                </div>
+              </div>
+</td></tr></table>
+<%else%>
             <div class="pull-left avatar">
     					<%= user_avatar_tag(topic.user,:bbs_normal) %>
             </div>
@@ -70,6 +121,7 @@
                 </div>
               </div>
             </div>
+<%end%>
           </div>
         <% end %>
       </div>
@@ -84,22 +136,6 @@
     <% end %>
 	</div>
 	<% if params[:action] == "index" %>
-	<div id="sections" class="box">
-	<h2><%= image_tag 'kaokaodianpingdh.png' %></h2>
-	<ul>
-		<% @sections.each do |section| %>
-		<li>
-			<div><%= section.name %></div>
-			<div>
-			<% section.nodes.each do |node| %>
-			  <div style="float:left"><a href="<%= bbs_node_topics_path(node.id) %>" title="<%= node.name %>"><%= node.name %></a></div>
-			<% end %>
-			<br style="clear:both">
-			</div>
-		</li>
-		<% end %>
-	</ul>
-	</div>
 	<% end %>
-</div>
+<% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 

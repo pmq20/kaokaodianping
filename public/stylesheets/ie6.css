@@ -28,3 +28,15 @@
 #search_controls_button{
   height:30px !important;
 }
+.ask .savatar2 {
+  text-align:right;
+}
+.avatar_border_small2{
+  text-align:left;
+}
+.topics .topic .info{
+background:none
+}
+#replies .reply{
+background:none
+}

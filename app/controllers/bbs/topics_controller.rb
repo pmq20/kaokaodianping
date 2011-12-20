@@ -91,7 +91,7 @@ class Bbs::TopicsController < BbsController
 
   # GET /topics/1/edit
   def edit
-    @topic = current_user.topics.find(params[:id])
+    @topic = current_user.land_topics.find(params[:id])
     @node = @topic.node
     set_seo_meta("改帖子 &raquo; 社区论坛")
   end
@@ -114,7 +114,7 @@ class Bbs::TopicsController < BbsController
   # PUT /topics/1
   # PUT /topics/1.xml
   def update
-    @topic = current_user.topics.find(params[:id])
+    @topic = current_user.land_topics.find(params[:id])
     pt = params[:land_topic]
     @topic.node_id = pt[:node_id]
     @topic.title = pt[:title]
@@ -130,7 +130,7 @@ class Bbs::TopicsController < BbsController
   # DELETE /topics/1
   # DELETE /topics/1.xml
   def destroy
-    @topic = current_user.topics.find(params[:id])
+    @topic = current_user.land_topics.find(params[:id])
     @topic.destroy
     redirect_to(bbs_topics_path, :notice => '帖子删除成功.')
   end

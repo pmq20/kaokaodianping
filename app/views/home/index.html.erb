@@ -16,7 +16,7 @@
 <td class="arrow">
 <img src="/images/dashboard_master_sprite_ie_nipple.png" style="margin-bottom:40px"/>
 </td>
-<td style="background:white url(/images/searchbox_yuanjiao.png) no-repeat;padding-top:10px;padding-bottom:5px;">
+<td style="background:white url(/images/searchbox_yuanjiao.png) no-repeat;padding-top:10px;padding-bottom:5px;" id="td_yuanjiao">
 
   <%= form_tag traverse_path,method:'get',:id=>"help_search" do %>
     <input style="margin:3px 0 0 0;width:382px;padding-top:13px;color:#CCC" type="text"
@@ -32,17 +32,17 @@
   <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
     热门搜索: 
     <% @hot_searches.each do |search|%>
-      <%= link_to search,'#',onclick:"dhelp('#{search}')" %>, 
+      <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
     <% end %>
-    <%= link_to '[更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show()' %>
+    <%= link_to '[更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show();$("#td_yuanjiao").css("background-image","none")' %>
     <span id="more_topics" style="display:none">
       <% @more_tags.each_with_index do |search,index| %>
-        <%= link_to search,'#',onclick:"dhelp('#{search}')" %>,
+        <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
       <% end %>
       <%= link_to '[更更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics2").show()' %>
       <span id="more_topics2" style="display:none">
         <% @more_topics.each_with_index do |search,index| %>
-          <%= link_to search,'#',onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
+          <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
         <% end %>
       </span>
     </span>
@@ -85,17 +85,17 @@
   <div class="hot_seaches" style="text-align:left;margin-left:26px;margin-top: -6px;margin-bottom: 1px;padding-right:24px;font-size:13px">
     热门搜索: 
     <% @hot_searches.each do |search|%>
-      <%= link_to search,'#',onclick:"dhelp('#{search}')" %>, 
+      <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
     <% end %>
     <%= link_to '[更多]','#',style:'float:right;margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics").show()' %>
     <span id="more_topics" style="display:none">
       <% @more_tags.each_with_index do |search,index| %>
-        <%= link_to search,'#',onclick:"dhelp('#{search}')" %>,
+        <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %>,
       <% end %>
       <%= link_to '[更更多]','#',style:'margin-right:5px;color:#2C81D3',onclick:'$(this).hide();$("#more_topics2").show()' %>
       <span id="more_topics2" style="display:none">
         <% @more_topics.each_with_index do |search,index| %>
-          <%= link_to search,'#',onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
+          <%= link_to search,"/tags/#{search}",onclick:"dhelp('#{search}')" %><%= ',' unless index == @more_topics.length-1 %>
         <% end %>
       </span>
     </span>
@@ -124,6 +124,7 @@ window.dhelp = function(val){
   }
   tt.val(val);
   tt.focus();
+  $('#help_query_btn').trigger('click');
 }
   Asks.completeAll($("#help_query"));
   $("#help_query").bind( "input.autocomplete", function(){
@@ -134,7 +135,7 @@ window.dhelp = function(val){
 
 
 <!-- No posts found -->
-<div id="shouye_chang" style="margin: 35px 0 0;height:438px;overflow:hidden;font-size:15px">
+<div id="shouye_chang" style="margin: 35px 0 0;height:<%= @is_ie ? 478 : 438 %>px;overflow:hidden;font-size:15px;">
   <%= render 'asks/base' %>
   <%= content_for :scripts do %>
     <script type="text/javascript">
@@ -148,14 +149,14 @@ window.dhelp = function(val){
       }
     </script>
   <% end %>
-  <div id="yishoulu">已收录<%= link_to Topic.count,topics_path %>家机构的<%= link_to Answer.count,doing_path %>条精彩点评</div>
+  <div id="yishoulu" style="display:none">已收录<%= link_to Topic.count,topics_path %>家机构的<%= link_to Answer.count,doing_path %>条精彩点评</div>
   <div id="asks">
     <% @answers.each do |ans| %>
       <%item=ans.ask %>
       <div class="ask_item">
         <table border="0" cellspacing="0" cellpadding="0" style="width:100%">
           <tr>
-            <td class="avatar_td" valign="center"><div><%# user_avatar_tag(ans.user,:normal) %></div></td>
+            <td class="avatar_td" valign="center"><div><%= user_avatar_tag(ans.user,:normal) %></div></td>
             <td>
               <div style="float:right;color:#999999"><%= gap(ans.created_at) %>前</div>
               <div style="margin-bottom:8px;"><%= user_name_tag(ans.user) %><strong>点评了</strong><%= link_to item.title,item %></div>
@@ -166,11 +167,15 @@ window.dhelp = function(val){
         </table>
       </div>
     <% end %>
-    <div class="doListcover"></div>
+    <% if @is_ie %>
+    <div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div>
+    <% else %>
+        <div class="doListcover" style="<%='margin-bottom:-1px;' if @is_ie %>"></div>
+    <% end %>
   </div>
   <%= render "asks/sidebar" %>
-
-</div>
+  
+<% if @is_ie %><div id="ie_every_foot" style="left:0px">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 
 <% content_for :butt2 do %>
 $(document).ready(function () {

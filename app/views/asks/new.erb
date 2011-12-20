@@ -1,5 +1,16 @@
 <%= content_for :sitemap do %>
 <span class="current">新建</span>
 <% end %>
+<div id="shouye_chang" style="margin: 0;overflow:hidden;font-size:15px;">
+<%@topic = Topic.where(_id:params[:topic_id]).first unless params[:topic_id].blank?%>
+<%
+if !@topic.blank?
+  @object = @topic.name
+end
+%>
+<h1>对“<%=@object%>”提出问题</h1>
 <%= render 'base' %>
 <%= render 'form' %>
+  
+</div>
+

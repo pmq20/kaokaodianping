@@ -10,8 +10,41 @@
     }
   </script>
 <% end %>
+
 <div class="uname">
-	<div class="avatar"><%= image_tag(user.avatar.big.url) %></div>
+<%if @is_ie6%>
+  <table>
+    <tr>
+      <td><%= image_tag(user.avatar.big.url) %></td>
+      <td style="padding-left:20px">
+        <h1 id="user_name" style="line-height:30px;height:30px;font-size:30px"><%= user.name %><span>，</span><span id="user_tagline"><%= user.tagline %></span>
+        <% if current_user and user.id==current_user.id %>
+          <%= in_place_edit_tag(user,:tagline,:rich => false, :text_id => "user_tagline") %>
+        <% end %></h1>
+        <% if !user.website.blank? %>
+          <div class="website">
+            <a href="<%= user.website %>" rel="nofollow" target="_blank" id="user_website"><%= user.website %></a>
+            <% if current_user and current_user.id==user.id %> <%= in_place_edit_tag(user,:website, :text_id => "user_website") %> <% end %>
+          </div>
+        <% end %>
+        <div class="bio">
+          <span id="user_bio">
+            <% if @user.bio.blank? and (not(current_user and current_user.id==@user.id)) %>
+              <%= @user.name %>还没来得及写他的个人介绍.
+            <% else %>
+              <%= md_body @user.bio %>
+            <% end %>
+          </span>
+          <% if current_user and current_user.id==@user.id %> <%= in_place_edit_tag(@user,:bio,:type => :textarea, :text_id => "user_bio", :label => "修改个人经历") %> <% end %>
+        </div>
+      </td>
+    </tr>
+    
+  </table>
+<%else%>
+  <div class="avatar">
+    <%= image_tag(user.avatar.big.url) %>
+  </div>
 	<div class="detail">
 		<h1 id="user_name"><%= user.name %><span>，</span><span id="user_tagline"><%= user.tagline %></span>
     <% if current_user and user.id==current_user.id %>
@@ -23,7 +56,7 @@
 		    <% if current_user and current_user.id==user.id %> <%= in_place_edit_tag(user,:website, :text_id => "user_website") %> <% end %>
 		  </div>
 		<% end %>
-		<div class="bio">
+    <div class="bio">
 			<span id="user_bio">
 	      <% if @user.bio.blank? and (not(current_user and current_user.id==@user.id)) %>
 	        <%= @user.name %>还没来得及写他的个人介绍.
@@ -34,6 +67,7 @@
 	    <% if current_user and current_user.id==@user.id %> <%= in_place_edit_tag(@user,:bio,:type => :textarea, :text_id => "user_bio", :label => "修改个人经历") %> <% end %>
 		</div>
 	</div>
+<%end%>
 </div>
 
 <div class="user_profiletabs">

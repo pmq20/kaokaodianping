@@ -59,12 +59,12 @@
     <% elsif params[:action] == "show_s" %>
       <div class="pagination"><a class="page_more" href="<%= show_cc_topic_path(@topic.name) %>">看完课程点评了？还有关于<%= @topic.name %>的提问呢！</a></div>
     <% else %>
-      <div class="pagination"><a class="page_more" href="#" onclick="return addAsk();">你有关于<%= @topic.name %>问题，也可以提出来哦！</a></div>
+      <div class="pagination"><a class="page_more" class="login_required" href="#" onclick="return addAsk();">你有关于<%= @topic.name %>问题，也可以提出来哦！</a></div>
     <% end %>
   </div>
   
   
-</div>
+<% if @is_ie %><div id="ie_every_foot"  style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 <% content_for :sidebar do %>
 
 <% if current_user %>
@@ -75,7 +75,7 @@
 			<% else %>
       <a href="#" class="gray_button green_button" onclick="return Topics.follow(this, '<%= @topic.name %>','');">关注</a>
 			<% end %>
-			<a onclick="return addAsk();" class="gray_button green_button" style="font-size:12px" href="#">我要提问</a>
+			<a <% unless @is_ie6%>onclick="return addAsk();"<%end%>  class="gray_button green_button" style="font-size:12px" <%if @is_ie6 or @is_ie7%>href="/asks/new?topic_id=<%=@topic.id.to_s%>"<%else%>href="#"<%end%>>我要提问</a>
     </div>
 	</div>
 <% end %>
@@ -85,7 +85,7 @@
 		<p><%= link_to @topic.website,@topic.website,:target=>'_blank' %></p>
 	</div>
 </div>
-<% if @topic.addr %>
+<% unless @topic.addr.blank? %>
 <div class="box standard gray">
 	<h2>机构地址</h2>
 	<div class="inner">

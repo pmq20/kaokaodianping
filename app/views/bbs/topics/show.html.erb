@@ -3,6 +3,12 @@
   <li class="active">查看贴子</li>
 <% end %>
 <%= render 'sidebar' %>
+<style>
+.content p{
+max-width:605px;
+  word-wrap: break-word;
+}
+</style>
 <div class="content">
 	<div class="topics box">
 		<div class="topic">  
@@ -23,10 +29,22 @@
 					<% end %>
 					, <%= @topic.hits %>次阅读
 				</div>
+<div class="bshare-custom icon-medium"><a title="分享到人人网" class="bshare-renren" href="javascript:void(0);"></a><a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a><a title="分享到QQ空间" class="bshare-qzone" href="javascript:void(0);"></a><a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">1.29K</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 			</div>			
 		</div>
 		<div class="body">
+			<% if @is_ie6 %>
+			<style type="text/css" media="screen">
+			.this_is_lightbox img{
+        width:604px;
+      }
+			</style>
+			<% end %>
 			<%= format_topic_body(@topic.body) %>
+			<% content_for :butt2 do %>
+			  $('a.this_is_lightbox').lightBox()
+			<% end %>
+
 		</div>
 		<div class="tools">
 		  <% if owner?(@topic) %>
@@ -48,7 +66,7 @@
       <div class="reply" id="reply<%= i + 1 %>">
         <div class="pull-left face"><%= user_avatar_tag(reply.user, :bbs_normal) %></div>
         <div class="infos">
-          <div class="info clearfix">
+          <div class="info clearfix" style="background:none;filter:none">
             <span class="name"><%= bbs_user_name_tag(reply.user,:location => true) %></span>
             <span class="time"><%= i + 1 %>楼, 回复于 <%= timeago(reply.created_at) %>
               <% if owner?(reply) %>
@@ -76,7 +94,6 @@
       </div>
       <div class="pull-right">
         <button type="submit" class="btn primary">提交回复</button><br />
-        <span class="help-inline">按Ctrl+Enter快速提交</span>
       </div>
       <br style="clear:both">
     <% end %>

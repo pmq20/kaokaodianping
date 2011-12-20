@@ -1,7 +1,19 @@
 # coding: utf-8
 class HomeController < ApplicationController
   before_filter :require_user_text, :only => [:update_in_place,:mute_suggest_item]
-  before_filter :require_user, :except => [:about,:index]
+  before_filter :require_user, :except => [:about,:index,:under_construction,:tuan,:exp,:cards,:contact]
+  def tuan
+    redirect_to root_path,:notice=>'考考点评的课程团购栏目将在3月1日开启，请持续关注：）'
+  end
+  def exp
+    redirect_to root_path,:notice=>'考考点评的试听信息发布将在3月1日开启，请持续关注：）'
+  end
+  def cards
+    redirect_to root_path,:notice=>'考考点评的会员卡发放将在3月1日开启，请持续关注：）'
+  end
+def contact
+end
+
   def under_construction
   end
 
@@ -12,7 +24,7 @@ class HomeController < ApplicationController
   end
   
   def index
-    @hot_searches = %w(留学服务 GRE 托福 雅思 GMAT 会计 考研英语 考研数学 考研政治 计算机 西班牙语 德语 公务员 四六级 证券 教师证 司法 驾校)
+    @hot_searches = %w(留学服务 GRE 托福 雅思 GMAT 会计 考研英语 考研数学 考研政治 计算机 西班牙语 德语 公务员 四六级 证券 教师证 司法类 驾校)
     @more_tags = Tag.all.collect(&:name)
     @more_tags.delete_if{|x| @hot_searches.include?(x)}
     @more_topics = Topic.all.collect(&:name)

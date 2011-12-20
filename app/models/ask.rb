@@ -12,6 +12,10 @@ class Ask
   field :will_autofollow,:type=>Boolean  
   field :title
   field :body
+field :address
+field :coordinates, :type => Array
+include Geocoder::Model::Mongoid
+geocoded_by :address               # can also be an IP address
   # 最后回答时间
   field :answered_at, :type => DateTime
   field :answers_count, :type => Integer, :default => 0

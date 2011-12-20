@@ -10,6 +10,6 @@
   	<li class="pagination last"><a class="page_more" href="#" onclick="return loadAsks();">查看更多...</a></li>
   	<% end %>
   </ul>
-</div>
+<% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 <%= render "sidebar", :user => @user %>
 

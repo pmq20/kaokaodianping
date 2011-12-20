@@ -1,6 +1,6 @@
 # coding: UTF-8
 class AsksController < ApplicationController
-  before_filter :require_user, :only => [:answer,:create]
+  before_filter :require_user, :only => [:answer,:create,:new]
   before_filter :require_user_js, :only => [:answer,:invite_to_answer]
   before_filter :require_user_text, :only => [:update_topic,:redirect,:spam, :mute, :unmute, :follow, :unfollow]
   
@@ -143,7 +143,6 @@ class AsksController < ApplicationController
   end
   
   def create
-    render 'no topic' and return if params[:topic].blank?
     @ask = Ask.where(title:params[:ask][:title],topic:params[:topic]).first
     params_ask_to_user_id = nil
     if(!params[:onlyhim])
@@ -159,10 +158,16 @@ class AsksController < ApplicationController
       return 
     end
     @ask = Ask.new(params[:ask])
+    if params_ask_to_user_id
+      @touser = User.where(_id:params_ask_to_user_id).first
+      @ask.title = "#{current_user.name}请问#{@touser.name}，#{@ask.title}"
+    end
     @ask.user_id = current_user.id
     @ask.followers << current_user
     @ask.topics << params[:topic]
-    @ask.title = "[#{params[:topic]}] " + @ask.title
+    unless params[:topic].blank?
+      @ask.title = "#{current_user.name}问[#{params[:topic]}]： " + @ask.title
+    end
     @ask.current_user_id = current_user.id
     
     respond_to do |format|

@@ -1271,7 +1271,6 @@ button.giant_blue_button[disabled] .blue_button .blue_button_right, button.giant
     right: 30px;
 }
 .menu {
-    position: absolute;
     top: -1px;
     left: 50%;
     margin-left: -85px;

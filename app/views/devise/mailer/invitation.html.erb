@@ -1,9 +1,9 @@
 <p>你好 <%= @resource.email %>!</p>
 
 <p>有人邀请你注册 <a href="<%= root_url %>"><%= Setting.app_name %></a>, 你可以点击下面的链接接受邀请.</p>
-
+<p>这是大学生自己的培训机构点评平台，在这里你可以看看过来人的意见，选出最适合你的机构；也可以分享你的考试报班经验，让学弟学妹少走弯路，结交更多朋友！</p>
 <p><%= link_to '接受邀请', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
-<p>如果你的邮件无法现实链接，请用这个：<br />
+<p>如果你的邮件无法显示链接，请用这个：<br />
 <%= accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
 <br>
 <p>注册成功后，您将可以<a href="http://kkdp.net/users/invitation/new">邀请</a>您的朋友进入考考点评。</p>

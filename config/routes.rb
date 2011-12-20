@@ -1,7 +1,10 @@
 ﻿# -*- encoding : utf-8 -*-
 Kkdp::Application.routes.draw do
   # get '/tmp'=>'home#tmp'
-  
+  get '/tuan' => 'home#tuan'
+  get '/cards' => 'home#cards'
+  get '/exp' => 'home#exp'
+get '/contact' => 'home#contact'
   
 # psvr>
 resources :tags

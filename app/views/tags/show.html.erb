@@ -24,7 +24,31 @@
     </div>
   </div>
   <br>
+<%if @is_ie6 or @is_ie7%>
 
+    <table id="tags">
+        <thead class="header">
+            <td class="cell name">机构名称</td>
+            <td class="cell feedback">LOGO</td>
+            <td class="cell lead_editor">点评数</td>
+        </thead>
+        <tbody>
+  <% @topics.each_with_index do |item,i| %>
+          <tr class="row" style="background-color:<%=  i.even? ? '#EEE' : '#FFF'%>">
+              <td class="cell  name" >
+                  <%= link_to item.name,topic_path(item.name) %>
+              </td>
+              <td class="cell feedback">
+                  <%= image_tag(item.cover.normal.url) %>
+              </td>
+              <td class="cell lead_editor">
+                  <%= link_to item.answers_count,topic_path(item.name) %>
+              </td>
+          </tr>
+  <% end %>
+    </tbody>
+    </table>
+<%else%>
     <div id="tags">
         <div class="header">
                     <div class="cell name">机构名称<div class="sort_arrow"></div>
@@ -51,11 +75,11 @@
             <div class="gradient"></div>
         <div class="gradient right"></div>
     </div>
+<%end%>
 
 
 
-
-</div>
+<% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 
 <% content_for :sidebar do %>
 

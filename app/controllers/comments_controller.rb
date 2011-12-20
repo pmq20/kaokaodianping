@@ -5,6 +5,9 @@ class CommentsController < ApplicationController
     @id = params[:id]
     @comments = Comment.where(:commentable_type => @type.titleize, :commentable_id => BSON::ObjectId(@id)).to_a
     @comment = Comment.new(:commentable_type => @type.titleize, :commentable_id => @id)
+respond_to do |format|
+format.any{render file:'comments/index.js.erb'}
+end
   end
 
   def create
@@ -16,5 +19,9 @@ class CommentsController < ApplicationController
     else
       @success = false
     end
+respond_to do |format|
+format.js{render file:'comments/create.js.erb'}
+format.html{redirect_to :back}
+end
   end
 end

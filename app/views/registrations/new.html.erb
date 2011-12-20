@@ -1,4 +1,6 @@
 <% content_for :sitemap do %><span class="current">加入社区</span><% end %>
+<div id="shouye_chang">
+
 <div class="leftbox">
 	<div class="box">
     <% if not Setting.allow_register %>
@@ -18,14 +20,15 @@
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name) ) do |f| %>
         <%= render "shared/error_messages", :target => resource %> 
         <%= f.input :name, :label => "昵称" %>
-        <%= f.input :email, :label => "邮箱" %>
-        <%= f.input :password, :as => :password, :label => "密码" %>
+<div class="row string required"><label for="user_email" class="required">邮箱 </label><input type="email" value="" size="220" required="required" name="user[email]" id="user_email" class="string required"></div>        <%= f.input :password, :as => :password, :label => "密码" %>
         <%= f.input :password_confirmation, :as => :password, :label => "确认密码"  %>
-        <div class="actions"><button type="submit" class="button submit">提交注册信息</button></div>
+        <div class="actions"> <button type="submit" style="width:130px" class="button submit">提交注册信息</button></div>
       <% end %>
     <% end %>
   </div>
 </div>
+<% if @is_ie %><div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
+
 <%= content_for :sidebar do %>
   <div class="box">
     <h2>已经有帐号了？</h2>
@@ -36,7 +39,7 @@
   <div class="box">
     <h2>关于注册</h2>
     <div class="inner">
-      <%= Setting.app_name %>本身需要邀请才可以注册的，但是我们会偶尔在一些特别的日子临时性的开放注册。
+      欢迎加入<%= Setting.app_name %>！这是大学生自己的培训机构点评平台，在这里你可以看看过来人的意见，选出最适合你的机构；也可以分享你的考试报班经验，让学弟学妹少走弯路，结交更多朋友！
     </div>
   </div>
 <% end %>

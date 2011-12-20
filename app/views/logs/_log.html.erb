@@ -8,7 +8,7 @@ when "AskLog"
 	if !item.blank? and item.spams_count < Setting.ask_spam_max
 %>
 	<div class="ask" ask-id="<%= log.id %>">
-		<div class="savatar">
+    <div class="savatar<%='2' if @is_ie6%>">
       <%= user_avatar_tag(log.user,:small) %>
     </div>
     <%
@@ -24,11 +24,11 @@ when "AskLog"
         case action
         when "NEW"
       %>
-      <%= user_name_tag(log.user) %> 添加了该点评
+      <%= user_name_tag(log.user) %> 添加了该问题
       <% when "NEW_TO_USER" %>
-        <%= user_name_tag(log.user) %> 向 <%= user_name_tag(item.to_user) %> 提出了点评
+        <%= user_name_tag(log.user) %> 向 <%= user_name_tag(item.to_user) %> 提出了该问题
       <% when "EDIT" %>
-      <%= user_name_tag(log.user) %> <%= log.target_attr == "TITLE" ? "修改了该点评" : "修改了该点评的补充说明" %>
+      <%= user_name_tag(log.user) %> <%= log.target_attr == "TITLE" ? "作出了一些修改" : "修改了其补充说明" %>
       <% when "ADD_TOPIC" %>
       <%= user_name_tag(log.user) %> 给该点评添加了培训机构 
         <%
@@ -94,7 +94,7 @@ when "UserLog"
       <div class="title small_title"><%= user_name_tag(log.user) %> 感谢了 <%= user_name_tag(item.user) %> 
         在 <a href="/asks/<%= log.target_parent_id %>?nr=1#answer_<%= log.target_id %>"><%= log.target_parent_title %></a> 中的点评。 </div>
 		<% else %>
-			<div class="savatar">
+			<div class="savatar<%='2' if @is_ie6%>">
 	      <%= user_avatar_tag(log.user,:small) %>
 	    </div>
     <div class="title<% if ["FOLLOW", "UNFOLLOW"].include?(action) %> small_title<% end %>"><%= ask_title_tag(item) %></div>
@@ -145,7 +145,7 @@ when "AnswerLog"
 		if !item.nil? and item.spams_count < Setting.ask_spam_max
 %>
 	<div class="ask" ask-id="<%= item.id %>">
-		<div class="savatar">
+		<div class="savatar<%='2' if @is_ie6%>">
       <%= user_avatar_tag(log.user,:small) %>
     </div>
     <div class="title"><%= ask_title_tag(item) %></div>
@@ -214,13 +214,13 @@ when "CommentLog"
 		when "Ask"
 %>
 	<div class="ask" ask-id="<%= log.id %>">
-	  <div class="title small_title"><%= user_name_tag(log.user) %> 评论了机构 <a href="/asks/<%= log.target_parent_id %>?easc=yes&asid=<%= log.target_parent_id %>#ask_comments">#<%= log.title %></a></div>
+	  <div class="title small_title"><%= user_name_tag(log.user) %> 评论了 <a href="/asks/<%= log.target_parent_id %>?easc=yes&asid=<%= log.target_parent_id %>#ask_comments">#<%= log.title %></a></div>
 	</div>
 <%
 		when "Answer"
 %>
 	<div class="ask" ask-id="<%= log.id %>">
-	  <div class="title small_title"><%= user_name_tag(log.user) %> 评论了机构 <a href="/asks/<%= log.target_parent_id %>?eawc=yes&awid=<%= log.title %>#answer_<%= log.title %>">#<%= log.target_parent_title %></a> 中的点评</div>
+	  <div class="title small_title"><%= user_name_tag(log.user) %> 评论了<a href="/asks/<%= log.target_parent_id %>?eawc=yes&awid=<%= log.title %>#answer_<%= log.title %>">#<%= log.target_parent_title %></a> 中的点评</div>
 	</div>
 <%
 		end

@@ -71,18 +71,18 @@ class Answer
     UserMailer.new_answer_to_followers(self.id)
   end
   
-  def chomp_body(length=3000,opts={})
+  def chomp_body(length=88,opts={})
     if opts[:nobr]
       chomped = Nokogiri.HTML(self.body).text().split("\n").join('　')
     else
-      chomped = self.body
+      chomped = Nokogiri.HTML(self.body).text()
     end
     while chomped =~ /<div><br><\/div>$/i
       chomped = chomped.gsub(/<div><br><\/div>$/i, "")
     end
     if chomped.length>length
       chomped = chomped[0..length-1]
-      chomped += '...'
+      #chomped += "..."
     end
     return chomped
   end

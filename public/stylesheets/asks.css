@@ -62,6 +62,9 @@ a.user img.small { width:25px; height:25px; }
   height:64px;
   width:64px;
 }
+.ask .avatar_border{
+  float:left
+}
 .avatar_border_small{
   float:left;
 }

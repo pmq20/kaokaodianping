@@ -21,13 +21,14 @@
 </div>
 <div class="box gray">
 	<h2></h2>
-	<ul class="follow-stats">
+	<ul class="follow-stats" style="<%='margin-left:100px;' if @is_ie6%>">
 		<li>
 			<a href="<%= followers_user_path(@user.slug) %>"><strong>
 			<%= @user.follower_ids.size %></strong>
 			<span>关注<%= user_sex_title(@user) %>的人</span>
 			</a>
 		</li>
+    
 		<li class="last">
 			<a href="<%= following_user_path(@user.slug) %>"><strong>
 			<%= @user.following_ids.size %></strong>
@@ -35,6 +36,7 @@
 			</a>
 		</li>
 	</ul>
+  <br style="clear:both">
 	<div class="user-regdate">注册于 <%= l user.created_at.to_date, :format => :long %></div>
 </div>
 

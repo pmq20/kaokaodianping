@@ -13,14 +13,6 @@
 	</div>
 
 	<div id="reg-form" class="floating_dialog" style="display:none">
-	  <div id="reg_display_when_success" style="display:none">
-	    <div style="text-align:center;margin:21px 0">
-	      <%= image_tag '/images/suc.png' %>
-	    </div>
-	    <p style="line-height: 22px;">
-	      <%= tt('loginreg.reg_ok_msg').html_safe %>
-	    </p>
-	  </div>
 	  <div id="reg_normal_stuff">
       <div class="ui-widget afailure" id="error_reg" style="margin: 2px 0 22px 0;display:none">
         <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
@@ -86,10 +78,6 @@
       width: 350,
       modal: true,
       buttons: buttons2
-    });
-    $(".psvr_reg_links").click(function() {
-      $("#reg-form").dialog("open");
-      return false;
     });
     $(".psvr_login_links").click(function() {
       $("#login-form").dialog("open");
