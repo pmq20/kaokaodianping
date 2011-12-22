@@ -167,17 +167,14 @@ window.dhelp = function(val){
         </table>
       </div>
     <% end %>
-    <% if @is_ie %>
-    <div id="ie_every_foot" style="<%='left:0px' if @is_ie7 or @is_ie8%>">&nbsp;</div><div id="ie_every_footer"></div>
-    <% else %>
-        <div class="doListcover" style="<%='margin-bottom:-1px;' if @is_ie %>"></div>
-    <% end %>
   </div>
   <%= render "asks/sidebar" %>
   
 <% if @is_ie %><div id="ie_every_foot" style="left:0px">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 
 <% content_for :clear_clear do %>
+
+
 <div class="yuan423" id="yuan423_1" style="margin-top:12px;margin-right:11px;float:left">
   <%= image_tag 'zuixintiwen.png',style:'margin-left:10px;margin-top:9px' %>
 <div id="asks_1" class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
@@ -187,8 +184,8 @@ window.dhelp = function(val){
       <tr>
         <td class="avatar_td" valign="center"><div><%= user_avatar_tag(ask.user,:normal) %></div></td>
         <td>
+                    <div style="float:right;color:#999999"><%= gap(ask.created_at) %>前</div>
           <div style="margin-bottom:8px;"><%= link_to ask.title,ask %></div>
-          <div style="float:right;color:#999999"><%= gap(ask.created_at) %>前</div>
           <span style="color:#999999">由<%= user_name_tag(ask.user) %>提出，<%= link_to ask.answers_count,ask_path(ask)+'#woyaodianping' %>个回答</span>
 
         </td>
@@ -209,9 +206,9 @@ window.dhelp = function(val){
         <tr>
           <td class="avatar_td" valign="center"><div><%= user_avatar_tag(item.user,:normal) %></div></td>
           <td>
-            <div style="margin-bottom:8px;"><%= link_to item.title, bbs_topic_path(item) %></div>
+<div style="margin-bottom:8px;"><%= link_to item.title, bbs_topic_path(item) %></div>
             <div style="float:right;color:#999999"><%= gap(item.created_at) %>前</div>
-            <span style="color:#999999">由<%= user_name_tag(item.user) %>提出</span>
+            <span style="color:#999999">由<%= user_name_tag(item.user) %>发表于<%= link_to item.node.name,bbs_node_path(item.node) %></span>
 
           </td>
         </tr>
@@ -224,15 +221,23 @@ window.dhelp = function(val){
   <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
 </div>
 
-<div class="clear"></div>          
-<div class="yuan423" id="yuan423_3" style="margin-top:12px;margin-right:11px;float:left">
+<div class="clear" style="margin-bottom:10px"></div>          
+
+
+
+<div class="yuan423" id="yuan423_3" style="margin-top:12px;margin-right:11px;float:left;">
   <%= image_tag 'remenjigou.png',style:'margin-left:10px;margin-top:9px' %>
+
   <div class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
-<% @topics.each do |tc| %>
-<% topic = Topic.where(name:tc.name).first %>
-<%= image_tag(topic.cover.normal.url,class:'index_topic_pic') %>
-<% end %>
+    <% @topics.each do |tc|  %>
+    <% topic = Topic.where(name:tc.name).first %>
+      <a href="<%= "/topics/#{topic.name}" %>" class="topic_cache">
+        <%= image_tag(topic.cover.small.url,class:'index_topic_pic') %>
+        <%= topic.name %>
+      </a>
+    <% end %>
   </div>
+  
   <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
 </div>
 
@@ -247,6 +252,22 @@ window.dhelp = function(val){
     <% end %>
   </div>
   <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
+</div>
+
+<div class="clear"></div>          
+
+
+<div id="shouye_chang" style="width:827px;background-color:white">
+
+  <div id="asks">
+    <% @asks.each do |item| %>
+      <%= render "asks/ask", :item => item %>
+    <% end %>
+    <% if @asks.length == @per_page %>
+      <div class="pagination"><a class="page_more" href="#" onclick="return loadAsks();">查看更多...</a></div>
+    <% end %>
+  </div>
+  <% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%>
 </div>
 
 <% end %>
