@@ -36,6 +36,17 @@ end
       end
     end
     @answers = Answer.normal.recent.limit(50)
+    
+    @already=[]
+    @already = current_user.followed_topic_ids if user_signed_in?
+    @already_names = @already.collect{|id| if topic=Topic.where(_id:id).first;topic.name;else;nil;end}.compact
+    @topics = []
+    @topics = TopicCache.not_in(name:@already_names).limit(12).to_a
+    @bbs_topics = LandTopic.desc(:created_at).limit(30)
+    # @newasks= AskCache.limit(50).collect{|ask_cache| Ask.where(:_id=>ask_cache.ask_id).first}
+    @asks = Ask.where(type:nil).limit(30).each
+    @users = User.normal.desc(:created_at).limit(30)
+    
     if params[:format] == "js"
       render "/asks/index.js"
     end

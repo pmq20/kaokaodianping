@@ -6,7 +6,7 @@ default: &defaults
   # 网站的域名
   domain: "kaokaodianping.com"
   # 配置图片的域名
-  upload_url: "/uploads"
+  upload_url: "http://www.kaokaodianping.com/uploads"
   # 设置管理员，在下面填写需要设置为管理员的用户 email
   admin_emails: 
     - 'pmq2001@gmail.com'

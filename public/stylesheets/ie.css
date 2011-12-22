@@ -132,3 +132,6 @@ body#dashboard_directory #tabs .tab.selected, body#dashboard_lookup_contacts #ta
 #ie_every_footer{
   height:26px
 }
+.yuan423{
+  background:#FFF url('/images/ie_top423.png') no-repeat left top;
+}

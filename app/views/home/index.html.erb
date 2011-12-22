@@ -20,9 +20,9 @@
 
   <%= form_tag traverse_path,method:'get',:id=>"help_search" do %>
     <input style="margin:3px 0 0 0;width:382px;padding-top:13px;color:#CCC" type="text"
-    value="培训项目或机构名"
+    value="培训项目、机构、用户"
     onclick="if(!this.alreadygot){this.style.color='#000';this.value='';this.alreadygot=true}"
-    title="培训项目或机构名" 
+    title="培训项目、机构、用户" 
     id="help_query" class="" name="q">
     <button id="help_query_btn" onclick="if($('#help_query').val()!=''){$('#help_search').submit();}else{$('#help_query').focus()}return false;"></button>
   <% end %>
@@ -68,9 +68,9 @@
 
   <%= form_tag traverse_path,method:'get',:id=>"help_search" do %>
     <input style="margin:3px 0 0 0;width:382px;padding-top:13px;color:#CCC" type="text"
-    value="培训项目或机构名"
+    value="培训项目、机构、用户"
     onclick="if(!this.alreadygot){this.style.color='#000';this.value='';this.alreadygot=true}"
-    title="培训项目或机构名" 
+    title="培训项目、机构、用户" 
     id="help_query" class="" name="q">
     <button id="help_query_btn" onclick="if($('#help_query').val()!=''){$('#help_search').submit();}else{$('#help_query').focus()}return false;"></button>
   <% end %>
@@ -135,8 +135,7 @@ window.dhelp = function(val){
 
 
 <!-- No posts found -->
-<div id="shouye_chang" style="margin: 35px 0 0;height:<%= @is_ie ? 478 : 438 %>px;overflow:hidden;font-size:15px;">
-  <%= render 'asks/base' %>
+<div id="shouye_chang" style="margin: 35px 0 0;height:<%= @is_ie ? 381 : 350 %>px;overflow:hidden;font-size:15px;">
   <%= content_for :scripts do %>
     <script type="text/javascript">
       var current_page = 2;
@@ -149,8 +148,9 @@ window.dhelp = function(val){
       }
     </script>
   <% end %>
+  <%= image_tag 'zuixindianping.png',style:'margin-left:-6px;margin-top:-9px' %>
   <div id="yishoulu" style="display:none">已收录<%= link_to Topic.count,topics_path %>家机构的<%= link_to Answer.count,doing_path %>条精彩点评</div>
-  <div id="asks">
+  <div id="asks_0">
     <% @answers.each do |ans| %>
       <%item=ans.ask %>
       <div class="ask_item">
@@ -177,29 +177,114 @@ window.dhelp = function(val){
   
 <% if @is_ie %><div id="ie_every_foot" style="left:0px">&nbsp;</div><div id="ie_every_footer"></div><%end%></div>
 
+<% content_for :clear_clear do %>
+<div class="yuan423" id="yuan423_1" style="margin-top:12px;margin-right:11px;float:left">
+  <%= image_tag 'zuixintiwen.png',style:'margin-left:10px;margin-top:9px' %>
+<div id="asks_1" class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
+<% @asks.each do |ask| %>
+  <div class="ask_item">
+    <table border="0" cellspacing="0" cellpadding="0" style="width:100%">
+      <tr>
+        <td class="avatar_td" valign="center"><div><%= user_avatar_tag(ask.user,:normal) %></div></td>
+        <td>
+          <div style="margin-bottom:8px;"><%= link_to ask.title,ask %></div>
+          <div style="float:right;color:#999999"><%= gap(ask.created_at) %>前</div>
+          <span style="color:#999999">由<%= user_name_tag(ask.user) %>提出，<%= link_to ask.answers_count,ask_path(ask)+'#woyaodianping' %>个回答</span>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>
+</div>
+  <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
+</div>
+
+<div class="yuan423" id="yuan423_2" style="margin-top:12px;float:left">
+  <%= image_tag 'luntanxintie.png',style:'margin-left:10px;margin-top:9px' %>
+<div id="asks_2" class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
+  <% @bbs_topics.each do |item| %>
+    <div class="ask_item">
+      <table border="0" cellspacing="0" cellpadding="0" style="width:100%">
+        <tr>
+          <td class="avatar_td" valign="center"><div><%= user_avatar_tag(item.user,:normal) %></div></td>
+          <td>
+            <div style="margin-bottom:8px;"><%= link_to item.title, bbs_topic_path(item) %></div>
+            <div style="float:right;color:#999999"><%= gap(item.created_at) %>前</div>
+            <span style="color:#999999">由<%= user_name_tag(item.user) %>提出</span>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+
+</div>
+
+  <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
+</div>
+
+<div class="clear"></div>          
+<div class="yuan423" id="yuan423_3" style="margin-top:12px;margin-right:11px;float:left">
+  <%= image_tag 'remenjigou.png',style:'margin-left:10px;margin-top:9px' %>
+  <div class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
+<% @topics.each do |tc| %>
+<% topic = Topic.where(name:tc.name).first %>
+<%= image_tag(topic.cover.normal.url,class:'index_topic_pic') %>
+<% end %>
+  </div>
+  <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
+</div>
+
+<div class="yuan423" id="yuan423_4" style="margin-top:12px;float:left">
+  <%= image_tag 'huanyingxinyonghu.png',style:'margin-left:10px;margin-top:9px' %>
+  <div class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
+    <% @users.each do |user|  %>
+      <a href="<%= "/users/#{user.slug}" %>" class="topic_cache">
+        <%= image_tag(user.avatar.small.url,class:'index_avatar') %>
+        <%= user.name %>
+      </a>
+    <% end %>
+  </div>
+  <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
+</div>
+
+<% end %>
+
+
 <% content_for :butt2 do %>
 $(document).ready(function () {
-  window.will_reset_newsroll=false;
-  newsroll();
+  window.will_reset_newsroll=new Array(3);
+  window.will_reset_newsroll[0]=window.will_reset_newsroll[1]=window.will_reset_newsroll[2]=false;
+  newsroll(0);
+    newsroll(1);
+    newsroll(2);
 });
-function newsroll() {
-    $('#asks div.ask_item').hide();
-    $('#asks div.ask_item:gt(' + ($('#asks div.ask_item').length - 6) + ')').show();
-    window.setInterval(function() {
-      if(window.will_reset_newsroll){
-        $('#asks div.ask_item').hide();
-        $('#asks div.ask_item:gt(' + ($('#asks div.ask_item').length - 6) + ')').show();
-        window.will_reset_newsroll = false;
-      }else{
-        $('#asks div.ask_item:visible:first').prev().css('opacity', 0).slideDown("fast", function() {
-            $(this).animate({opacity:1}, 1000, function() {
-                $(this).css({'opacity':1,'background':'#fff'});
-                if ($('#asks div.ask_item:hidden').length == 0) {
-                  window.will_reset_newsroll=true;
-                }
-            });
-        });
-      }
-    }, 4000);
+function newsroll(number) {
+  var father = $('#asks_'+number);
+    $('div.ask_item',father).hide();
+    $('div.ask_item:gt(' + ($('div.ask_item',father).length - 4) + ')',father).show();
+    window.setTimeout(function(){
+
+      window.setInterval(function() {
+        if(window.will_reset_newsroll[number]){
+          $('div.ask_item',father).hide();
+          $('div.ask_item:gt(' + ($('div.ask_item',father).length - 4) + ')',father).show();
+          window.will_reset_newsroll[number] = false;
+        }else{
+          $('div.ask_item:visible:first',father).prev().css('opacity', 0).slideDown("fast", function() {
+              $(this).animate({opacity:1}, 1000, function() {
+                  $(this).css({'opacity':1,'background':'#fff'});
+                  if ($('div.ask_item:hidden',father).length == 0) {
+                    window.will_reset_newsroll[number]=true;
+                  }
+              });
+          });
+        }
+      }, 4000);
+
+      
+    },number*500);
 }
 <%end %>
+

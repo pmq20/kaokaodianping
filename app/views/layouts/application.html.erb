@@ -10,7 +10,7 @@
          
         <%= auto_discovery_link_tag(:rss,feed_bbs_topics_url,:title => '订阅最新贴') if pos_bbs? %>
         <%= stylesheet_link_tag "bbs",'jquery.lightbox-0.5' if pos_bbs? %>
-        <%= stylesheet_link_tag "application","users","asks","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.tipsy",'global','dashboard','jquery-ui-1.8.16.custom','facebox','others',cache:'cache_css'%>
+        <%= stylesheet_link_tag "application","users","asks","facebox","jquery.jdialog","jquery.qeditor","jquery.autocomplete", "jquery.tipsy",'global','dashboard','jquery-ui-1.8.16.custom','facebox','others'%>
 
         <% if @is_ie %>
           <%= stylesheet_link_tag 'ie'  %>
@@ -88,20 +88,13 @@
           </div>
 
           <div class="clear"></div>
+          <%= yield :clear_clear %>
+          <div class="clear"></div>          
         </div>
 
         <img src="/images/content_bottom.png" alt="" id="content_bottom" />
 
         <%= render 'shared/footer' %>
-      </div>
-      <div id="report_tumblelog_bar" style="display:none;">
-        <input type="hidden" id="report_tumblelog_target" />
-        <span id="report_tumblelog_with_name" style="display:none;">
-            Report <span id="report_tumblelog_name"></span>? </span>
-        <span id="report_tumblelog_without_name" style="display:none;">Report this person?</span>
-        <button class="chrome" onclick="report_tumblelog($('report_tumblelog_target').value, 'PLkymNBLCVuyXJ8quh0Hohvo4', '1');"><div class="chrome_button"><div class="chrome_button_left"></div>Spam<div class="chrome_button_right"></div></div></button>
-        <button class="chrome" onclick="report_tumblelog($('report_tumblelog_target').value, 'PLkymNBLCVuyXJ8quh0Hohvo4', '2');"><div class="chrome_button"><div class="chrome_button_left"></div>Harassment<div class="chrome_button_right"></div></div></button>
-        <button class="chrome" onclick="report_tumblelog($('report_tumblelog_target').value, 'PLkymNBLCVuyXJ8quh0Hohvo4', 'other');"><div class="chrome_button"><div class="chrome_button_left"></div>No thanks<div class="chrome_button_right"></div></div></button>
       </div>
       <a style="width:30px;position:fixed;right:0;top:200px;_position:absolute;_top:expression(documentElement.scrollTop+200);height:100px" href="/bugtrack">
         <img src="/images/feedback.png" border="0" title="意见反馈" />

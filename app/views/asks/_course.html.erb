@@ -16,7 +16,31 @@
     </div> 
     <% if item.last_answer and (not(params[:controller] == "asks" and params[:action] == "index")) %>
       <div class="last_answer answer">
-        <div class="avatar_border_small<%=2 if @is_ie6%>">
+        <% if @is_ie6%>
+        <style type="text/css" media="screen">
+          .answer .data .md_body, .answer .data .author{
+            margin-left:0px;
+          }
+        </style>
+        <table border="0" cellspacing="0" cellpadding="0" style="width:595px">
+          <tr>
+            <td style="vertical-align:top;width:16px"><%= user_avatar_tag(item.last_answer.user, :small) %></td>
+          <td>  <div class="attr">
+              <span class="votes" rel="tipsyt" title="参与投票人数"><%= item.last_answer.votes_count %></span>
+            </div>
+            <div class="data">
+              <div class="author">
+                <% if item.last_answer_user %><%= user_name_tag(item.last_answer_user) %><%= user_tagline_tag(item.last_answer_user,:prefix => ",") %> <% else %>匿名用户<% end %>
+              </div>
+              <div class="md_body"><%= md_body(item.last_answer.chomp_body) %>...<a href="<%="/asks/#{item.id}#answer_#{item.last_answer_id}"%>" style="text-decoration:none">[查看更多]</a>
+
+              </div>
+            </div>
+          </td>
+          </tr>
+        </table>
+        <% else %>
+        <div class="avatar_border_small">
           <%= user_avatar_tag(item.last_answer.user, :small) %>
         </div>
         <div class="attr">
@@ -30,6 +54,7 @@
           
           </div>
         </div>
+        <% end %>
       </div>
     <% else %>
       <div class="md_body" style="display:none" id="more_to_come">

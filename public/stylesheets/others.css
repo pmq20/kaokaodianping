@@ -63,7 +63,7 @@
 a.with_avatar{
   padding-left:30px;
 }
-.avatar_td{
+.avatar_td,.jigou_td{
   vertical-align:top;
   width:63px;
 }
@@ -905,4 +905,49 @@ ol#photo_list li .caption {
 /*end_edit_post*/
 .colorBlack{
 color:black !important;
+}
+
+.yuan423{
+  width:423px;
+  background-color:white;
+  border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;
+}
+.index_topics{
+  padding:0 13px 14px;
+}
+.index_topics .topic_cache{
+  background-color: #E0EAF1;
+  border-bottom: 1px solid #3E6D8E;
+  border-right: 1px solid #7F9FB6;
+  color: #3E6D8E;
+  font-size: 90%;
+  line-height: 25px;
+  height: 25px;
+  margin: 2px 2px 2px 0;
+  padding: 3px 4px;
+  text-decoration: none;
+  white-space: nowrap;
+  display:inline-block;
+}
+.index_topics .topic_cache:hover{
+  background-color: #3E6D8E;
+  color: #E0EAF1;
+  border-bottom: 1px solid #37607D;
+  border-right: 1px solid #37607D;
+  text-decoration: none;
+}
+#topavatarie6,#the_header_avatar{
+  width:25px;
+  height:25px;
+}
+.index_avatar{
+  margin-bottom:-7px;
+  width:25px;
+  height:25px; 
+}
+.index_topic_pic{
+}
+#yuan423_1,#yuan423_2{
+ height:343px;
+ overflow:hidden;
 }

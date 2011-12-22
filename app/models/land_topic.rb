@@ -5,7 +5,7 @@ class LandTopic
   include Mongoid::SoftDelete
   include Redis::Search
   include Redis::Objects
-  
+  index :created_at  
   field :title
   field :body
   field :replied_at, :type => DateTime

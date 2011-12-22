@@ -13,6 +13,9 @@ class SearchController < ApplicationController
       result += Redis::Search.complete("Topic",params[:q].strip,:limit => 10,:sort_field=>'followers_count')
       if result.length < 10
         result += Redis::Search.query("Ask",params[:q].strip,:limit => 10)
+        if result.length < 10
+          result += Redis::Search.complete("User",params[:q].strip,:limit => 10)
+        end
       end
     end
 
