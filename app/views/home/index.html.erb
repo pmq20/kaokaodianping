@@ -178,7 +178,7 @@ window.dhelp = function(val){
 <div class="yuan423" id="yuan423_1" style="margin-top:12px;margin-right:11px;float:left">
   <%= image_tag 'zuixintiwen.png',style:'margin-left:10px;margin-top:9px' %>
 <div id="asks_1" class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
-<% @asks.each do |ask| %>
+<% @newasks.each do |ask| %>
   <div class="ask_item">
     <table border="0" cellspacing="0" cellpadding="0" style="width:100%">
       <tr>
@@ -221,7 +221,7 @@ window.dhelp = function(val){
   <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
 </div>
 
-<div class="clear" style="margin-bottom:10px"></div>          
+<div class="clear"></div>          
 
 
 
@@ -254,8 +254,7 @@ window.dhelp = function(val){
   <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
 </div>
 
-<div class="clear"></div>          
-
+<div class="clear" style="margin-bottom:10px"></div>          
 
 <div id="shouye_chang" style="width:827px;background-color:white">
 
@@ -269,6 +268,9 @@ window.dhelp = function(val){
   </div>
   <% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%>
 </div>
+
+
+
 
 <% end %>
 
@@ -307,5 +309,10 @@ function newsroll(number) {
       
     },number*500);
 }
+height3 = $('#yuan423_3').height();
+height4 = $('#yuan423_4').height();
+max = height3 > height4 ? height3 : height4;
+$('#yuan423_3').height(max);
+$('#yuan423_4').height(max);
 <%end %>
 

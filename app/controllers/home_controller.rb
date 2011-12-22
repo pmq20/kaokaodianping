@@ -41,15 +41,23 @@ end
     @already = current_user.followed_topic_ids if user_signed_in?
     @already_names = @already.collect{|id| if topic=Topic.where(_id:id).first;topic.name;else;nil;end}.compact
     @topics = []
-    @topics = TopicCache.not_in(name:@already_names).limit(30).to_a
+    @topics = TopicCache.not_in(name:@already_names).limit(20).to_a
     @bbs_topics = LandTopic.desc(:created_at).limit(30)
     # @newasks= AskCache.limit(50).collect{|ask_cache| Ask.where(:_id=>ask_cache.ask_id).first}
-    @asks = Ask.where(type:nil).limit(30).each
+    @newasks = Ask.where(type:nil).limit(30).each
     @users = User.normal.desc(:created_at).limit(30)
     
+          @asks = Ask.normal.any_of({:topics.in => current_user.followed_topics.map{|t| t.name}}).not_in(:follower_ids => [current_user.id])
+          @asks = @asks.includes(:user,:last_answer,:last_answer_user,:topics)
+                        .has_answer
+                        .exclude_ids(current_user.muted_ask_ids)
+                        .desc(:answers_count,:answered_at)
+                        .paginate(:page => params[:page], :per_page => @per_page)
+
     if params[:format] == "js"
       render "/asks/index.js"
     end
+
     #   
     #   if current_user.following_ids.size == 0 and current_user.followed_ask_ids.size == 0 and current_user.followed_topic_ids.size == 0
     #     redirect_to newbie_path and return
