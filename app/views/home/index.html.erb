@@ -254,21 +254,6 @@ window.dhelp = function(val){
   <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
 </div>
 
-<div class="clear" style="margin-bottom:10px"></div>          
-
-<div id="shouye_chang" style="width:827px;background-color:white">
-
-  <div id="asks">
-    <% @asks.each do |item| %>
-      <%= render "asks/ask", :item => item %>
-    <% end %>
-    <% if @asks.length == @per_page %>
-      <div class="pagination"><a class="page_more" href="#" onclick="return loadAsks();">查看更多...</a></div>
-    <% end %>
-  </div>
-  <% if @is_ie %><div id="ie_every_foot">&nbsp;</div><div id="ie_every_footer"></div><%end%>
-</div>
-
 
 
 
