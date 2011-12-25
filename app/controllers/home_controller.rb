@@ -46,51 +46,6 @@ end
     # @newasks= AskCache.limit(50).collect{|ask_cache| Ask.where(:_id=>ask_cache.ask_id).first}
     @newasks = Ask.where(type:nil).limit(30).each
     @users = User.normal.desc(:created_at).limit(30)
-    
-          @asks = Ask.normal.any_of({:topics.in => current_user.followed_topics.map{|t| t.name}}).not_in(:follower_ids => [current_user.id])
-          @asks = @asks.includes(:user,:last_answer,:last_answer_user,:topics)
-                        .has_answer
-                        .exclude_ids(current_user.muted_ask_ids)
-                        .desc(:answers_count,:answered_at)
-                        .paginate(:page => params[:page], :per_page => @per_page)
-
-    if params[:format] == "js"
-      render "/asks/index.js"
-    end
-
-    #   
-    #   if current_user.following_ids.size == 0 and current_user.followed_ask_ids.size == 0 and current_user.followed_topic_ids.size == 0
-    #     redirect_to newbie_path and return
-    #   else
-    #     # TODO: 这里需要过滤掉烂点评
-    #     @logs = Log.any_of({:user_id.in => current_user.following_ids},
-    #                        {:target_id.in => current_user.followed_ask_ids})
-                              # .and(:action.in => ["NEW","NEW_ANSWER_COMMENT","NEW_ASK_COMMENT", "AGREE", "EDIT"], :_type.in => ["AskLog", "AnswerLog", "CommentLog", "UserLog"])
-    #                       .excludes(:user_id => current_user.id).desc("$natural")
-    #                       .paginate(:page => params[:page], :per_page => @per_page)
-    #     
-    #     if @logs.count < 1
-    #       @asks = Ask.normal.any_of({:topics.in => current_user.followed_topics.map{|t| t.name}}).not_in(:follower_ids => [current_user.id])
-    #       @asks = @asks.includes(:user,:last_answer,:last_answer_user,:topics)
-    #                     .has_answer
-    #                     .exclude_ids(current_user.muted_ask_ids)
-    #                     .desc(:answers_count,:answered_at)
-    #                     .paginate(:page => params[:page], :per_page => @per_page)
-    #                     
-    #       if params[:format] == "js"
-    #         render "/asks/index.js"
-    #       end
-    #     else
-    #       if params[:format] == "js"
-    #         render "/logs/index.js"
-    #       else
-    #         render "/logs/index"
-    #       end
-    #     end
-    #   end
-    # else
-
-    # end
   end
   
   def newbie

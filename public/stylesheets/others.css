@@ -937,8 +937,9 @@ color:black !important;
   text-decoration: none;
 }
 #topavatarie6,#the_header_avatar{
-  width:25px;
+/*  width:25px;
   height:25px;
+*/
 }
 .index_avatar{
   margin-bottom:-7px;
