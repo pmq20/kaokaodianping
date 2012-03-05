@@ -1,0 +1,1000 @@
+   62  ls
+   63  cd kkdianping/
+   64  ls
+   65  ls config
+   66  cat README.md 
+   67  cat tietong_note 
+   68  cp tietong_note ../CNUKejian/tietong_note
+   69  cd ..
+   70  cd CNUKejian/
+   71  vim tietong_note 
+   72  pwd
+   73  vim tietong_note 
+   74  cat thin.kejiantv.sock
+   75  cat tie
+   76  cat tietong_note 
+   77  bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+   78  vim Gemfile
+   79  bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+   80  bundle
+   81  bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+   82  vim /opt/nginx/conf/nginx.conf
+   83  /etc/init.d/nginx restart
+   84  vim /opt/nginx/conf/nginx.conf
+   85  /etc/init.d/nginx restart
+   86  vim /opt/nginx/conf/nginx.conf
+   87  /etc/init.d/nginx restart
+   88  vim /opt/nginx/conf/nginx.conf
+   89  killall nginx
+   90  /opt/nginx/sbin/nginx 
+   91  vim /opt/nginx/conf/nginx.conf
+   92  /etc/init.d/nginx restart
+   93  killall nginx
+   94  /opt/nginx/sbin/nginx 
+   95  killall nginx
+   96  vim /opt/nginx/conf/nginx.conf
+   97  killall nginx
+   98  /opt/nginx/sbin/nginx 
+   99  killall nginx
+  100  vim /opt/nginx/conf/nginx.conf
+  101  killall nginx
+  102  /opt/nginx/sbin/nginx 
+  103  tail -f /opt/nginx/logs/nginx.pid 
+  104  tail -f /opt/nginx/logs/access.log 
+  105  vim /opt/nginx/conf/nginx.conf
+  106  killall nginx
+  107  /opt/nginx/sbin/nginx 
+  108  vim /opt/nginx/conf/nginx.conf
+  109  killall nginx
+  110  /opt/nginx/sbin/nginx 
+  111  vim /opt/nginx/conf/nginx.conf
+  112  killall nginx
+  113  /opt/nginx/sbin/nginx 
+  114  killall nginx
+  115  /opt/nginx/sbin/nginx 
+  116  vim /opt/nginx/conf/nginx.conf
+  117  killall nginx
+  118  /opt/nginx/sbin/nginx 
+  119  vim /opt/nginx/conf/nginx.conf
+  120  killall nginx
+  121  /opt/nginx/sbin/nginx 
+  122  cd ..
+  123  ls
+  124  cd t2ku/
+  125  ls
+  126  cp ../CNUKejian/tietong_note .
+  127  ls
+  128  vim tietong_note 
+  129  pwd
+  130  vim tietong_note 
+  131  cat /opt/nginx/conf/nginx.conf
+  132  free -m
+  133  top
+  134  vim tietong_note 
+  135  pwd
+  136  cat db
+  137  cd ..
+  138  ls
+  139  /home/wwwroot/
+  140  ls
+  141  cd /home/www
+  142  cd /home/wwwroot/
+  143  ls
+  144  cd
+  145  ls
+  146  cd ~pan/
+  147  ls
+  148  cd BLOG-OF-P.S.V.R/
+  149  ls
+  150  cat tools/backupdb.sh 
+  151  touch git_sensitive.sh
+  152  vim git_sensitive.sh
+  153  tools/backupdb.sh 
+  154  gitt "now"
+  155  cd /home/wwwroot/
+  156  cd kkdianping/k
+  157  cd kkdianping/
+  158  gitt "now"
+  159  cd ..
+  160  cd CNUKejian/
+  161  r s
+  162  tail -f log/production.log 
+  163  cat tietong_note 
+  164  vim tietong_note 
+  165  cat tietong_note 
+  166  bundle exec thin stop -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  167  vim config/boot.rb 
+  168  r s
+  169  cd public/images/
+  170  ls
+  171  rm logo*
+  172  pwd
+  173  cd ..
+  174  cd config
+  175  ls
+  176  vim environment.rb 
+  177  cd ..
+  178  vim app/models/asset.rb 
+  179  ls /media/hd2/data/
+  180  vim app/models/asset.rb 
+  181  grep -R DATA_DIR .
+  182  vim config/initializers/constants.rb 
+  183  curl http://202.204.208.75/loginAction.do?zjh=PLACEHOLDER1&mm=PLACEHOLDER2
+  184  curl "http://202.204.208.75/loginAction.do?zjh=PLACEHOLDER1&mm=PLACEHOLDER2"
+  185  vim config/initializers/constants.rb 
+  186  ls
+  187  pwd
+  188  cat tietong_note 
+  189  bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  190  ls
+  191  cd /home/wwwroot/kkdianping/
+  192  ls
+  193  git gc
+  194  gitt "gc"
+  195  cd ..
+  196  ls
+  197  tar czf kkdianping.tar.gz kkdianping/
+  198  du -ha
+  199  du -h
+  200  du -h1
+  201  man du
+  202  du -d1
+  203  du -d1h
+  204  du -hd1
+  205  cd /home/wwwroot/
+  206  du -hd1
+  207  ls
+  208  du -hd9
+  209  du -hd0
+  210  ls
+  211  ll
+  212  du -hd1
+  213  du -hd2
+  214  ll
+  215  crontab -e
+  216  ls /media/hd2/mdump/
+  217  ls
+  218    mkdir kkdianping_light
+  219    cd kkdianping_light
+  220    git init
+  221    touch README
+  222    git add README
+  223    git commit -m 'first commit'
+  224    git remote add origin git@github.com:pmq20/kkdianping_light.git
+  225    git push -u origin master
+  226  cd ..
+  227  ls
+  228  cd kkdianping
+  229  ls
+  230  cat tietong_note 
+  231  bundle exec thin stop -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  232  mv * ../kkdianping_light/
+  233  ls
+  234  ls -a
+  235  cp .gitignore ../kkdianping_light/
+  236  ls
+  237  cd ..
+  238  ls
+  239  cd kkdianping
+  240  cd ..
+  241  cd kkdianping_light/
+  242  ls
+  243  gitt "whats like"
+  244  rm -rf dump
+  245  ls
+  246  cd ..
+  247  rm -rf kkdianping_light/
+  248  cd kkdianping
+  249  ls
+  250  git stash
+  251  ls
+  252  cd ..
+  253  git clone git@github.com:pmq20/kkdianping_light.git
+  254  cd kkdianping
+  255  ls
+  256  mv * ../kkdianping_light/
+  257  mv .gitignore ../kkdianping_light/
+  258  ls -a
+  259  cd ..
+  260  cd kkdianping_light/
+  261  rm -rf dump
+  262  gitt "rightnow"
+  263  cd ..
+  264  mv kkdianping heavy
+  265  mv kkdianping_light/ kkdianping
+  266  mv kkdianping.tar.gz ~
+  267  ls
+  268  cd kkdianping/
+  269  ls
+  270  cd ..
+  271  ls
+  272  cd kkdianping/
+  273  ls
+  274  mongo
+  275  redis-cli
+  276  redis-cli;
+  277  mongo
+  278  ls
+  279  cat tietong_note 
+  280  cat README
+  281  cat README.md 
+  282  rm RE
+  283  rm README
+  284  gitt "nodefaultreadme"
+  285  sudo mongod --dbpath /kkdata --logpath /var/log/mongod.log --logappend --fork
+  286  mongod --dbpath /kkdata --logpath /var/log/mongod.log --logappend --fork
+  287  redis-server config/redis.conf
+  288  cat tietong_note 
+  289  bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  290  cd
+  291  ls
+  292  mail
+  293  ls
+  294  cd /media/hd2/
+  295  ls
+  296  cd mdump/
+  297  ls
+  298  dh -a
+  299  df -a
+  300  df -h
+  301  vim /usr/local/bin/psvr_dump 
+  302  mkdir -p /home/backups/mdump/
+  303  psvr_dump 
+  304  ls
+  305  pwd
+  306  cd
+  307  cd /home/
+  308  ls
+  309  cd backups/
+  310  ls
+  311  cd mdump/
+  312  ls
+  313  tar czf 20111208220615.tar.gz 20111208220615/
+  314  mv 20111208220615.tar.gz  /var/www/html/
+  315  cd /var/www/html/
+  316  ls
+  317  chmod 777 20111208220615.tar.gz 
+  318  mv 20111208220615.tar.gz  /home/wwwroot/kkdianping/public/
+  319  ls
+  320  cd /home/wwwroot/kkdianping/
+  321  cd public/
+  322  ls
+  323  rm 20111208220615.tar.gz 
+  324  cd /home/wwwroot/CNUKejian/
+  325  ls
+  326  tail -f log/production.log 
+  327  file  redis-server config/redis.conf
+  328  file /media/hd2/data/000/000/417
+  329  cd /media/hd2/data/
+  330  ll
+  331  cd 000/
+  332  ll
+  333  cd 001/
+  334  ll
+  335  cd ..
+  336  ll
+  337  cd
+  338  cd /home/kk
+  339  cd /home/wwwroot/CNUKejian/
+  340  ls
+  341  tail -f log/production.log 
+  342  cat tietong_note 
+  343  bundle exec thin stop -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  344  r s
+  345  cat tietong_note 
+  346  thin --help
+  347  cd /media/
+  348  ls
+  349  cd hd2/
+  350  ls
+  351  cd data/
+  352  ls
+  353  adduser kejian_manipulator
+  354  passwd kejian_manipulator
+  355  cd ..
+  356  chown -R kejian_manipulator data
+  357  ls
+  358  ls data
+  359  ll data
+  360  cd
+  361  cd /home/kk
+  362  cd /home/wwwroot/CNUKejian/
+  363  ls
+  364  vim tietong_note 
+  365  thin --help
+  366  vim tietong_note 
+  367  cat tietong_note 
+  368  bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid --user kejian_manipulator
+  369  bundle exec thin stop -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid --user kejian_manipulator
+  370  vim config/environments/production.rb 
+  371  vim config/environments/development.rb 
+  372  vim config/environments/production.rb 
+  373  grep aux
+  374  ps aux
+  375  bundle exec thin start -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid --user kejian_manipulator
+  376  ps aux
+  377  cd /home/wwwroot/kkdianping/
+  378  git pull origin
+  379  cat tietong_note 
+  380  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  381  cd 
+  382  cd /home/wwwroot/
+  383  ls
+  384  cd CNUKejian/
+  385  ls
+  386  vim app/views/layouts/application.html.erb 
+  387  cd /home/wwwroot/
+  388  ls
+  389  cd kkdianping/
+  390  ls
+  391  cd ..
+  392  cd CNUKejian/
+  393  cat tietong_note 
+  394  bundle exec thin stop -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  395  cd ..
+  396  cd kkdianping/
+  397  r c
+  398  xive
+  399  pwd
+  400  git pull origin
+  401  gitt "cache"
+  402  rm public/*.tar.gz
+  403  gitt "cache"
+  404  git pull origin
+  405  gitt "cache"
+  406  ./after_pull 
+  407  cat tietong_note 
+  408  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  409  rm -rf tmp/*
+  410  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  411  cd ~pan
+  412  s
+  413  ls
+  414  cd BLOG-OF-P.S.V.R/
+  415  ls
+  416  vim regenerate.c
+  417  cd BLOG-OF-P.S.V.R/
+  418  ls
+  419  vim regenerate.c
+  420  make clean
+  421  make
+  422  killall ofpsvr
+  423  make install
+  424  which ofpsvr
+  425  ofpsvr
+  426  curl blog.ofpsvr.org/blog.xml
+  427  pwd
+  428  gitt "linkatomlocation"
+  429  cd ~pan/BLOG-OF-P.S.V.R/
+  430  ls
+  431  killall ofpsvr
+  432  make clean
+  433  make
+  434  make install
+  435  ofpsvr
+  436  cd /home/wwwroot/
+  437  ls
+  438  cd kkdianping/
+  439  ls
+  440  vim app/views/asks/show.html.erb
+  441  gitt "iezhongzhicaozuofinal"
+  442  cd /home/wwwroot/kkdianping/
+  443  ls
+  444  git pull origin
+  445  ./after_pull 
+  446  xive
+  447  rm public/20111213110201.tar.gz 
+  448  ./after_pull 
+  449  cat tei
+  450  cat tietong_note 
+  451  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  452  cd /home/wwwroot/kkdianping/
+  453  ls
+  454  git pull origin
+  455  git stash
+  456  git pull origin
+  457  ./after_pull 
+  458  cat tietong_note 
+  459  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  460  ./after_pull 
+  461  vim app/views/home/index
+  462  vim app/views/home/index.html.erb
+  463  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  464  vim app/views/tags/show.html.erb 
+  465  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  466  vim app/views/tags/show.html.erb 
+  467  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  468  vim app/views/tags/show.html.erb 
+  469  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  470  vim app/views/tags/show.html.erb 
+  471  vim app/views/topics/show.html.erb 
+  472  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  473  gitt "fix2"
+  474  ls
+  475  vim /opt/nginx/conf/nginx.conf
+  476  ls
+  477  cd /home/wwwroot/
+  478  ls
+  479  cd kkdianping/
+  480  ls
+  481  vim app/views/registrations/new.html.erb 
+  482  tail -f log/production.log 
+  483  tail -n100 -f log/production.log 
+  484  vim app/helpers/application_helper.rb 
+  485  cat tietong_note 
+  486  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  487  vim app/views/registrations/new.html.erb 
+  488  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  489  gitt "fixonserver"
+  490  cd /home/wwwroot/kkdianping/
+  491  r s
+  492  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  493  cd /home/wwwroot/kkdianping/
+  494  ls
+  495  git pull origin
+  496  ./after_pull 
+  497  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  498  killall nginx
+  499  /opt/nginx/sbin/nginx 
+  500  vim /opt/nginx/conf/nginx.conf
+  501  killall nginx
+  502  /opt/nginx/sbin/nginx 
+  503  r c
+  504  git pull origin
+  505  pwd
+  506  ./after_pull 
+  507  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  508  vim lib/tasks/integrity_last_answer.rake
+  509  rake integrity:last_answer
+  510  vim lib/tasks/integrity_last_answer.rake
+  511  rake integrity:last_answer
+  512  vim lib/tasks/integrity_last_answer.rake
+  513  rake integrity:last_answer
+  514  vim lib/tasks/integrity_counters.rake 
+  515  rake integrity:counters
+  516  r c
+  517  vim lib/tasks/integrity_counters.rake 
+  518  rake integrity:counters
+  519  git pull origin
+  520  ./after_pull 
+  521  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  522  git pull origin
+  523  ./after_pull 
+  524  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  525  git pull origin
+  526  ./after_pull 
+  527  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  528  git pull origin
+  529  ./after_pull 
+  530  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  531  git pull origin
+  532  ./after_pull 
+  533  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  534  vim app/views/home/index.html.erb
+  535  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  536  git pull origin
+  537  ./after_pull 
+  538  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  539  r s
+  540  tail -f log/pro
+  541  tail -f log/production.log 
+  542  vim app/controllers/asks_controller.rb
+  543  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  544  tail -f log/production.log 
+  545  vim app/views/asks/show.html.erb
+  546  vim app/controllers/asks_controller.rb
+  547  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  548  cd /home/wwwroot/kkdianping/
+  549  ls
+  550  vim app/views/asks/new.erb 
+  551  cat app/views/home/index
+  552  cat app/views/home/index.html.erb
+  553  vim app/views/asks/new.erb 
+  554  vim app/views/asks/_form.erb m
+  555  vim app/views/asks/_form.erb 
+  556  vim app/views/topics/show.html.erb 
+  557  vim app/views/home/index.html.erb
+  558  vim app/views/topics/show.html.erb 
+  559  vim app/views/home/index.html.erb
+  560  vim app/views/topics/show.html.erb 
+  561  vim app/views/home/index.html.erb
+  562  vim app/views/topics/show.html.erb 
+  563  vim app/views/home/index.html.erb
+  564  vim app/controllers/cpanel/asks_controller.rb 
+  565  vim app/controllers/cpanel/answers_controller.rb 
+  566  vim app/controllers/cpanel/asks_controller.rb 
+  567  vim app/views/topics/show.html.erb 
+  568  vim app/controllers/asks_controller.rb
+  569  vim app/views/topics/show.html.erb 
+  570  vim app/views/asks/new.erb 
+  571  vim app/views/asks/_form.erb 
+  572  vim app/views/asks/new.erb 
+  573  vim app/views/asks/_form.erb 
+  574  vim app/controllers/asks_controller.rb
+  575  vim app/views/asks/_form.erb 
+  576  vim app/controllers/asks_controller.rb
+  577  vim app/views/asks/_form.erb 
+  578  vim app/views/asks/new.erb 
+  579  vim app/views/asks/_form.erb 
+  580  r s --port 30001
+  581  r s --port 3001
+  582  vim app/views/asks/_form.erb 
+  583  vim app/views/asks/new.erb 
+  584  vim app/views/asks/_form.erb 
+  585  vim app/views/asks/new.erb 
+  586  cat app/views/logs/log
+  587  cat app/views/logs/index.
+  588  cat app/views/logs/index.html.erb 
+  589  vim app/views/asks/new.erb 
+  590  vim app/views/asks/_form.erb 
+  591  vim app/views/asks/new.erb 
+  592  vim app/views/asks/_form.erb 
+  593  vim app/views/asks/new.erb 
+  594  vim app/views/asks/_form.erb 
+  595  vim app/views/asks/new.erb 
+  596  cd /home/wwwroot/kkdianping/
+  597  vim app/controllers/application_controller.rb 
+  598  cat tietong_note 
+  599  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  600  cd /home/wwwroot/kkdianping/
+  601  ls
+  602  vim app/views/asks/new.erb 
+  603  rm app/views/asks/.new.erb.swp 
+  604  vim app/views/asks/new.erb 
+  605  rm app/views/asks/.new.erb.swp 
+  606  vim app/views/asks/_form.erb 
+  607  vim app/views/asks/new.erb 
+  608  vim app/views/asks/_form.erb 
+  609  cd /home/wwwroot/kkdianping/
+  610  vim app/views/asks/index.html.erb 
+  611  vim app/views/asks/_sidebar.
+  612  vim app/views/asks/_sidebar.html.erb
+  613  vim app/views/asks/show.html.erb
+  614  vim app/views/bbs/topics/index.html.erb 
+  615  vim public/javascripts/asks.js
+  616  grep -R mark_notifies_as_read .
+  617  vim ./public/javascripts/application.js
+  618  vim public/javascripts/asks.js
+  619  vim app/views/asks/show.html.erb
+  620  vim public/javascripts/asks.js
+  621  vim app/views/
+  622  vim public/javascripts/asks.js
+  623  vim ./public/javascripts/application.js
+  624  vim app/views/bbs/topics/index.html.erb 
+  625  vim app/views/layouts/application.html.erb
+  626  vim app/views/home/index.html.erb
+  627  vim app/views/asks/_sidebar.
+  628  vim app/views/asks/_sidebar.html.erb
+  629  vim app/views/home/index.html.erb
+  630  vim app/views/layouts/application.html.erb
+  631  vim app/views/bbs/topics/index.html.erb 
+  632  vim public/stylesheets/ie6.css
+  633  r s
+  634  cd /home/wwwroot/kkdianping/
+  635  r s
+  636  cat tietong_note 
+  637  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  638  r s
+  639  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  640  r s
+  641  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  642  ./after_pull 
+  643  r s
+  644  ./after_pull 
+  645  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  646  vim app/views/home/index.html.erb
+  647  ./after_pull 
+  648  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  649  r s
+  650  cd /home/wwwroot/kkdianping/
+  651  ls
+  652  r s
+  653  ./after_pull 
+  654  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  655  r s
+  656  ./after_pull 
+  657  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  658  vim app/views/home/index.html.erb
+  659  gitt "final1st"
+  660  rm public/20111214110201.tar.gz 
+  661  gitt "final1st"
+  662  vim app/controllers/home_controller.rb 
+  663  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  664  git rm --cached public/20111214110201.tar.gz 
+  665  git rm --cached 20111214110201.tar.gz 
+  666  git filter-branch --index-filter 'git rm --cached --ignore-unmatch  20111214110201.tar.gz ' HEAD
+  667  gitt "final1st"
+  668  cd app/views/home/
+  669  ls
+  670  cp under_construction.html.erb contact.html.erb
+  671  vim contact.html.erb 
+  672  cd ..
+  673  vim app/views/shared/_footer.html.erb 
+  674  vim config/routes.rb 
+  675  vim app/controllers/home_controller.rb 
+  676  vim app/views/home/contact.html.erb 
+  677  git filter-branch --index-filter 'git rm --cached --ignore-unmatch  20111214110201.tar.gz ' HEAD
+  678  gitt "contact"
+  679  git filter-branch --index-filter 'git rm --cached --ignore-unmatch  20111214110201.tar.gz ' HEAD
+  680  git filter-branch --index-filter 'git rm --cached --ignore-unmatch  public/20111214110201.tar.gz ' HEAD
+  681   git push origin master --force
+  682  cat tietong_note 
+  683  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  684  ./after_pull 
+  685  vim app/controllers/home_controller.rb 
+  686  gitt "fix"
+  687  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  688  cd 
+  689  cd /home/wwwroot/kkdianping/
+  690  ls
+  691  cd app/
+  692  cd ..
+  693  vim app/views/registrations/
+  694  vim app/controllers/registrations_controller.rb 
+  695  cat tietong_note 
+  696  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  697  cd public/javascripts/
+  698  vim bbs.js
+  699  vim bbs_topics.js
+  700  vim bbs.js
+  701  ls
+  702  pwd
+  703  vim
+  704  vim bbs.js
+  705  ls
+  706  cd /home/kk
+  707  cd /home/wwwroot/kkdianping/
+  708  ls
+  709  cd public/
+  710  ls
+  711  cd javascripts/
+  712  ls
+  713  rm .bbs.js.swp 
+  714  wget https://raw.github.com/pmq20/kkdianping_light/e35b98ffe368e0c78879f9ee5f928a6a325bf329/public/javascripts/bbs.js?login=pmq20&token=05f88af76639ce05970dfeec20c59776
+  715  wget "https://raw.github.com/pmq20/kkdianping_light/e35b98ffe368e0c78879f9ee5f928a6a325bf329/public/javascripts/bbs.js?login=pmq20&token=05f88af76639ce05970dfeec20c59776"
+  716  mv bbs.js\?login\=pmq20\&token\=05f88af76639ce05970dfeec20c59776 bbs.js
+  717  vim bbs.js 
+  718  cd ../..
+  719  ls
+  720  vim app/views/bbs/topics/show.html.erb 
+  721  vim app/views/layouts/application.
+  722  vim app/views/layouts/application.html.erb
+  723  vim app/views/bbs/topics/show.html.erb 
+  724  vim app/views/asks/show.html.erb
+  725  vim app/views/layouts/application.html.erb
+  726  vim app/views/home/index.html.erb
+  727  vim app/views/asks/_sidebar.
+  728  vim app/views/asks/_sidebar.html.erb
+  729  vim app/views/asks/show.html.erb
+  730  vim app/models/ask.rb
+  731  vim app/views/asks/show.html.erb
+  732  cat tietong_note 
+  733  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  734  vim app/views/bbs/topics/index.html.erb
+  735  vim public/stylesheets/bbs.css 
+  736  vim app/views/bbs/topics/index.html.erb
+  737  gitt "blackboard"
+  738  cat tietong_note 
+  739  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  740  ./after_pull 
+  741  mysql
+  742  mysql -u root
+  743  mysql -u root -p
+  744  cd /home/wwwroot/kkdianping/
+  745  ls
+  746  gitt "last"
+  747  xive
+  748  ls
+  749  cd /home/wwwroot/
+  750  ls
+  751  cd kkdianping/
+  752  ls
+  753  git pull origin
+  754  ./after_pull 
+  755  vim app/views/home/index.html.erb
+  756  cat ./tietong_note 
+  757  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  758  xive
+  759  cd /home/wwwroot/CNUKejian/
+  760  vim app/views/layouts/application.html.erb 
+  761  vim app/views/layouts/courses.html.erb 
+  762  cat tietong_note 
+  763  vim app/views/welcome/menu.html.erb 
+  764  vim app/views/welcome/top.html.erb 
+  765  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  766  vim app/views/layouts/application.html.erb 
+  767  vim app/views/layouts/courses.html.erb 
+  768  cat tietong_note 
+  769  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  770  vim app/views/welcome/menu.html.erb 
+  771  vim config/initializers/constants.rb 
+  772  vim app/models/user.rb
+  773  curl jzd.cnu.edu.cn:8033
+  774  cat tietong_note 
+  775  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  776  r c
+  777  cat app/models/user.rb 
+  778  cat config/initializers/constants.rb 
+  779  curl "http://jzd.cnu.edu.cn:8033/loginAction.do?zjh=1090500165&mm=b0731bc9ed97a5b3a9f6fc3517e63381"
+  780  vim app/models/user.rb 
+  781  r c
+  782  cat tietong_note 
+  783  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kejiantv.sock --chdir /home/wwwroot/CNUKejian --pid tmp/pids/thin.pid
+  784  r c
+  785  cd /home/wwwroot/kkdianping/
+  786  ls
+  787  ./after_pull 
+  788  vim public/stylesheets/bbs.css
+  789  git pull origin
+  790  vim app/views/home/index.html.erb
+  791  gitt "avatar"
+  792  rm public/*.tar.gz
+  793  gitt "targz"
+  794  git pull origin
+  795  ./after_pull 
+  796  cat tite
+  797  cat tietong_note 
+  798  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  799  cd /home/wwwroot/kkdianping/
+  800  ls
+  801  r s
+  802  r c
+  803  Ask.each do |ask| p ask.body.split("地址：")[-1].split("\n")[0]
+  804  r c
+  805  vim app/models/ask.rb
+  806  vim G恶魔
+  807  vim Gemfile
+  808  bundle
+  809  vim app/views/asks/show.html.erb
+  810  vim app/views/layouts/application.
+  811  vim app/views/layouts/application.html.erb
+  812  vim app/views/asks/show.html.erb
+  813  cd /home/wwwroot/kkdianping/
+  814  ls
+  815  vim lib/tasks/generate_address.rake
+  816  vim app/models/ask.rb
+  817  rake generate:address
+  818  cat lib/tasks/generate_a
+  819  cat lib/tasks/generate_asks.rake 
+  820  vim lib/tasks/generate_address.rake 
+  821  rake generate:address
+  822  vim lib/tasks/generate_address.rake 
+  823  rake generate:address
+  824  vim app/models/ask.rb
+  825  rake generate:address
+  826  vim lib/tasks/generate_address.rake 
+  827  rake generate:address
+  828  vim app/models/ask.rb
+  829  vim lib/tasks/generate_address.rake 
+  830  r c
+  831  vim lib/tasks/generate_address.rake 
+  832  rake generate:address
+  833  gitt "map"
+  834  cd /home/wwwroot/
+  835  cd kkdianping/
+  836  ls
+  837  r s
+  838  cat ./tietong_note 
+  839  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  840  cd /home/wwwroot/kkdianping/
+  841  ls
+  842  xive
+  843  cd /home/wwwroot/CNUKejian/
+  844  gitt "fixes on line"
+  845  cd ..
+  846  cd kkdianping/
+  847  rm public/*.tar.gz
+  848  gitt "online"
+  849  cd /home/wwwroot/kkdianping/
+  850  ls
+  851  git log
+  852  git filter-branch --index-filter 'git rm --cached --ignore-unmatch *.tar.gz' HEAD
+  853  git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch *.tar.gz' HEAD
+  854  git push origin master --force
+  855  cd /home/wwwroot/kkdianping/
+  856  ls
+  857  gitt "anything?"
+  858  git pull origin
+  859  gitt "anything?"
+  860  cd public/bbs/t
+  861  ls
+  862  cat feed.xml 
+  863  ls
+  864  cd ../..
+  865  ls
+  866  cd ..
+  867  ls
+  868  cd 
+  869  ls
+  870  cd Downloads
+  871  wget http://ftp.mozilla.org/pub/mozilla.org/webtools/bugzilla-4.0.2.tar.gz
+  872  tar xzf bugzilla-4.0.2.tar.gz 
+  873  ls
+  874  cd bugzilla-4.0.2
+  875  ls
+  876  cat README 
+  877  mysql
+  878  mysql -u root -p
+  879  perl -v
+  880  mysql -V
+  881  ./checksetup.pl --check-modules
+  882    /usr/bin/perl install-module.pl --all
+  883      install CPAN
+  884  cpan
+  885    /usr/bin/perl install-module.pl --all
+  886  mail
+  887  ./checksetup.pl
+  888      /usr/bin/perl install-module.pl DateTime
+  889      /usr/bin/perl install-module.pl DateTime::TimeZone
+  890  ./checksetup.pl
+  891  vim ./localconfig
+  892  mysql -u root -p
+  893  vim ./localconfig
+  894  ./checksetup.pl
+  895  locate my.cnf
+  896  vim /etc/my.cnf
+  897  locate httpd.conf
+  898  vim /etc/httpd/conf/httpd.conf 
+  899  pwd
+  900  ls
+  901  cd ..
+  902  mv bugzilla-4.0.2 /var/www/html/bugzilla
+  903  ls /var/www/html/
+  904  ls /var/www/html/bugzilla/
+  905  vim /etc/httpd/conf/httpd.conf 
+  906  cd /etc/httpd
+  907  ls
+  908  grep -R mod_perl .
+  909  vim ./conf.d/README
+  910  /etc/init.d/httpd restart
+  911  vim ./conf.d/README
+  912  ls
+  913  cd /home/wwwroot/kkdianping/
+  914  git pull origin
+  915  vim app/views/home/index.html.erb
+  916  gitt "done"
+  917  ./after_pull 
+  918  cat tietong_note 
+  919  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  920  rake cache:update
+  921  cat lib/tasks/tmp_xiaohao.rake 
+  922  rake tmp:xiaohao
+  923  vim app/views/home/index.html.erb
+  924  cat tietong_note 
+  925  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  926  grep -R #topavatarie6, #the_header_avatar .
+  927  grep -R "#topavatarie6, #the_header_avatar" .
+  928  grep -R "#topavatarie6, #the_header_avatar" public
+  929  grep -R "#topavatarie6" public
+  930  vim public/stylesheets/others.css
+  931  ./after_pull 
+  932  ls
+  933  cd /home/wwwroot/kkdianping/
+  934  vim app/controllers/home_controller.rb 
+  935  git stash
+  936  man git-stash
+  937  git stash list
+  938  git stash show
+  939  git stash show app/views/layouts/application.html.erb
+  940  man git-stash
+  941  git stash pop
+  942  vim app/views/layouts/application.
+  943  vim app/views/layouts/application.html.erb
+  944  vim app/views/home/index.html.erb
+  945  vim app/controllers/home_controller.rb 
+  946  gitt "head"
+  947  cd /home/wwwroot/CNUKejian/
+  948  r s
+  949  r c
+  950  ls
+  951  cd ~psvr
+  952  ls
+  953  cd ~pan
+  954  ls
+  955  amuled 
+  956  rm -rf .aMule/
+  957   /sbin/iptables -t filter -A INPUT -m state --state NEW -m tcp -p tcp --dport 4662 -j ACCEPT
+  958   /sbin/iptables -t filter -A INPUT -m state --state NEW -m udp -p udp --dport 4665 -j ACCEPT
+  959   /sbin/iptables -t filter -A INPUT -m state --state NEW -m udp -p udp --dport 4672 -j ACCEPT
+  960  cd
+  961  ls
+  962  cat onlyssh 
+  963  cat ~pan/.aMule/amule.conf 
+  964  cat onlyssh 
+  965  4711
+  966  iptables -A INPUT -p tcp -s 0/0 --sport 1024:65535 -d $SERVER_IP --dport 4711 -m state --state NEW,ESTABLISHED -j ACCEPT
+  967  SERVER_IP="221.174.24.96"
+  968  iptables -A INPUT -p tcp -s 0/0 --sport 1024:65535 -d $SERVER_IP --dport 4711 -m state --state NEW,ESTABLISHED -j ACCEPT
+  969  iptables -A OUTPUT -p tcp -s $SERVER_IP --sport 4711 -d 0/0 --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT
+  970  amuleweb
+  971  /etc/init.d/iptables restart
+  972  yum search virtualbox
+  973  yum install VirtualBox-OSE
+  974  cat /etc/issue
+  975  cd
+  976  cd Downloads
+  977  ls
+  978  wget http://download.virtualbox.org/virtualbox/4.1.8/VirtualBox-4.1-4.1.8_75467_fedora15-1.x86_64.rpm
+  979  ls
+  980  rm VirtualBox-4.1-4.1.8_75467_fedora15-1.x86_64.rpm 
+  981  cd
+  982  vim onlyssh 
+  983   /sbin/iptables -t filter -A INPUT -m state --state NEW -m tcp -p tcp --dport 4662 -j ACCEPT
+  984   /sbin/iptables -t filter -A INPUT -m state --state NEW -m udp -p udp --dport 4665 -j ACCEPT
+  985   /sbin/iptables -t filter -A INPUT -m state --state NEW -m udp -p udp --dport 4672 -j ACCEPT
+  986  /etc/init.d/iptables status
+  987  iptables-save
+  988  vim /etc/sysconfig/iptables
+  989  /etc/init.d/iptables restart
+  990  vim /etc/sysconfig/iptables
+  991  cd /home/wwwroot/kkdianping/
+  992  ls
+  993  vim app/views/home/index.
+  994  vim app/views/home/index.html.erb
+  995  cat README.md 
+  996  cat tietong_note 
+  997  bundle exec thin restart -e production -d --log ./log/thin.log --servers 4 --socket /tmp/thin.kkdp.sock --chdir /home/wwwroot/kkdianping --pid tmp/pids/thin.pid
+  998  pwd
+  999  cd
+ 1000  df -h
+ 1001  mail
+ 1002  crontab -e
+ 1003  vim /usr/local/bin/psvr_dump
+ 1004  vim /usr/local/bin/psvr_dump2
+ 1005  vim /usr/local/bin/psvr_dump
+ 1006  cd
+ 1007  ls
+ 1008  cd /home/backups/
+ 1009  ls
+ 1010  cd mdump/
+ 1011  ls
+ 1012  for i in $(ls); do echo $i; end; done
+ 1013  for i in $(ls); do if [ "$i" -gt "20120103080201" ]; then echo $i;fi; done
+ 1014  for i in $(ls); do if [ "$i" -wq "20120103080201" ]; then echo $i;fi; done
+ 1015  for i in $(ls); do if [ "$i" -eq "20120103080201" ]; then echo $i;fi; done
+ 1016  lines=`wc -l $f | cut -f1 -d' '`
+ 1017  man wc
+ 1018  for i in $(ls); do if [ "$i" -eq "20120103080201" ]; then echo $i;fi; done
+ 1019  for i in $(ls); do if [ "$i" -gt 20120103080201 ]; then echo $i;fi; done
+ 1020  for i in $(ls); do if [ $i -gt 20120103080201 ]; then echo $i;fi; done
+ 1021  for i in $(ls); do if [ $i$ -gt 20120103080201 ]; then echo $i;fi; done
+ 1022  for i in $(ls); do if [ $i -gt 20120103080201 ]; then echo $i;fi; done
+ 1023  for i in $(ls); do if [ $i -gt 20120101080201 ]; then echo $i;fi; done
+ 1024  bashrc
+ 1025  crontab -e
+ 1026  for i in $(ls); do if [ $i -gt 20120101080201 ]; then echo $i;fi; done
+ 1027  for i in $(ls); do if [ $i -lt 20120101080201 ]; then rm -rf $i;fi; done
+ 1028  df -h
+ 1029  ls
+ 1030  date +%s
+ 1031  irb
+ 1032  cat /usr/local/bin/ofpsvr 
+ 1033  cat /usr/local/bin/psvr_dump
+ 1034  ruby -h
+ 1035  ruby -e "(Time.now - 3600*24*3).strftime('%Y%m%d%H%M%S')"
+ 1036  ruby -e "puts (Time.now - 3600*24*3).strftime('%Y%m%d%H%M%S')"
+ 1037  vim /usr/local/bin/psvr_dump2
+ 1038  ls
+ 1039  vim /usr/local/bin/psvr_dump2
+ 1040  for i in $(ls /media/hd2/mdump/); do if [ $i -lt 20120101080201 ]; then echo /media/hd2/mdump/$i;fi; done
+ 1041  ls
+ 1042  cd /media/
+ 1043  ls
+ 1044  cd hd2/
+ 1045  ls
+ 1046  cd mdump/
+ 1047  ls
+ 1048  psvr_dump2
+ 1049  ls
+ 1050  cd ..
+ 1051  crontab -e
+ 1052  ls
+ 1053  cd
+ 1054  cd /home/wwwroot/kkdianping/
+ 1055  ls
+ 1056  vim backup_
+ 1057  vim backup_kkdianping 
+ 1058  ls
+ 1059  ls /usr/local/bin/
+ 1060  history
+ 1061  history > history

@@ -28,7 +28,7 @@ sudo mongod --dbpath /kkdata
 sudo /home/psvr/bin/mongod  --dbpath /kkdata --logpath /var/log/mongod.log --logappend --fork
 sudo redis-server config/redis.conf
 mongorestore --drop
-bundle exec thin start -e production -d --log ./log/thin.log --servers 1 --socket /tmp/thin.myapp.sock --chdir /home/psvr/kkdianping --pid tmp/pids/thin.pid
+bundle exec thin start -e production -d --log ./log/thin.log --servers 1 --socket /tmp/thin.kkdp.0.sock --pid tmp/pids/thin.pid
 ```
 
 ## 部署指南

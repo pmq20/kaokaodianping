@@ -45,7 +45,9 @@ module Kkdp
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 		# TODO: 禁用 Mongoid Logger，因为他的日志输出会造成 mongoid-sphinx 的 XML 生成里面多出查询日志, 这里需要改用别的输出代替
-    config.mongoid.logger = Logger.new($stdout, :warn)
+    #config.mongoid.logger = Logger.new($stdout, :warn)
+    config.mongoid.logger = Logger.new('/dev/null')
+
   end
 end
 

@@ -225,36 +225,6 @@ window.dhelp = function(val){
 
 
 
-<div class="yuan423" id="yuan423_3" style="margin-top:12px;margin-right:11px;float:left;">
-  <%= image_tag 'remenjigou.png',style:'margin-left:10px;margin-top:9px' %>
-
-  <div class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
-    <% @topics.each do |tc|  %>
-    <% topic = Topic.where(name:tc.name).first %>
-      <a href="<%= "/topics/#{topic.name}" %>" class="topic_cache">
-        <%= image_tag(topic.cover.small.url,class:'index_topic_pic') %>
-        <%= topic.name %>
-      </a>
-    <% end %>
-  </div>
-  
-  <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
-</div>
-
-<div class="yuan423" id="yuan423_4" style="margin-top:12px;float:left">
-  <%= image_tag 'huanyingxinyonghu.png',style:'margin-left:10px;margin-top:9px' %>
-  <div class="index_topics"<%if @is_ie6 %> style="padding-bottom:0"<%end %>>
-    <% @users.each do |user|  %>
-      <a href="<%= "/users/#{user.slug}" %>" class="topic_cache">
-        <%= image_tag(user.avatar.small.url,class:'index_avatar') %>
-        <%= user.name %>
-      </a>
-    <% end %>
-  </div>
-  <% if @is_ie %><%=image_tag 'ie_bottom423.png',style:'margin-bottom:-4px'%><%end%>
-</div>
-
-
 
 <% end %>
 
