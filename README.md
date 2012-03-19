@@ -1,5 +1,7 @@
 # 考考点评
 
+inspired by huacnlee/quora
+
 http://www.kkdp.net
 
 挑选最适合你的培训机构
