@@ -3,13 +3,13 @@ class HomeController < ApplicationController
   before_filter :require_user_text, :only => [:update_in_place,:mute_suggest_item]
   before_filter :require_user, :except => [:about,:index,:under_construction,:tuan,:exp,:cards,:contact]
   def tuan
-    redirect_to root_path,:notice=>'考考点评的课程团购栏目将在3月1日开启，请持续关注：）'
+    redirect_to root_path,:notice=>'尚未开启，请持续关注：）'
   end
   def exp
-    redirect_to root_path,:notice=>'考考点评的试听信息发布将在3月1日开启，请持续关注：）'
+    redirect_to root_path,:notice=>'尚未开启，请持续关注：）'
   end
   def cards
-    redirect_to root_path,:notice=>'考考点评的会员卡发放将在3月1日开启，请持续关注：）'
+    redirect_to root_path,:notice=>'尚未开启，请持续关注：）'
   end
 def contact
 end
