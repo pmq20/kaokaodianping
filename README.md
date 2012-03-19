@@ -1,6 +1,6 @@
 # 考考点评
 
-inspired by huacnlee/quora
+inspired by huacnlee/quora, with decent IE support.
 
 http://www.kkdp.net
 
