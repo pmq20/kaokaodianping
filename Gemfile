@@ -5,7 +5,7 @@ gem 'geocoder'
 #gem 'ruby-debug19',:require=>'ruby-debug'
 # MongoDB
 gem "mongoid", "2.0.0"
-gem "bson", "1.2.4"
+gem "bson", "3.0.4"
 gem "bson_ext", "1.2.4"
 gem 'mongo-rails-instrumentation', "0.2.0"
 gem "mongoid-eager-loading","0.3.1"
@@ -16,7 +16,7 @@ gem "cells","3.6.5"
 gem "redis", "2.1.1"
 
 # Vote 插件 for Mongoid
-gem 'voteable_mongoid', "0.6.0"
+gem 'voteable_mongoid', '0.6.0'
 
 # 分词
 gem 'rmmseg-cpp-huacnlee', '0.2.9'
