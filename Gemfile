@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem 'rails', '3.0.5'
+gem 'rails', '5.0.0'
 gem 'geocoder'
 #gem 'ruby-debug'
 #gem 'ruby-debug19',:require=>'ruby-debug'
@@ -7,10 +7,10 @@ gem 'geocoder'
 gem "mongoid", "2.0.0"
 gem "bson", "1.2.4"
 gem "bson_ext", "1.2.4"
-gem 'mongo-rails-instrumentation', "0.2.0"
+gem 'mongo-rails-instrumentation', '0.2.1'
 gem "mongoid-eager-loading","0.3.1"
-gem "mongoid_rails_migrations", "0.0.10"
-gem "cells","3.6.5"
+gem "mongoid_rails_migrations", "0.0.11"
+gem "cells", "3.8.7"
 # gem "dalli","1.1.2"
 
 gem "redis", "2.1.1"
@@ -22,9 +22,9 @@ gem 'voteable_mongoid', "0.6.0"
 gem 'rmmseg-cpp-huacnlee', '0.2.9'
 
 # 用户系统
-gem 'devise', '1.2.rc2'
+gem 'devise', '1.2.0'
 # 邀请系统
-gem 'devise_invitable', '0.4.rc5'
+gem 'devise_invitable', '1.0.3'
 
 # 图片上传
 gem 'carrierwave', "0.5.3"
@@ -35,8 +35,8 @@ gem 'will_paginate', '3.0.pre'
 # gem 'memcache-client', '1.8.5'
 
 # OAuth
-gem 'omniauth', '0.2.0'
-gem "oa-openid", '0.2.0'
+gem 'omniauth', '0.3.0'
+gem "oa-openid", "0.2.4"
 gem "omniauth_china", "0.0.6"
 
 # 后台列表
@@ -66,7 +66,7 @@ gem 'whenever', '0.6.2'
 gem "aws-ses", "0.4.2", :require => 'aws/ses'
 
 # Background Jobs
-gem "resque", '1.15.0', :require => "resque/server"
+gem "resque", "1.15.0", :require => "resque/server"
 gem "resque_mailer", '1.0.1'
 
 # Comet
@@ -88,7 +88,7 @@ gem "redis-objects", "0.5.2"
 #end
 gem 'magic_encoding'
 gem 'pry'
-gem 'thin'
+gem 'thin', '>= 1.3.1'
 
 gem "bluecloth","2.1.0"
 gem "nokogiri"
